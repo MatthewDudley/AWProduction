@@ -29,8 +29,19 @@ namespace AWProduction_Application
         private void CreateWorkOrderbtn_Click(object sender, EventArgs e)
         {
             //Create Work Order btn event
+            WOSResultPanel.Visible = false;
             WOIDLabel.Enabled = false;
             WOIDtbox.Enabled = false;
+
+            WOIDtbox.Text = "";
+            WODatetbox.Text = "";
+            WOEmpIDtbox.Text = "";
+            WODeptHeadtbox.Text = "";
+            WOProductNumtbox.Text = "";
+            WOPSDatetbox.Text = "";
+            WOPEDatetbox.Text = "";
+            WOMaterialtbox.Text = "";
+
             //modify grouping text and hide search btn
             WOCriteriaGroup.Text = "Work Order Criteria";
             WOSbtnPanel.Visible = false;
@@ -45,9 +56,8 @@ namespace AWProduction_Application
             //Create btn event
 
             //push information to the database
-            string command = "INSERT INTO WORK_ORDER VALUES " +
-                             "(@WorkOrderDate, @EmployeeID, @DepartmentHead, @MaterialList, @StartDate, @CompletionDate )";
-            int createdRows = 0;
+            string command = "INSERT INTO WORK_ORDER ([WorkOrderDate], [EmployeeID], [DepartmentHead], [ProductNumber], [MaterialList], [StartDate], [CompletionDate]) VALUES " +
+                             "( "+ "'" + Convert.ToDateTime(WODatetbox.Text) + "'" + ", " + "'" + WOEmpIDtbox.Text + "'" + ", " + "'" + WODeptHeadtbox.Text + "'" + ", " + "'" + WOProductNumtbox.Text + "'" + ", " + "'" + WOMaterialtbox.Text + "'" + ", " + "'" + Convert.ToDateTime(WOPSDatetbox.Text) + "'" + ", " + "'" + Convert.ToDateTime(WOPEDatetbox.Text) + "'" + " )";
             //Connets to the database using the connection string from the connection page
             using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
             {
@@ -57,30 +67,38 @@ namespace AWProduction_Application
                     connection.Open();
                     //Creates SQL command using the command string generated earlier
                     SqlCommand insertCommand = new SqlCommand(command, connection);
-                    insertCommand.Parameters.Add("@WorkOrderDate", WODatetbox.Text);
-                    insertCommand.Parameters.Add("@EmployeeID", WOEmpIDtbox.Text);
-                    insertCommand.Parameters.Add("@DepartmentHead", WODeptHeadtbox.Text);
-                    insertCommand.Parameters.Add("@MaterialList", WOMaterialtbox.Text);
-                    insertCommand.Parameters.Add("@StartDate", Convert.ToDateTime(WOPSDatetbox.Text));
-                    insertCommand.Parameters.Add("@StartDate", Convert.ToDateTime(WOPEDatetbox.Text));
                     //Executes command and recieves output
-                    createdRows = insertCommand.ExecuteNonQuery();
+                    int createdRows = insertCommand.ExecuteNonQuery();
+
+                    // Check Error
+                    if (createdRows < 0)
+                        Console.WriteLine("Error inserting data into Database!");
                 }
                 catch (Exception error)
                 {
                     MessageBox.Show(error.ToString());
                 }
             }
-
-            //display pop up indicating you created a new workorder
-            MessageBox.Show(createdRows + " Work Order has been created");
             WOCreatePanel.Visible = false;
+
         }
 
         /** Work Order Options Search btn **/
         private void SearchWorkOrderbtn_Click(object sender, EventArgs e)
         {
             //Search work order btn event
+            WOIDLabel.Enabled = true;
+            WOIDtbox.Enabled = true;
+
+            //clear previous text
+            WOIDtbox.Text = "";
+            WODatetbox.Text = "";
+            WOEmpIDtbox.Text = "";
+            WODeptHeadtbox.Text = "";
+            WOProductNumtbox.Text = "";
+            WOPSDatetbox.Text = "";
+            WOPEDatetbox.Text = "";
+            WOMaterialtbox.Text = "";
 
             WOCreatePanel.Visible = true;
 
@@ -115,8 +133,7 @@ namespace AWProduction_Application
                 {
                     checks = checks + " AND ";
                 }
-                DateTime orderDate = Convert.ToDateTime(WODatetbox.Text);
-                checks = checks + "WorkOrderDate = " + "'" + WODatetbox.Text + "'" + " ";
+                checks = checks + "WorkOrderDate = " + "'" + Convert.ToDateTime(WODatetbox.Text) + "'" + " ";
                 addWhere = true;
             }
             if (!string.IsNullOrWhiteSpace(WOEmpIDtbox.Text))
@@ -152,7 +169,7 @@ namespace AWProduction_Application
                 {
                     checks = checks + " AND ";
                 }
-                checks = checks + "MaterialList LIKE  " + "%'" + WOMaterialtbox.Text + "'%" + " ";
+                checks = checks + "MaterialList LIKE  " + "'%" + WOMaterialtbox.Text + "%'" + " ";
                 addWhere = true;
             }
             if (!string.IsNullOrWhiteSpace(WOPSDatetbox.Text))
@@ -161,7 +178,7 @@ namespace AWProduction_Application
                 {
                     checks = checks + " AND ";
                 }
-                checks = checks + "StartDate = " + "'" + WOPSDatetbox.Text + "'" + " ";
+                checks = checks + "StartDate = " + "'" + Convert.ToDateTime(WOPSDatetbox.Text) + "'" + " ";
                 addWhere = true;
             }
             if (!string.IsNullOrWhiteSpace(WOPEDatetbox.Text))
@@ -170,7 +187,7 @@ namespace AWProduction_Application
                 {
                     checks = checks + " AND ";
                 }
-                checks = checks + "CompletionDate = " + "'" + WOPEDatetbox.Text + "'" + " ";
+                checks = checks + "CompletionDate = " + "'" + Convert.ToDateTime(WOPEDatetbox.Text) + "'" + " ";
                 addWhere = true;
             }
             //Combine the statements together
@@ -213,7 +230,16 @@ namespace AWProduction_Application
             //WOC clear btn event
 
             //clear all tbox inputs
-            MessageBox.Show("Clearing texboxes...");
+            //MessageBox.Show("Clearing texboxes...");
+
+            WOIDtbox.Text = "";
+            WODatetbox.Text = "";
+            WOEmpIDtbox.Text = "";
+            WODeptHeadtbox.Text = "";
+            WOProductNumtbox.Text = "";
+            WOPSDatetbox.Text = "";
+            WOPEDatetbox.Text = "";
+            WOMaterialtbox.Text = "";
         }
 
 
@@ -304,6 +330,60 @@ namespace AWProduction_Application
         {
             //delete the record
             MessageBox.Show("Delete record...");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /** Admin TAB **/
+
+        /** Execute btn **/
+        private void Execute_Click(object sender, EventArgs e)
+        {
+            String command = Admintbox.Text;
+
+            //Connets to the database using the connection string from the connection page
+            using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
+            {
+                try
+                {
+                    //Open the database
+                    connection.Open();
+                    //Creates SQL command using the command string generated earlier
+                    SqlCommand query = new SqlCommand(command, connection);
+                    //Executes command and recieves output
+                    SqlDataAdapter adapter = new SqlDataAdapter(query);
+
+                    //Displays output on grid view
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    AdminDGV.DataSource = dataTable;
+                    AdminDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("This query could not be made, check syntax");
+                    MessageBox.Show(error.ToString());
+                }
+            }
         }
     }
 }

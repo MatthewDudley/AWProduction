@@ -30,14 +30,19 @@
         {
             this.MainFormTabControl = new System.Windows.Forms.TabControl();
             this.WorkOrderTab = new System.Windows.Forms.TabPage();
+            this.WOSResultPanel = new System.Windows.Forms.Panel();
+            this.WOSResultGridView = new System.Windows.Forms.DataGridView();
             this.WOCreatePanel = new System.Windows.Forms.Panel();
+            this.WOCriteriaGroup = new System.Windows.Forms.GroupBox();
+            this.WOProductNumtbox = new System.Windows.Forms.TextBox();
+            this.WOIDtbox = new System.Windows.Forms.TextBox();
+            this.WOIDLabel = new System.Windows.Forms.Label();
+            this.WOPEDLabel = new System.Windows.Forms.Label();
             this.WOSbtnPanel = new System.Windows.Forms.Panel();
             this.WOSSearchbtn = new System.Windows.Forms.Button();
+            this.WOPEDatetbox = new System.Windows.Forms.TextBox();
             this.WOCCreatebtn = new System.Windows.Forms.Button();
             this.WOCClearbtn = new System.Windows.Forms.Button();
-            this.WOCriteriaGroup = new System.Windows.Forms.GroupBox();
-            this.WOPEDLabel = new System.Windows.Forms.Label();
-            this.WOPEDatetbox = new System.Windows.Forms.TextBox();
             this.WOPSDLabel = new System.Windows.Forms.Label();
             this.WOPSDatetbox = new System.Windows.Forms.TextBox();
             this.WOMaterialLabel = new System.Windows.Forms.Label();
@@ -100,16 +105,18 @@
             this.ProdPNumbertbox = new System.Windows.Forms.TextBox();
             this.ProdPNumberLabel = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.WOSResultPanel = new System.Windows.Forms.Panel();
-            this.WOSResultGridView = new System.Windows.Forms.DataGridView();
-            this.WOIDtbox = new System.Windows.Forms.TextBox();
-            this.WOIDLabel = new System.Windows.Forms.Label();
-            this.WOProductNumtbox = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Admintbox = new System.Windows.Forms.RichTextBox();
+            this.AdminDGV = new System.Windows.Forms.DataGridView();
+            this.Execute = new System.Windows.Forms.Button();
             this.MainFormTabControl.SuspendLayout();
             this.WorkOrderTab.SuspendLayout();
+            this.WOSResultPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WOSResultGridView)).BeginInit();
             this.WOCreatePanel.SuspendLayout();
-            this.WOSbtnPanel.SuspendLayout();
             this.WOCriteriaGroup.SuspendLayout();
+            this.WOSbtnPanel.SuspendLayout();
             this.WOOptionsGroup.SuspendLayout();
             this.InventoryTab.SuspendLayout();
             this.InvSearchPanel.SuspendLayout();
@@ -119,8 +126,10 @@
             this.ProdSearchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProdSearchGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.WOSResultPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.WOSResultGridView)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AdminDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // MainFormTabControl
@@ -148,6 +157,23 @@
             this.WorkOrderTab.Text = "Work Order";
             this.WorkOrderTab.UseVisualStyleBackColor = true;
             // 
+            // WOSResultPanel
+            // 
+            this.WOSResultPanel.Controls.Add(this.WOSResultGridView);
+            this.WOSResultPanel.Location = new System.Drawing.Point(20, 275);
+            this.WOSResultPanel.Name = "WOSResultPanel";
+            this.WOSResultPanel.Size = new System.Drawing.Size(712, 180);
+            this.WOSResultPanel.TabIndex = 3;
+            this.WOSResultPanel.Visible = false;
+            // 
+            // WOSResultGridView
+            // 
+            this.WOSResultGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.WOSResultGridView.Location = new System.Drawing.Point(4, 4);
+            this.WOSResultGridView.Name = "WOSResultGridView";
+            this.WOSResultGridView.Size = new System.Drawing.Size(705, 173);
+            this.WOSResultGridView.TabIndex = 0;
+            // 
             // WOCreatePanel
             // 
             this.WOCreatePanel.Controls.Add(this.WOCriteriaGroup);
@@ -156,45 +182,6 @@
             this.WOCreatePanel.Size = new System.Drawing.Size(553, 263);
             this.WOCreatePanel.TabIndex = 2;
             this.WOCreatePanel.Visible = false;
-            // 
-            // WOSbtnPanel
-            // 
-            this.WOSbtnPanel.Controls.Add(this.WOSSearchbtn);
-            this.WOSbtnPanel.Location = new System.Drawing.Point(394, 207);
-            this.WOSbtnPanel.Name = "WOSbtnPanel";
-            this.WOSbtnPanel.Size = new System.Drawing.Size(122, 28);
-            this.WOSbtnPanel.TabIndex = 13;
-            this.WOSbtnPanel.Visible = false;
-            // 
-            // WOSSearchbtn
-            // 
-            this.WOSSearchbtn.Location = new System.Drawing.Point(0, 5);
-            this.WOSSearchbtn.Name = "WOSSearchbtn";
-            this.WOSSearchbtn.Size = new System.Drawing.Size(122, 23);
-            this.WOSSearchbtn.TabIndex = 0;
-            this.WOSSearchbtn.Text = "Search";
-            this.WOSSearchbtn.UseVisualStyleBackColor = true;
-            this.WOSSearchbtn.Click += new System.EventHandler(this.WOSSearchbtn_Click);
-            // 
-            // WOCCreatebtn
-            // 
-            this.WOCCreatebtn.Location = new System.Drawing.Point(394, 212);
-            this.WOCCreatebtn.Name = "WOCCreatebtn";
-            this.WOCCreatebtn.Size = new System.Drawing.Size(121, 23);
-            this.WOCCreatebtn.TabIndex = 12;
-            this.WOCCreatebtn.Text = "Create Work Order";
-            this.WOCCreatebtn.UseVisualStyleBackColor = true;
-            this.WOCCreatebtn.Click += new System.EventHandler(this.WOCreatebtn_Click);
-            // 
-            // WOCClearbtn
-            // 
-            this.WOCClearbtn.Location = new System.Drawing.Point(313, 212);
-            this.WOCClearbtn.Name = "WOCClearbtn";
-            this.WOCClearbtn.Size = new System.Drawing.Size(75, 23);
-            this.WOCClearbtn.TabIndex = 11;
-            this.WOCClearbtn.Text = "Clear";
-            this.WOCClearbtn.UseVisualStyleBackColor = true;
-            this.WOCClearbtn.Click += new System.EventHandler(this.WOCClearbtn_Click);
             // 
             // WOCriteriaGroup
             // 
@@ -224,6 +211,29 @@
             this.WOCriteriaGroup.TabStop = false;
             this.WOCriteriaGroup.Text = "Work Order Criteria";
             // 
+            // WOProductNumtbox
+            // 
+            this.WOProductNumtbox.Location = new System.Drawing.Point(133, 181);
+            this.WOProductNumtbox.Name = "WOProductNumtbox";
+            this.WOProductNumtbox.Size = new System.Drawing.Size(109, 20);
+            this.WOProductNumtbox.TabIndex = 18;
+            // 
+            // WOIDtbox
+            // 
+            this.WOIDtbox.Location = new System.Drawing.Point(133, 28);
+            this.WOIDtbox.Name = "WOIDtbox";
+            this.WOIDtbox.Size = new System.Drawing.Size(109, 20);
+            this.WOIDtbox.TabIndex = 17;
+            // 
+            // WOIDLabel
+            // 
+            this.WOIDLabel.AutoSize = true;
+            this.WOIDLabel.Location = new System.Drawing.Point(45, 31);
+            this.WOIDLabel.Name = "WOIDLabel";
+            this.WOIDLabel.Size = new System.Drawing.Size(79, 13);
+            this.WOIDLabel.TabIndex = 16;
+            this.WOIDLabel.Text = "Work Order ID:";
+            // 
             // WOPEDLabel
             // 
             this.WOPEDLabel.AutoSize = true;
@@ -233,12 +243,51 @@
             this.WOPEDLabel.TabIndex = 15;
             this.WOPEDLabel.Text = "Production End Date:";
             // 
+            // WOSbtnPanel
+            // 
+            this.WOSbtnPanel.Controls.Add(this.WOSSearchbtn);
+            this.WOSbtnPanel.Location = new System.Drawing.Point(394, 207);
+            this.WOSbtnPanel.Name = "WOSbtnPanel";
+            this.WOSbtnPanel.Size = new System.Drawing.Size(122, 28);
+            this.WOSbtnPanel.TabIndex = 13;
+            this.WOSbtnPanel.Visible = false;
+            // 
+            // WOSSearchbtn
+            // 
+            this.WOSSearchbtn.Location = new System.Drawing.Point(0, 5);
+            this.WOSSearchbtn.Name = "WOSSearchbtn";
+            this.WOSSearchbtn.Size = new System.Drawing.Size(122, 23);
+            this.WOSSearchbtn.TabIndex = 0;
+            this.WOSSearchbtn.Text = "Search";
+            this.WOSSearchbtn.UseVisualStyleBackColor = true;
+            this.WOSSearchbtn.Click += new System.EventHandler(this.WOSSearchbtn_Click);
+            // 
             // WOPEDatetbox
             // 
             this.WOPEDatetbox.Location = new System.Drawing.Point(376, 72);
             this.WOPEDatetbox.Name = "WOPEDatetbox";
             this.WOPEDatetbox.Size = new System.Drawing.Size(128, 20);
             this.WOPEDatetbox.TabIndex = 12;
+            // 
+            // WOCCreatebtn
+            // 
+            this.WOCCreatebtn.Location = new System.Drawing.Point(394, 212);
+            this.WOCCreatebtn.Name = "WOCCreatebtn";
+            this.WOCCreatebtn.Size = new System.Drawing.Size(121, 23);
+            this.WOCCreatebtn.TabIndex = 12;
+            this.WOCCreatebtn.Text = "Create Work Order";
+            this.WOCCreatebtn.UseVisualStyleBackColor = true;
+            this.WOCCreatebtn.Click += new System.EventHandler(this.WOCreatebtn_Click);
+            // 
+            // WOCClearbtn
+            // 
+            this.WOCClearbtn.Location = new System.Drawing.Point(313, 212);
+            this.WOCClearbtn.Name = "WOCClearbtn";
+            this.WOCClearbtn.Size = new System.Drawing.Size(75, 23);
+            this.WOCClearbtn.TabIndex = 11;
+            this.WOCClearbtn.Text = "Clear";
+            this.WOCClearbtn.UseVisualStyleBackColor = true;
+            this.WOCClearbtn.Click += new System.EventHandler(this.WOCClearbtn_Click);
             // 
             // WOPSDLabel
             // 
@@ -808,6 +857,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.groupBox3);
+            this.tabPage4.Controls.Add(this.groupBox2);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -816,45 +867,52 @@
             this.tabPage4.Text = "Admin Page";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // WOSResultPanel
+            // groupBox2
             // 
-            this.WOSResultPanel.Controls.Add(this.WOSResultGridView);
-            this.WOSResultPanel.Location = new System.Drawing.Point(20, 275);
-            this.WOSResultPanel.Name = "WOSResultPanel";
-            this.WOSResultPanel.Size = new System.Drawing.Size(712, 180);
-            this.WOSResultPanel.TabIndex = 3;
-            this.WOSResultPanel.Visible = false;
+            this.groupBox2.Controls.Add(this.Execute);
+            this.groupBox2.Controls.Add(this.Admintbox);
+            this.groupBox2.Location = new System.Drawing.Point(20, 15);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(713, 199);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Admin Query";
             // 
-            // WOSResultGridView
+            // groupBox3
             // 
-            this.WOSResultGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.WOSResultGridView.Location = new System.Drawing.Point(4, 4);
-            this.WOSResultGridView.Name = "WOSResultGridView";
-            this.WOSResultGridView.Size = new System.Drawing.Size(705, 173);
-            this.WOSResultGridView.TabIndex = 0;
+            this.groupBox3.Controls.Add(this.AdminDGV);
+            this.groupBox3.Location = new System.Drawing.Point(20, 220);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(713, 235);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Query Results";
             // 
-            // WOIDtbox
+            // Admintbox
             // 
-            this.WOIDtbox.Location = new System.Drawing.Point(133, 28);
-            this.WOIDtbox.Name = "WOIDtbox";
-            this.WOIDtbox.Size = new System.Drawing.Size(109, 20);
-            this.WOIDtbox.TabIndex = 17;
+            this.Admintbox.Location = new System.Drawing.Point(22, 19);
+            this.Admintbox.Name = "Admintbox";
+            this.Admintbox.Size = new System.Drawing.Size(665, 125);
+            this.Admintbox.TabIndex = 0;
+            this.Admintbox.Text = "";
             // 
-            // WOIDLabel
+            // AdminDGV
             // 
-            this.WOIDLabel.AutoSize = true;
-            this.WOIDLabel.Location = new System.Drawing.Point(45, 31);
-            this.WOIDLabel.Name = "WOIDLabel";
-            this.WOIDLabel.Size = new System.Drawing.Size(79, 13);
-            this.WOIDLabel.TabIndex = 16;
-            this.WOIDLabel.Text = "Work Order ID:";
+            this.AdminDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AdminDGV.Location = new System.Drawing.Point(22, 19);
+            this.AdminDGV.Name = "AdminDGV";
+            this.AdminDGV.Size = new System.Drawing.Size(665, 210);
+            this.AdminDGV.TabIndex = 0;
             // 
-            // WOProductNumtbox
+            // Execute
             // 
-            this.WOProductNumtbox.Location = new System.Drawing.Point(133, 181);
-            this.WOProductNumtbox.Name = "WOProductNumtbox";
-            this.WOProductNumtbox.Size = new System.Drawing.Size(109, 20);
-            this.WOProductNumtbox.TabIndex = 18;
+            this.Execute.Location = new System.Drawing.Point(303, 158);
+            this.Execute.Name = "Execute";
+            this.Execute.Size = new System.Drawing.Size(75, 23);
+            this.Execute.TabIndex = 1;
+            this.Execute.Text = "Execute";
+            this.Execute.UseVisualStyleBackColor = true;
+            this.Execute.Click += new System.EventHandler(this.Execute_Click);
             // 
             // MainForm
             // 
@@ -866,10 +924,12 @@
             this.Text = "AdventureWorks - Production";
             this.MainFormTabControl.ResumeLayout(false);
             this.WorkOrderTab.ResumeLayout(false);
+            this.WOSResultPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.WOSResultGridView)).EndInit();
             this.WOCreatePanel.ResumeLayout(false);
-            this.WOSbtnPanel.ResumeLayout(false);
             this.WOCriteriaGroup.ResumeLayout(false);
             this.WOCriteriaGroup.PerformLayout();
+            this.WOSbtnPanel.ResumeLayout(false);
             this.WOOptionsGroup.ResumeLayout(false);
             this.InventoryTab.ResumeLayout(false);
             this.InvSearchPanel.ResumeLayout(false);
@@ -881,8 +941,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ProdSearchGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.WOSResultPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.WOSResultGridView)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.AdminDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -966,6 +1028,11 @@
         private System.Windows.Forms.TextBox WOIDtbox;
         private System.Windows.Forms.Label WOIDLabel;
         private System.Windows.Forms.TextBox WOProductNumtbox;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView AdminDGV;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button Execute;
+        private System.Windows.Forms.RichTextBox Admintbox;
     }
 }
 
