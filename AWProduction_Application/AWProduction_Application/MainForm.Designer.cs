@@ -36,58 +36,51 @@
             this.WOCCreatebtn = new System.Windows.Forms.Button();
             this.WOCClearbtn = new System.Windows.Forms.Button();
             this.WOCriteriaGroup = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.BillOfMaterialLabel = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.WOCProductIDddlist = new System.Windows.Forms.ComboBox();
-            this.WOCEmpIDLabel = new System.Windows.Forms.Label();
-            this.WOCEmpIDtbox = new System.Windows.Forms.TextBox();
-            this.WOCProductIDLabel = new System.Windows.Forms.Label();
-            this.WOCEmpNameLabel = new System.Windows.Forms.Label();
-            this.WOCDatetbox = new System.Windows.Forms.TextBox();
-            this.WOCEmpNametbox = new System.Windows.Forms.TextBox();
-            this.WOCDateLabel = new System.Windows.Forms.Label();
-            this.WOCDeptHeadLabel = new System.Windows.Forms.Label();
-            this.WOCDeptHeadtbox = new System.Windows.Forms.TextBox();
+            this.WOPEDLabel = new System.Windows.Forms.Label();
+            this.WOPEDatetbox = new System.Windows.Forms.TextBox();
+            this.WOPSDLabel = new System.Windows.Forms.Label();
+            this.WOPSDatetbox = new System.Windows.Forms.TextBox();
+            this.WOMaterialLabel = new System.Windows.Forms.Label();
+            this.WOMaterialtbox = new System.Windows.Forms.RichTextBox();
+            this.WOEmpIDLabel = new System.Windows.Forms.Label();
+            this.WOEmpIDtbox = new System.Windows.Forms.TextBox();
+            this.WOProductNumLabel = new System.Windows.Forms.Label();
+            this.WODatetbox = new System.Windows.Forms.TextBox();
+            this.WODateLabel = new System.Windows.Forms.Label();
+            this.WODeptHeadLabel = new System.Windows.Forms.Label();
+            this.WODeptHeadtbox = new System.Windows.Forms.TextBox();
             this.WOOptionsGroup = new System.Windows.Forms.GroupBox();
             this.SearchWorkOrderbtn = new System.Windows.Forms.Button();
             this.CreateWorkOrderbtn = new System.Windows.Forms.Button();
             this.InventoryTab = new System.Windows.Forms.TabPage();
-            this.ProductTab = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.InvSearchPanel = new System.Windows.Forms.Panel();
+            this.InvSearchDeletebtn = new System.Windows.Forms.Button();
+            this.InvSearchEditbtn = new System.Windows.Forms.Button();
+            this.InvSearchGridView = new System.Windows.Forms.DataGridView();
             this.InvSearchGroup = new System.Windows.Forms.GroupBox();
-            this.InvSearchProductIDLabel = new System.Windows.Forms.Label();
-            this.InvSearchProductIDtbox = new System.Windows.Forms.TextBox();
-            this.InvSearchProductNumtbox = new System.Windows.Forms.TextBox();
-            this.InvSearchProductNumLabel = new System.Windows.Forms.Label();
-            this.InvSearchLoctbox = new System.Windows.Forms.TextBox();
-            this.InvSearchLocLabel = new System.Windows.Forms.Label();
-            this.InvSearchListPricetbox = new System.Windows.Forms.TextBox();
-            this.InvSearchListPriceLabel = new System.Windows.Forms.Label();
             this.InvSearchDateModtbox = new System.Windows.Forms.TextBox();
+            this.InvSearchbtn = new System.Windows.Forms.Button();
             this.InvSearchDateModLabel = new System.Windows.Forms.Label();
+            this.InvSearchClearbtn = new System.Windows.Forms.Button();
             this.InvSearchQuantbox = new System.Windows.Forms.TextBox();
             this.InvSearchQuanLabel = new System.Windows.Forms.Label();
-            this.InvSearchClearbtn = new System.Windows.Forms.Button();
-            this.InvSearchbtn = new System.Windows.Forms.Button();
-            this.InvSearchPanel = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.InvSearchEditbtn = new System.Windows.Forms.Button();
-            this.InvSearchDeletebtn = new System.Windows.Forms.Button();
+            this.InvSearchListPricetbox = new System.Windows.Forms.TextBox();
+            this.InvSearchListPriceLabel = new System.Windows.Forms.Label();
+            this.InvSearchLoctbox = new System.Windows.Forms.TextBox();
+            this.InvSearchLocLabel = new System.Windows.Forms.Label();
+            this.InvSearchProductNumtbox = new System.Windows.Forms.TextBox();
+            this.InvSearchProductNumLabel = new System.Windows.Forms.Label();
+            this.InvSearchProductIDtbox = new System.Windows.Forms.TextBox();
+            this.InvSearchProductIDLabel = new System.Windows.Forms.Label();
+            this.ProductTab = new System.Windows.Forms.TabPage();
+            this.ProdSearchPanel = new System.Windows.Forms.Panel();
+            this.ProdSearchDetailsbtn = new System.Windows.Forms.Button();
+            this.ProdSearchEditbtn = new System.Windows.Forms.Button();
+            this.ProdSearchDeletebtn = new System.Windows.Forms.Button();
+            this.ProdSearchGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ProdPNumberLabel = new System.Windows.Forms.Label();
-            this.ProdPNumbertbox = new System.Windows.Forms.TextBox();
-            this.ProdPNametbox = new System.Windows.Forms.TextBox();
-            this.ProdPNameLabel = new System.Windows.Forms.Label();
-            this.ProdModelCodetbox = new System.Windows.Forms.TextBox();
-            this.ProdModelCodeLabel = new System.Windows.Forms.Label();
-            this.ProdDTPtbox = new System.Windows.Forms.TextBox();
-            this.ProdDTPLabel = new System.Windows.Forms.Label();
-            this.ProdCTPtbox = new System.Windows.Forms.TextBox();
-            this.ProdCTPLabel = new System.Windows.Forms.Label();
+            this.ProsSearchbtn = new System.Windows.Forms.Button();
+            this.ProdClearbtn = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ProdDiscDatetbox = new System.Windows.Forms.TextBox();
@@ -96,13 +89,22 @@
             this.ProdESDLabel = new System.Windows.Forms.Label();
             this.ProdSSDtbox = new System.Windows.Forms.TextBox();
             this.ProdSSDLabel = new System.Windows.Forms.Label();
-            this.ProdClearbtn = new System.Windows.Forms.Button();
-            this.ProsSearchbtn = new System.Windows.Forms.Button();
-            this.ProdSearchPanel = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.ProdSearchDeletebtn = new System.Windows.Forms.Button();
-            this.ProdSearchEditbtn = new System.Windows.Forms.Button();
-            this.ProdSearchDetailsbtn = new System.Windows.Forms.Button();
+            this.ProdCTPtbox = new System.Windows.Forms.TextBox();
+            this.ProdCTPLabel = new System.Windows.Forms.Label();
+            this.ProdDTPtbox = new System.Windows.Forms.TextBox();
+            this.ProdDTPLabel = new System.Windows.Forms.Label();
+            this.ProdModelCodetbox = new System.Windows.Forms.TextBox();
+            this.ProdModelCodeLabel = new System.Windows.Forms.Label();
+            this.ProdPNametbox = new System.Windows.Forms.TextBox();
+            this.ProdPNameLabel = new System.Windows.Forms.Label();
+            this.ProdPNumbertbox = new System.Windows.Forms.TextBox();
+            this.ProdPNumberLabel = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.WOSResultPanel = new System.Windows.Forms.Panel();
+            this.WOSResultGridView = new System.Windows.Forms.DataGridView();
+            this.WOIDtbox = new System.Windows.Forms.TextBox();
+            this.WOIDLabel = new System.Windows.Forms.Label();
+            this.WOProductNumtbox = new System.Windows.Forms.TextBox();
             this.MainFormTabControl.SuspendLayout();
             this.WorkOrderTab.SuspendLayout();
             this.WOCreatePanel.SuspendLayout();
@@ -110,13 +112,15 @@
             this.WOCriteriaGroup.SuspendLayout();
             this.WOOptionsGroup.SuspendLayout();
             this.InventoryTab.SuspendLayout();
-            this.ProductTab.SuspendLayout();
-            this.InvSearchGroup.SuspendLayout();
             this.InvSearchPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InvSearchGridView)).BeginInit();
+            this.InvSearchGroup.SuspendLayout();
+            this.ProductTab.SuspendLayout();
             this.ProdSearchPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProdSearchGridView)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.WOSResultPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WOSResultGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // MainFormTabControl
@@ -133,6 +137,7 @@
             // 
             // WorkOrderTab
             // 
+            this.WorkOrderTab.Controls.Add(this.WOSResultPanel);
             this.WorkOrderTab.Controls.Add(this.WOCreatePanel);
             this.WorkOrderTab.Controls.Add(this.WOOptionsGroup);
             this.WorkOrderTab.Location = new System.Drawing.Point(4, 22);
@@ -145,28 +150,25 @@
             // 
             // WOCreatePanel
             // 
-            this.WOCreatePanel.Controls.Add(this.WOSbtnPanel);
-            this.WOCreatePanel.Controls.Add(this.WOCCreatebtn);
-            this.WOCreatePanel.Controls.Add(this.WOCClearbtn);
             this.WOCreatePanel.Controls.Add(this.WOCriteriaGroup);
-            this.WOCreatePanel.Location = new System.Drawing.Point(6, 87);
+            this.WOCreatePanel.Location = new System.Drawing.Point(179, 6);
             this.WOCreatePanel.Name = "WOCreatePanel";
-            this.WOCreatePanel.Size = new System.Drawing.Size(740, 368);
+            this.WOCreatePanel.Size = new System.Drawing.Size(553, 263);
             this.WOCreatePanel.TabIndex = 2;
             this.WOCreatePanel.Visible = false;
             // 
             // WOSbtnPanel
             // 
             this.WOSbtnPanel.Controls.Add(this.WOSSearchbtn);
-            this.WOSbtnPanel.Location = new System.Drawing.Point(538, 54);
+            this.WOSbtnPanel.Location = new System.Drawing.Point(394, 207);
             this.WOSbtnPanel.Name = "WOSbtnPanel";
-            this.WOSbtnPanel.Size = new System.Drawing.Size(121, 23);
+            this.WOSbtnPanel.Size = new System.Drawing.Size(122, 28);
             this.WOSbtnPanel.TabIndex = 13;
             this.WOSbtnPanel.Visible = false;
             // 
             // WOSSearchbtn
             // 
-            this.WOSSearchbtn.Location = new System.Drawing.Point(-1, 0);
+            this.WOSSearchbtn.Location = new System.Drawing.Point(0, 5);
             this.WOSSearchbtn.Name = "WOSSearchbtn";
             this.WOSSearchbtn.Size = new System.Drawing.Size(122, 23);
             this.WOSSearchbtn.TabIndex = 0;
@@ -176,7 +178,7 @@
             // 
             // WOCCreatebtn
             // 
-            this.WOCCreatebtn.Location = new System.Drawing.Point(538, 54);
+            this.WOCCreatebtn.Location = new System.Drawing.Point(394, 212);
             this.WOCCreatebtn.Name = "WOCCreatebtn";
             this.WOCCreatebtn.Size = new System.Drawing.Size(121, 23);
             this.WOCCreatebtn.TabIndex = 12;
@@ -186,7 +188,7 @@
             // 
             // WOCClearbtn
             // 
-            this.WOCClearbtn.Location = new System.Drawing.Point(537, 24);
+            this.WOCClearbtn.Location = new System.Drawing.Point(313, 212);
             this.WOCClearbtn.Name = "WOCClearbtn";
             this.WOCClearbtn.Size = new System.Drawing.Size(75, 23);
             this.WOCClearbtn.TabIndex = 11;
@@ -196,158 +198,137 @@
             // 
             // WOCriteriaGroup
             // 
-            this.WOCriteriaGroup.Controls.Add(this.label1);
-            this.WOCriteriaGroup.Controls.Add(this.textBox1);
-            this.WOCriteriaGroup.Controls.Add(this.label2);
-            this.WOCriteriaGroup.Controls.Add(this.textBox2);
-            this.WOCriteriaGroup.Controls.Add(this.BillOfMaterialLabel);
-            this.WOCriteriaGroup.Controls.Add(this.richTextBox1);
-            this.WOCriteriaGroup.Controls.Add(this.WOCProductIDddlist);
-            this.WOCriteriaGroup.Controls.Add(this.WOCEmpIDLabel);
-            this.WOCriteriaGroup.Controls.Add(this.WOCEmpIDtbox);
-            this.WOCriteriaGroup.Controls.Add(this.WOCProductIDLabel);
-            this.WOCriteriaGroup.Controls.Add(this.WOCEmpNameLabel);
-            this.WOCriteriaGroup.Controls.Add(this.WOCDatetbox);
-            this.WOCriteriaGroup.Controls.Add(this.WOCEmpNametbox);
-            this.WOCriteriaGroup.Controls.Add(this.WOCDateLabel);
-            this.WOCriteriaGroup.Controls.Add(this.WOCDeptHeadLabel);
-            this.WOCriteriaGroup.Controls.Add(this.WOCDeptHeadtbox);
-            this.WOCriteriaGroup.Location = new System.Drawing.Point(17, 19);
+            this.WOCriteriaGroup.Controls.Add(this.WOProductNumtbox);
+            this.WOCriteriaGroup.Controls.Add(this.WOIDtbox);
+            this.WOCriteriaGroup.Controls.Add(this.WOIDLabel);
+            this.WOCriteriaGroup.Controls.Add(this.WOPEDLabel);
+            this.WOCriteriaGroup.Controls.Add(this.WOSbtnPanel);
+            this.WOCriteriaGroup.Controls.Add(this.WOPEDatetbox);
+            this.WOCriteriaGroup.Controls.Add(this.WOCCreatebtn);
+            this.WOCriteriaGroup.Controls.Add(this.WOCClearbtn);
+            this.WOCriteriaGroup.Controls.Add(this.WOPSDLabel);
+            this.WOCriteriaGroup.Controls.Add(this.WOPSDatetbox);
+            this.WOCriteriaGroup.Controls.Add(this.WOMaterialLabel);
+            this.WOCriteriaGroup.Controls.Add(this.WOMaterialtbox);
+            this.WOCriteriaGroup.Controls.Add(this.WOEmpIDLabel);
+            this.WOCriteriaGroup.Controls.Add(this.WOEmpIDtbox);
+            this.WOCriteriaGroup.Controls.Add(this.WOProductNumLabel);
+            this.WOCriteriaGroup.Controls.Add(this.WODatetbox);
+            this.WOCriteriaGroup.Controls.Add(this.WODateLabel);
+            this.WOCriteriaGroup.Controls.Add(this.WODeptHeadLabel);
+            this.WOCriteriaGroup.Controls.Add(this.WODeptHeadtbox);
+            this.WOCriteriaGroup.Location = new System.Drawing.Point(18, 9);
             this.WOCriteriaGroup.Name = "WOCriteriaGroup";
-            this.WOCriteriaGroup.Size = new System.Drawing.Size(515, 295);
+            this.WOCriteriaGroup.Size = new System.Drawing.Size(522, 241);
             this.WOCriteriaGroup.TabIndex = 10;
             this.WOCriteriaGroup.TabStop = false;
             this.WOCriteriaGroup.Text = "Work Order Criteria";
             // 
-            // label1
+            // WOPEDLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(256, 143);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Production End Date:";
+            this.WOPEDLabel.AutoSize = true;
+            this.WOPEDLabel.Location = new System.Drawing.Point(261, 75);
+            this.WOPEDLabel.Name = "WOPEDLabel";
+            this.WOPEDLabel.Size = new System.Drawing.Size(109, 13);
+            this.WOPEDLabel.TabIndex = 15;
+            this.WOPEDLabel.Text = "Production End Date:";
             // 
-            // textBox1
+            // WOPEDatetbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(371, 140);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(128, 20);
-            this.textBox1.TabIndex = 12;
+            this.WOPEDatetbox.Location = new System.Drawing.Point(376, 72);
+            this.WOPEDatetbox.Name = "WOPEDatetbox";
+            this.WOPEDatetbox.Size = new System.Drawing.Size(128, 20);
+            this.WOPEDatetbox.TabIndex = 12;
             // 
-            // label2
+            // WOPSDLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 143);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 13);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Production Start Date:";
+            this.WOPSDLabel.AutoSize = true;
+            this.WOPSDLabel.Location = new System.Drawing.Point(255, 34);
+            this.WOPSDLabel.Name = "WOPSDLabel";
+            this.WOPSDLabel.Size = new System.Drawing.Size(112, 13);
+            this.WOPSDLabel.TabIndex = 13;
+            this.WOPSDLabel.Text = "Production Start Date:";
             // 
-            // textBox2
+            // WOPSDatetbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(127, 140);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(109, 20);
-            this.textBox2.TabIndex = 14;
+            this.WOPSDatetbox.Location = new System.Drawing.Point(376, 31);
+            this.WOPSDatetbox.Name = "WOPSDatetbox";
+            this.WOPSDatetbox.Size = new System.Drawing.Size(128, 20);
+            this.WOPSDatetbox.TabIndex = 14;
             // 
-            // BillOfMaterialLabel
+            // WOMaterialLabel
             // 
-            this.BillOfMaterialLabel.AutoSize = true;
-            this.BillOfMaterialLabel.Location = new System.Drawing.Point(43, 178);
-            this.BillOfMaterialLabel.Name = "BillOfMaterialLabel";
-            this.BillOfMaterialLabel.Size = new System.Drawing.Size(75, 13);
-            this.BillOfMaterialLabel.TabIndex = 11;
-            this.BillOfMaterialLabel.Text = "Bill of Material:";
+            this.WOMaterialLabel.AutoSize = true;
+            this.WOMaterialLabel.Location = new System.Drawing.Point(315, 109);
+            this.WOMaterialLabel.Name = "WOMaterialLabel";
+            this.WOMaterialLabel.Size = new System.Drawing.Size(52, 13);
+            this.WOMaterialLabel.TabIndex = 11;
+            this.WOMaterialLabel.Text = "Materials:";
             // 
-            // richTextBox1
+            // WOMaterialtbox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(43, 197);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(406, 83);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
+            this.WOMaterialtbox.Location = new System.Drawing.Point(376, 106);
+            this.WOMaterialtbox.Name = "WOMaterialtbox";
+            this.WOMaterialtbox.Size = new System.Drawing.Size(128, 38);
+            this.WOMaterialtbox.TabIndex = 10;
+            this.WOMaterialtbox.Text = "";
             // 
-            // WOCProductIDddlist
+            // WOEmpIDLabel
             // 
-            this.WOCProductIDddlist.FormattingEnabled = true;
-            this.WOCProductIDddlist.Location = new System.Drawing.Point(371, 101);
-            this.WOCProductIDddlist.Name = "WOCProductIDddlist";
-            this.WOCProductIDddlist.Size = new System.Drawing.Size(100, 21);
-            this.WOCProductIDddlist.TabIndex = 9;
+            this.WOEmpIDLabel.AutoSize = true;
+            this.WOEmpIDLabel.Location = new System.Drawing.Point(57, 109);
+            this.WOEmpIDLabel.Name = "WOEmpIDLabel";
+            this.WOEmpIDLabel.Size = new System.Drawing.Size(70, 13);
+            this.WOEmpIDLabel.TabIndex = 0;
+            this.WOEmpIDLabel.Text = "Employee ID:";
             // 
-            // WOCEmpIDLabel
+            // WOEmpIDtbox
             // 
-            this.WOCEmpIDLabel.AutoSize = true;
-            this.WOCEmpIDLabel.Location = new System.Drawing.Point(48, 68);
-            this.WOCEmpIDLabel.Name = "WOCEmpIDLabel";
-            this.WOCEmpIDLabel.Size = new System.Drawing.Size(70, 13);
-            this.WOCEmpIDLabel.TabIndex = 0;
-            this.WOCEmpIDLabel.Text = "Employee ID:";
+            this.WOEmpIDtbox.Location = new System.Drawing.Point(133, 106);
+            this.WOEmpIDtbox.Name = "WOEmpIDtbox";
+            this.WOEmpIDtbox.Size = new System.Drawing.Size(109, 20);
+            this.WOEmpIDtbox.TabIndex = 1;
             // 
-            // WOCEmpIDtbox
+            // WOProductNumLabel
             // 
-            this.WOCEmpIDtbox.Location = new System.Drawing.Point(127, 65);
-            this.WOCEmpIDtbox.Name = "WOCEmpIDtbox";
-            this.WOCEmpIDtbox.Size = new System.Drawing.Size(109, 20);
-            this.WOCEmpIDtbox.TabIndex = 1;
+            this.WOProductNumLabel.AutoSize = true;
+            this.WOProductNumLabel.Location = new System.Drawing.Point(37, 184);
+            this.WOProductNumLabel.Name = "WOProductNumLabel";
+            this.WOProductNumLabel.Size = new System.Drawing.Size(87, 13);
+            this.WOProductNumLabel.TabIndex = 8;
+            this.WOProductNumLabel.Text = "Product Number:";
             // 
-            // WOCProductIDLabel
+            // WODatetbox
             // 
-            this.WOCProductIDLabel.AutoSize = true;
-            this.WOCProductIDLabel.Location = new System.Drawing.Point(304, 104);
-            this.WOCProductIDLabel.Name = "WOCProductIDLabel";
-            this.WOCProductIDLabel.Size = new System.Drawing.Size(61, 13);
-            this.WOCProductIDLabel.TabIndex = 8;
-            this.WOCProductIDLabel.Text = "Product ID:";
+            this.WODatetbox.Location = new System.Drawing.Point(133, 69);
+            this.WODatetbox.Name = "WODatetbox";
+            this.WODatetbox.Size = new System.Drawing.Size(109, 20);
+            this.WODatetbox.TabIndex = 7;
             // 
-            // WOCEmpNameLabel
+            // WODateLabel
             // 
-            this.WOCEmpNameLabel.AutoSize = true;
-            this.WOCEmpNameLabel.Location = new System.Drawing.Point(278, 68);
-            this.WOCEmpNameLabel.Name = "WOCEmpNameLabel";
-            this.WOCEmpNameLabel.Size = new System.Drawing.Size(87, 13);
-            this.WOCEmpNameLabel.TabIndex = 2;
-            this.WOCEmpNameLabel.Text = "Employee Name:";
+            this.WODateLabel.AutoSize = true;
+            this.WODateLabel.Location = new System.Drawing.Point(36, 72);
+            this.WODateLabel.Name = "WODateLabel";
+            this.WODateLabel.Size = new System.Drawing.Size(91, 13);
+            this.WODateLabel.TabIndex = 6;
+            this.WODateLabel.Text = "Work Order Date:";
             // 
-            // WOCDatetbox
+            // WODeptHeadLabel
             // 
-            this.WOCDatetbox.Location = new System.Drawing.Point(127, 28);
-            this.WOCDatetbox.Name = "WOCDatetbox";
-            this.WOCDatetbox.Size = new System.Drawing.Size(109, 20);
-            this.WOCDatetbox.TabIndex = 7;
+            this.WODeptHeadLabel.AutoSize = true;
+            this.WODeptHeadLabel.Location = new System.Drawing.Point(33, 145);
+            this.WODeptHeadLabel.Name = "WODeptHeadLabel";
+            this.WODeptHeadLabel.Size = new System.Drawing.Size(94, 13);
+            this.WODeptHeadLabel.TabIndex = 4;
+            this.WODeptHeadLabel.Text = "Department Head:";
             // 
-            // WOCEmpNametbox
+            // WODeptHeadtbox
             // 
-            this.WOCEmpNametbox.Location = new System.Drawing.Point(371, 65);
-            this.WOCEmpNametbox.Name = "WOCEmpNametbox";
-            this.WOCEmpNametbox.Size = new System.Drawing.Size(128, 20);
-            this.WOCEmpNametbox.TabIndex = 3;
-            // 
-            // WOCDateLabel
-            // 
-            this.WOCDateLabel.AutoSize = true;
-            this.WOCDateLabel.Location = new System.Drawing.Point(27, 31);
-            this.WOCDateLabel.Name = "WOCDateLabel";
-            this.WOCDateLabel.Size = new System.Drawing.Size(91, 13);
-            this.WOCDateLabel.TabIndex = 6;
-            this.WOCDateLabel.Text = "Work Order Date:";
-            // 
-            // WOCDeptHeadLabel
-            // 
-            this.WOCDeptHeadLabel.AutoSize = true;
-            this.WOCDeptHeadLabel.Location = new System.Drawing.Point(24, 104);
-            this.WOCDeptHeadLabel.Name = "WOCDeptHeadLabel";
-            this.WOCDeptHeadLabel.Size = new System.Drawing.Size(94, 13);
-            this.WOCDeptHeadLabel.TabIndex = 4;
-            this.WOCDeptHeadLabel.Text = "Department Head:";
-            // 
-            // WOCDeptHeadtbox
-            // 
-            this.WOCDeptHeadtbox.Location = new System.Drawing.Point(127, 101);
-            this.WOCDeptHeadtbox.Name = "WOCDeptHeadtbox";
-            this.WOCDeptHeadtbox.Size = new System.Drawing.Size(109, 20);
-            this.WOCDeptHeadtbox.TabIndex = 5;
+            this.WODeptHeadtbox.Location = new System.Drawing.Point(133, 142);
+            this.WODeptHeadtbox.Name = "WODeptHeadtbox";
+            this.WODeptHeadtbox.Size = new System.Drawing.Size(109, 20);
+            this.WODeptHeadtbox.TabIndex = 5;
             // 
             // WOOptionsGroup
             // 
@@ -355,16 +336,16 @@
             this.WOOptionsGroup.Controls.Add(this.CreateWorkOrderbtn);
             this.WOOptionsGroup.Location = new System.Drawing.Point(20, 15);
             this.WOOptionsGroup.Name = "WOOptionsGroup";
-            this.WOOptionsGroup.Size = new System.Drawing.Size(363, 66);
+            this.WOOptionsGroup.Size = new System.Drawing.Size(153, 85);
             this.WOOptionsGroup.TabIndex = 1;
             this.WOOptionsGroup.TabStop = false;
             this.WOOptionsGroup.Text = "Work Order Options";
             // 
             // SearchWorkOrderbtn
             // 
-            this.SearchWorkOrderbtn.Location = new System.Drawing.Point(177, 24);
+            this.SearchWorkOrderbtn.Location = new System.Drawing.Point(12, 48);
             this.SearchWorkOrderbtn.Name = "SearchWorkOrderbtn";
-            this.SearchWorkOrderbtn.Size = new System.Drawing.Size(128, 23);
+            this.SearchWorkOrderbtn.Size = new System.Drawing.Size(116, 23);
             this.SearchWorkOrderbtn.TabIndex = 1;
             this.SearchWorkOrderbtn.Text = "Search Work Orders";
             this.SearchWorkOrderbtn.UseVisualStyleBackColor = true;
@@ -372,7 +353,7 @@
             // 
             // CreateWorkOrderbtn
             // 
-            this.CreateWorkOrderbtn.Location = new System.Drawing.Point(54, 24);
+            this.CreateWorkOrderbtn.Location = new System.Drawing.Point(12, 19);
             this.CreateWorkOrderbtn.Name = "CreateWorkOrderbtn";
             this.CreateWorkOrderbtn.Size = new System.Drawing.Size(116, 23);
             this.CreateWorkOrderbtn.TabIndex = 0;
@@ -392,27 +373,44 @@
             this.InventoryTab.Text = "Inventory";
             this.InventoryTab.UseVisualStyleBackColor = true;
             // 
-            // ProductTab
+            // InvSearchPanel
             // 
-            this.ProductTab.Controls.Add(this.ProdSearchPanel);
-            this.ProductTab.Controls.Add(this.groupBox1);
-            this.ProductTab.Location = new System.Drawing.Point(4, 22);
-            this.ProductTab.Name = "ProductTab";
-            this.ProductTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ProductTab.Size = new System.Drawing.Size(752, 461);
-            this.ProductTab.TabIndex = 2;
-            this.ProductTab.Text = "Products";
-            this.ProductTab.UseVisualStyleBackColor = true;
+            this.InvSearchPanel.Controls.Add(this.InvSearchDeletebtn);
+            this.InvSearchPanel.Controls.Add(this.InvSearchEditbtn);
+            this.InvSearchPanel.Controls.Add(this.InvSearchGridView);
+            this.InvSearchPanel.Location = new System.Drawing.Point(6, 158);
+            this.InvSearchPanel.Name = "InvSearchPanel";
+            this.InvSearchPanel.Size = new System.Drawing.Size(740, 297);
+            this.InvSearchPanel.TabIndex = 14;
+            this.InvSearchPanel.Visible = false;
             // 
-            // tabPage4
+            // InvSearchDeletebtn
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(752, 461);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Admin Page";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.InvSearchDeletebtn.Location = new System.Drawing.Point(662, 271);
+            this.InvSearchDeletebtn.Name = "InvSearchDeletebtn";
+            this.InvSearchDeletebtn.Size = new System.Drawing.Size(75, 23);
+            this.InvSearchDeletebtn.TabIndex = 16;
+            this.InvSearchDeletebtn.Text = "Delete";
+            this.InvSearchDeletebtn.UseVisualStyleBackColor = true;
+            this.InvSearchDeletebtn.Click += new System.EventHandler(this.InvSearchDeletebtn_Click);
+            // 
+            // InvSearchEditbtn
+            // 
+            this.InvSearchEditbtn.Location = new System.Drawing.Point(662, 242);
+            this.InvSearchEditbtn.Name = "InvSearchEditbtn";
+            this.InvSearchEditbtn.Size = new System.Drawing.Size(75, 23);
+            this.InvSearchEditbtn.TabIndex = 15;
+            this.InvSearchEditbtn.Text = "Edit";
+            this.InvSearchEditbtn.UseVisualStyleBackColor = true;
+            this.InvSearchEditbtn.Click += new System.EventHandler(this.InvSearchEditbtn_Click);
+            // 
+            // InvSearchGridView
+            // 
+            this.InvSearchGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.InvSearchGridView.Location = new System.Drawing.Point(16, 3);
+            this.InvSearchGridView.Name = "InvSearchGridView";
+            this.InvSearchGridView.Size = new System.Drawing.Size(640, 292);
+            this.InvSearchGridView.TabIndex = 0;
             // 
             // InvSearchGroup
             // 
@@ -437,76 +435,22 @@
             this.InvSearchGroup.TabStop = false;
             this.InvSearchGroup.Text = "Inventory Search Criteria";
             // 
-            // InvSearchProductIDLabel
-            // 
-            this.InvSearchProductIDLabel.AutoSize = true;
-            this.InvSearchProductIDLabel.Location = new System.Drawing.Point(21, 28);
-            this.InvSearchProductIDLabel.Name = "InvSearchProductIDLabel";
-            this.InvSearchProductIDLabel.Size = new System.Drawing.Size(61, 13);
-            this.InvSearchProductIDLabel.TabIndex = 0;
-            this.InvSearchProductIDLabel.Text = "Product ID:";
-            // 
-            // InvSearchProductIDtbox
-            // 
-            this.InvSearchProductIDtbox.Location = new System.Drawing.Point(24, 44);
-            this.InvSearchProductIDtbox.Name = "InvSearchProductIDtbox";
-            this.InvSearchProductIDtbox.Size = new System.Drawing.Size(100, 20);
-            this.InvSearchProductIDtbox.TabIndex = 1;
-            // 
-            // InvSearchProductNumtbox
-            // 
-            this.InvSearchProductNumtbox.Location = new System.Drawing.Point(151, 44);
-            this.InvSearchProductNumtbox.Name = "InvSearchProductNumtbox";
-            this.InvSearchProductNumtbox.Size = new System.Drawing.Size(100, 20);
-            this.InvSearchProductNumtbox.TabIndex = 3;
-            // 
-            // InvSearchProductNumLabel
-            // 
-            this.InvSearchProductNumLabel.AutoSize = true;
-            this.InvSearchProductNumLabel.Location = new System.Drawing.Point(148, 28);
-            this.InvSearchProductNumLabel.Name = "InvSearchProductNumLabel";
-            this.InvSearchProductNumLabel.Size = new System.Drawing.Size(87, 13);
-            this.InvSearchProductNumLabel.TabIndex = 2;
-            this.InvSearchProductNumLabel.Text = "Product Number:";
-            // 
-            // InvSearchLoctbox
-            // 
-            this.InvSearchLoctbox.Location = new System.Drawing.Point(281, 44);
-            this.InvSearchLoctbox.Name = "InvSearchLoctbox";
-            this.InvSearchLoctbox.Size = new System.Drawing.Size(100, 20);
-            this.InvSearchLoctbox.TabIndex = 5;
-            // 
-            // InvSearchLocLabel
-            // 
-            this.InvSearchLocLabel.AutoSize = true;
-            this.InvSearchLocLabel.Location = new System.Drawing.Point(278, 28);
-            this.InvSearchLocLabel.Name = "InvSearchLocLabel";
-            this.InvSearchLocLabel.Size = new System.Drawing.Size(114, 13);
-            this.InvSearchLocLabel.TabIndex = 4;
-            this.InvSearchLocLabel.Text = "Location (ID or Name):";
-            // 
-            // InvSearchListPricetbox
-            // 
-            this.InvSearchListPricetbox.Location = new System.Drawing.Point(411, 44);
-            this.InvSearchListPricetbox.Name = "InvSearchListPricetbox";
-            this.InvSearchListPricetbox.Size = new System.Drawing.Size(100, 20);
-            this.InvSearchListPricetbox.TabIndex = 7;
-            // 
-            // InvSearchListPriceLabel
-            // 
-            this.InvSearchListPriceLabel.AutoSize = true;
-            this.InvSearchListPriceLabel.Location = new System.Drawing.Point(408, 28);
-            this.InvSearchListPriceLabel.Name = "InvSearchListPriceLabel";
-            this.InvSearchListPriceLabel.Size = new System.Drawing.Size(53, 13);
-            this.InvSearchListPriceLabel.TabIndex = 6;
-            this.InvSearchListPriceLabel.Text = "List Price:";
-            // 
             // InvSearchDateModtbox
             // 
             this.InvSearchDateModtbox.Location = new System.Drawing.Point(151, 98);
             this.InvSearchDateModtbox.Name = "InvSearchDateModtbox";
             this.InvSearchDateModtbox.Size = new System.Drawing.Size(100, 20);
             this.InvSearchDateModtbox.TabIndex = 11;
+            // 
+            // InvSearchbtn
+            // 
+            this.InvSearchbtn.Location = new System.Drawing.Point(463, 106);
+            this.InvSearchbtn.Name = "InvSearchbtn";
+            this.InvSearchbtn.Size = new System.Drawing.Size(75, 23);
+            this.InvSearchbtn.TabIndex = 13;
+            this.InvSearchbtn.Text = "Search";
+            this.InvSearchbtn.UseVisualStyleBackColor = true;
+            this.InvSearchbtn.Click += new System.EventHandler(this.InvSearchbtn_Click);
             // 
             // InvSearchDateModLabel
             // 
@@ -516,6 +460,16 @@
             this.InvSearchDateModLabel.Size = new System.Drawing.Size(76, 13);
             this.InvSearchDateModLabel.TabIndex = 10;
             this.InvSearchDateModLabel.Text = "Date Modified:";
+            // 
+            // InvSearchClearbtn
+            // 
+            this.InvSearchClearbtn.Location = new System.Drawing.Point(382, 106);
+            this.InvSearchClearbtn.Name = "InvSearchClearbtn";
+            this.InvSearchClearbtn.Size = new System.Drawing.Size(75, 23);
+            this.InvSearchClearbtn.TabIndex = 12;
+            this.InvSearchClearbtn.Text = "Clear";
+            this.InvSearchClearbtn.UseVisualStyleBackColor = true;
+            this.InvSearchClearbtn.Click += new System.EventHandler(this.InvSearchClearbtn_Click);
             // 
             // InvSearchQuantbox
             // 
@@ -533,64 +487,131 @@
             this.InvSearchQuanLabel.TabIndex = 8;
             this.InvSearchQuanLabel.Text = "Quantity:";
             // 
-            // InvSearchClearbtn
+            // InvSearchListPricetbox
             // 
-            this.InvSearchClearbtn.Location = new System.Drawing.Point(382, 106);
-            this.InvSearchClearbtn.Name = "InvSearchClearbtn";
-            this.InvSearchClearbtn.Size = new System.Drawing.Size(75, 23);
-            this.InvSearchClearbtn.TabIndex = 12;
-            this.InvSearchClearbtn.Text = "Clear";
-            this.InvSearchClearbtn.UseVisualStyleBackColor = true;
-            this.InvSearchClearbtn.Click += new System.EventHandler(this.InvSearchClearbtn_Click);
+            this.InvSearchListPricetbox.Location = new System.Drawing.Point(411, 44);
+            this.InvSearchListPricetbox.Name = "InvSearchListPricetbox";
+            this.InvSearchListPricetbox.Size = new System.Drawing.Size(100, 20);
+            this.InvSearchListPricetbox.TabIndex = 7;
             // 
-            // InvSearchbtn
+            // InvSearchListPriceLabel
             // 
-            this.InvSearchbtn.Location = new System.Drawing.Point(463, 106);
-            this.InvSearchbtn.Name = "InvSearchbtn";
-            this.InvSearchbtn.Size = new System.Drawing.Size(75, 23);
-            this.InvSearchbtn.TabIndex = 13;
-            this.InvSearchbtn.Text = "Search";
-            this.InvSearchbtn.UseVisualStyleBackColor = true;
-            this.InvSearchbtn.Click += new System.EventHandler(this.InvSearchbtn_Click);
+            this.InvSearchListPriceLabel.AutoSize = true;
+            this.InvSearchListPriceLabel.Location = new System.Drawing.Point(408, 28);
+            this.InvSearchListPriceLabel.Name = "InvSearchListPriceLabel";
+            this.InvSearchListPriceLabel.Size = new System.Drawing.Size(53, 13);
+            this.InvSearchListPriceLabel.TabIndex = 6;
+            this.InvSearchListPriceLabel.Text = "List Price:";
             // 
-            // InvSearchPanel
+            // InvSearchLoctbox
             // 
-            this.InvSearchPanel.Controls.Add(this.InvSearchDeletebtn);
-            this.InvSearchPanel.Controls.Add(this.InvSearchEditbtn);
-            this.InvSearchPanel.Controls.Add(this.dataGridView1);
-            this.InvSearchPanel.Location = new System.Drawing.Point(6, 158);
-            this.InvSearchPanel.Name = "InvSearchPanel";
-            this.InvSearchPanel.Size = new System.Drawing.Size(740, 297);
-            this.InvSearchPanel.TabIndex = 14;
-            this.InvSearchPanel.Visible = false;
+            this.InvSearchLoctbox.Location = new System.Drawing.Point(281, 44);
+            this.InvSearchLoctbox.Name = "InvSearchLoctbox";
+            this.InvSearchLoctbox.Size = new System.Drawing.Size(100, 20);
+            this.InvSearchLoctbox.TabIndex = 5;
             // 
-            // dataGridView1
+            // InvSearchLocLabel
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(640, 292);
-            this.dataGridView1.TabIndex = 0;
+            this.InvSearchLocLabel.AutoSize = true;
+            this.InvSearchLocLabel.Location = new System.Drawing.Point(278, 28);
+            this.InvSearchLocLabel.Name = "InvSearchLocLabel";
+            this.InvSearchLocLabel.Size = new System.Drawing.Size(114, 13);
+            this.InvSearchLocLabel.TabIndex = 4;
+            this.InvSearchLocLabel.Text = "Location (ID or Name):";
             // 
-            // InvSearchEditbtn
+            // InvSearchProductNumtbox
             // 
-            this.InvSearchEditbtn.Location = new System.Drawing.Point(662, 242);
-            this.InvSearchEditbtn.Name = "InvSearchEditbtn";
-            this.InvSearchEditbtn.Size = new System.Drawing.Size(75, 23);
-            this.InvSearchEditbtn.TabIndex = 15;
-            this.InvSearchEditbtn.Text = "Edit";
-            this.InvSearchEditbtn.UseVisualStyleBackColor = true;
-            this.InvSearchEditbtn.Click += new System.EventHandler(this.InvSearchEditbtn_Click);
+            this.InvSearchProductNumtbox.Location = new System.Drawing.Point(151, 44);
+            this.InvSearchProductNumtbox.Name = "InvSearchProductNumtbox";
+            this.InvSearchProductNumtbox.Size = new System.Drawing.Size(100, 20);
+            this.InvSearchProductNumtbox.TabIndex = 3;
             // 
-            // InvSearchDeletebtn
+            // InvSearchProductNumLabel
             // 
-            this.InvSearchDeletebtn.Location = new System.Drawing.Point(662, 271);
-            this.InvSearchDeletebtn.Name = "InvSearchDeletebtn";
-            this.InvSearchDeletebtn.Size = new System.Drawing.Size(75, 23);
-            this.InvSearchDeletebtn.TabIndex = 16;
-            this.InvSearchDeletebtn.Text = "Delete";
-            this.InvSearchDeletebtn.UseVisualStyleBackColor = true;
-            this.InvSearchDeletebtn.Click += new System.EventHandler(this.InvSearchDeletebtn_Click);
+            this.InvSearchProductNumLabel.AutoSize = true;
+            this.InvSearchProductNumLabel.Location = new System.Drawing.Point(148, 28);
+            this.InvSearchProductNumLabel.Name = "InvSearchProductNumLabel";
+            this.InvSearchProductNumLabel.Size = new System.Drawing.Size(87, 13);
+            this.InvSearchProductNumLabel.TabIndex = 2;
+            this.InvSearchProductNumLabel.Text = "Product Number:";
+            // 
+            // InvSearchProductIDtbox
+            // 
+            this.InvSearchProductIDtbox.Location = new System.Drawing.Point(24, 44);
+            this.InvSearchProductIDtbox.Name = "InvSearchProductIDtbox";
+            this.InvSearchProductIDtbox.Size = new System.Drawing.Size(100, 20);
+            this.InvSearchProductIDtbox.TabIndex = 1;
+            // 
+            // InvSearchProductIDLabel
+            // 
+            this.InvSearchProductIDLabel.AutoSize = true;
+            this.InvSearchProductIDLabel.Location = new System.Drawing.Point(21, 28);
+            this.InvSearchProductIDLabel.Name = "InvSearchProductIDLabel";
+            this.InvSearchProductIDLabel.Size = new System.Drawing.Size(61, 13);
+            this.InvSearchProductIDLabel.TabIndex = 0;
+            this.InvSearchProductIDLabel.Text = "Product ID:";
+            // 
+            // ProductTab
+            // 
+            this.ProductTab.Controls.Add(this.ProdSearchPanel);
+            this.ProductTab.Controls.Add(this.groupBox1);
+            this.ProductTab.Location = new System.Drawing.Point(4, 22);
+            this.ProductTab.Name = "ProductTab";
+            this.ProductTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ProductTab.Size = new System.Drawing.Size(752, 461);
+            this.ProductTab.TabIndex = 2;
+            this.ProductTab.Text = "Products";
+            this.ProductTab.UseVisualStyleBackColor = true;
+            // 
+            // ProdSearchPanel
+            // 
+            this.ProdSearchPanel.Controls.Add(this.ProdSearchDetailsbtn);
+            this.ProdSearchPanel.Controls.Add(this.ProdSearchEditbtn);
+            this.ProdSearchPanel.Controls.Add(this.ProdSearchDeletebtn);
+            this.ProdSearchPanel.Controls.Add(this.ProdSearchGridView);
+            this.ProdSearchPanel.Location = new System.Drawing.Point(6, 166);
+            this.ProdSearchPanel.Name = "ProdSearchPanel";
+            this.ProdSearchPanel.Size = new System.Drawing.Size(740, 292);
+            this.ProdSearchPanel.TabIndex = 4;
+            this.ProdSearchPanel.Visible = false;
+            // 
+            // ProdSearchDetailsbtn
+            // 
+            this.ProdSearchDetailsbtn.Location = new System.Drawing.Point(663, 208);
+            this.ProdSearchDetailsbtn.Name = "ProdSearchDetailsbtn";
+            this.ProdSearchDetailsbtn.Size = new System.Drawing.Size(75, 23);
+            this.ProdSearchDetailsbtn.TabIndex = 3;
+            this.ProdSearchDetailsbtn.Text = "More Details";
+            this.ProdSearchDetailsbtn.UseVisualStyleBackColor = true;
+            this.ProdSearchDetailsbtn.Click += new System.EventHandler(this.ProdSearchDetailsbtn_Click);
+            // 
+            // ProdSearchEditbtn
+            // 
+            this.ProdSearchEditbtn.Location = new System.Drawing.Point(662, 237);
+            this.ProdSearchEditbtn.Name = "ProdSearchEditbtn";
+            this.ProdSearchEditbtn.Size = new System.Drawing.Size(75, 23);
+            this.ProdSearchEditbtn.TabIndex = 2;
+            this.ProdSearchEditbtn.Text = "Edit";
+            this.ProdSearchEditbtn.UseVisualStyleBackColor = true;
+            this.ProdSearchEditbtn.Click += new System.EventHandler(this.ProdSearchEditbtn_Click);
+            // 
+            // ProdSearchDeletebtn
+            // 
+            this.ProdSearchDeletebtn.Location = new System.Drawing.Point(662, 266);
+            this.ProdSearchDeletebtn.Name = "ProdSearchDeletebtn";
+            this.ProdSearchDeletebtn.Size = new System.Drawing.Size(75, 23);
+            this.ProdSearchDeletebtn.TabIndex = 1;
+            this.ProdSearchDeletebtn.Text = "Delete";
+            this.ProdSearchDeletebtn.UseVisualStyleBackColor = true;
+            this.ProdSearchDeletebtn.Click += new System.EventHandler(this.ProdSearchDeletebtn_Click);
+            // 
+            // ProdSearchGridView
+            // 
+            this.ProdSearchGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProdSearchGridView.Location = new System.Drawing.Point(14, 3);
+            this.ProdSearchGridView.Name = "ProdSearchGridView";
+            this.ProdSearchGridView.Size = new System.Drawing.Size(642, 286);
+            this.ProdSearchGridView.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -621,85 +642,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product Criteria";
             // 
-            // ProdPNumberLabel
+            // ProsSearchbtn
             // 
-            this.ProdPNumberLabel.AutoSize = true;
-            this.ProdPNumberLabel.Location = new System.Drawing.Point(21, 28);
-            this.ProdPNumberLabel.Name = "ProdPNumberLabel";
-            this.ProdPNumberLabel.Size = new System.Drawing.Size(87, 13);
-            this.ProdPNumberLabel.TabIndex = 0;
-            this.ProdPNumberLabel.Text = "Product Number:";
+            this.ProsSearchbtn.Location = new System.Drawing.Point(582, 115);
+            this.ProsSearchbtn.Name = "ProsSearchbtn";
+            this.ProsSearchbtn.Size = new System.Drawing.Size(75, 23);
+            this.ProsSearchbtn.TabIndex = 19;
+            this.ProsSearchbtn.Text = "Search";
+            this.ProsSearchbtn.UseVisualStyleBackColor = true;
+            this.ProsSearchbtn.Click += new System.EventHandler(this.ProsSearchbtn_Click);
             // 
-            // ProdPNumbertbox
+            // ProdClearbtn
             // 
-            this.ProdPNumbertbox.Location = new System.Drawing.Point(24, 44);
-            this.ProdPNumbertbox.Name = "ProdPNumbertbox";
-            this.ProdPNumbertbox.Size = new System.Drawing.Size(100, 20);
-            this.ProdPNumbertbox.TabIndex = 1;
-            // 
-            // ProdPNametbox
-            // 
-            this.ProdPNametbox.Location = new System.Drawing.Point(149, 44);
-            this.ProdPNametbox.Name = "ProdPNametbox";
-            this.ProdPNametbox.Size = new System.Drawing.Size(100, 20);
-            this.ProdPNametbox.TabIndex = 3;
-            // 
-            // ProdPNameLabel
-            // 
-            this.ProdPNameLabel.AutoSize = true;
-            this.ProdPNameLabel.Location = new System.Drawing.Point(146, 28);
-            this.ProdPNameLabel.Name = "ProdPNameLabel";
-            this.ProdPNameLabel.Size = new System.Drawing.Size(78, 13);
-            this.ProdPNameLabel.TabIndex = 2;
-            this.ProdPNameLabel.Text = "Product Name:";
-            // 
-            // ProdModelCodetbox
-            // 
-            this.ProdModelCodetbox.Location = new System.Drawing.Point(281, 44);
-            this.ProdModelCodetbox.Name = "ProdModelCodetbox";
-            this.ProdModelCodetbox.Size = new System.Drawing.Size(100, 20);
-            this.ProdModelCodetbox.TabIndex = 5;
-            // 
-            // ProdModelCodeLabel
-            // 
-            this.ProdModelCodeLabel.AutoSize = true;
-            this.ProdModelCodeLabel.Location = new System.Drawing.Point(278, 28);
-            this.ProdModelCodeLabel.Name = "ProdModelCodeLabel";
-            this.ProdModelCodeLabel.Size = new System.Drawing.Size(67, 13);
-            this.ProdModelCodeLabel.TabIndex = 4;
-            this.ProdModelCodeLabel.Text = "Model Code:";
-            // 
-            // ProdDTPtbox
-            // 
-            this.ProdDTPtbox.Location = new System.Drawing.Point(411, 44);
-            this.ProdDTPtbox.Name = "ProdDTPtbox";
-            this.ProdDTPtbox.Size = new System.Drawing.Size(100, 20);
-            this.ProdDTPtbox.TabIndex = 7;
-            // 
-            // ProdDTPLabel
-            // 
-            this.ProdDTPLabel.AutoSize = true;
-            this.ProdDTPLabel.Location = new System.Drawing.Point(408, 28);
-            this.ProdDTPLabel.Name = "ProdDTPLabel";
-            this.ProdDTPLabel.Size = new System.Drawing.Size(89, 13);
-            this.ProdDTPLabel.TabIndex = 6;
-            this.ProdDTPLabel.Text = "Days to Produce:";
-            // 
-            // ProdCTPtbox
-            // 
-            this.ProdCTPtbox.Location = new System.Drawing.Point(541, 44);
-            this.ProdCTPtbox.Name = "ProdCTPtbox";
-            this.ProdCTPtbox.Size = new System.Drawing.Size(100, 20);
-            this.ProdCTPtbox.TabIndex = 9;
-            // 
-            // ProdCTPLabel
-            // 
-            this.ProdCTPLabel.AutoSize = true;
-            this.ProdCTPLabel.Location = new System.Drawing.Point(538, 28);
-            this.ProdCTPLabel.Name = "ProdCTPLabel";
-            this.ProdCTPLabel.Size = new System.Drawing.Size(91, 13);
-            this.ProdCTPLabel.TabIndex = 8;
-            this.ProdCTPLabel.Text = "Costs to Produce:";
+            this.ProdClearbtn.Location = new System.Drawing.Point(582, 86);
+            this.ProdClearbtn.Name = "ProdClearbtn";
+            this.ProdClearbtn.Size = new System.Drawing.Size(75, 23);
+            this.ProdClearbtn.TabIndex = 18;
+            this.ProdClearbtn.Text = "Clear";
+            this.ProdClearbtn.UseVisualStyleBackColor = true;
+            this.ProdClearbtn.Click += new System.EventHandler(this.ProdClearbtn_Click);
             // 
             // textBox3
             // 
@@ -765,75 +726,135 @@
             this.ProdSSDLabel.TabIndex = 10;
             this.ProdSSDLabel.Text = "Start Sell Date:";
             // 
-            // ProdClearbtn
+            // ProdCTPtbox
             // 
-            this.ProdClearbtn.Location = new System.Drawing.Point(582, 86);
-            this.ProdClearbtn.Name = "ProdClearbtn";
-            this.ProdClearbtn.Size = new System.Drawing.Size(75, 23);
-            this.ProdClearbtn.TabIndex = 18;
-            this.ProdClearbtn.Text = "Clear";
-            this.ProdClearbtn.UseVisualStyleBackColor = true;
-            this.ProdClearbtn.Click += new System.EventHandler(this.ProdClearbtn_Click);
+            this.ProdCTPtbox.Location = new System.Drawing.Point(541, 44);
+            this.ProdCTPtbox.Name = "ProdCTPtbox";
+            this.ProdCTPtbox.Size = new System.Drawing.Size(100, 20);
+            this.ProdCTPtbox.TabIndex = 9;
             // 
-            // ProsSearchbtn
+            // ProdCTPLabel
             // 
-            this.ProsSearchbtn.Location = new System.Drawing.Point(582, 115);
-            this.ProsSearchbtn.Name = "ProsSearchbtn";
-            this.ProsSearchbtn.Size = new System.Drawing.Size(75, 23);
-            this.ProsSearchbtn.TabIndex = 19;
-            this.ProsSearchbtn.Text = "Search";
-            this.ProsSearchbtn.UseVisualStyleBackColor = true;
-            this.ProsSearchbtn.Click += new System.EventHandler(this.ProsSearchbtn_Click);
+            this.ProdCTPLabel.AutoSize = true;
+            this.ProdCTPLabel.Location = new System.Drawing.Point(538, 28);
+            this.ProdCTPLabel.Name = "ProdCTPLabel";
+            this.ProdCTPLabel.Size = new System.Drawing.Size(91, 13);
+            this.ProdCTPLabel.TabIndex = 8;
+            this.ProdCTPLabel.Text = "Costs to Produce:";
             // 
-            // ProdSearchPanel
+            // ProdDTPtbox
             // 
-            this.ProdSearchPanel.Controls.Add(this.ProdSearchDetailsbtn);
-            this.ProdSearchPanel.Controls.Add(this.ProdSearchEditbtn);
-            this.ProdSearchPanel.Controls.Add(this.ProdSearchDeletebtn);
-            this.ProdSearchPanel.Controls.Add(this.dataGridView2);
-            this.ProdSearchPanel.Location = new System.Drawing.Point(6, 166);
-            this.ProdSearchPanel.Name = "ProdSearchPanel";
-            this.ProdSearchPanel.Size = new System.Drawing.Size(740, 292);
-            this.ProdSearchPanel.TabIndex = 4;
-            this.ProdSearchPanel.Visible = false;
+            this.ProdDTPtbox.Location = new System.Drawing.Point(411, 44);
+            this.ProdDTPtbox.Name = "ProdDTPtbox";
+            this.ProdDTPtbox.Size = new System.Drawing.Size(100, 20);
+            this.ProdDTPtbox.TabIndex = 7;
             // 
-            // dataGridView2
+            // ProdDTPLabel
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(14, 3);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(642, 286);
-            this.dataGridView2.TabIndex = 0;
+            this.ProdDTPLabel.AutoSize = true;
+            this.ProdDTPLabel.Location = new System.Drawing.Point(408, 28);
+            this.ProdDTPLabel.Name = "ProdDTPLabel";
+            this.ProdDTPLabel.Size = new System.Drawing.Size(89, 13);
+            this.ProdDTPLabel.TabIndex = 6;
+            this.ProdDTPLabel.Text = "Days to Produce:";
             // 
-            // ProdSearchDeletebtn
+            // ProdModelCodetbox
             // 
-            this.ProdSearchDeletebtn.Location = new System.Drawing.Point(662, 266);
-            this.ProdSearchDeletebtn.Name = "ProdSearchDeletebtn";
-            this.ProdSearchDeletebtn.Size = new System.Drawing.Size(75, 23);
-            this.ProdSearchDeletebtn.TabIndex = 1;
-            this.ProdSearchDeletebtn.Text = "Delete";
-            this.ProdSearchDeletebtn.UseVisualStyleBackColor = true;
-            this.ProdSearchDeletebtn.Click += new System.EventHandler(this.ProdSearchDeletebtn_Click);
+            this.ProdModelCodetbox.Location = new System.Drawing.Point(281, 44);
+            this.ProdModelCodetbox.Name = "ProdModelCodetbox";
+            this.ProdModelCodetbox.Size = new System.Drawing.Size(100, 20);
+            this.ProdModelCodetbox.TabIndex = 5;
             // 
-            // ProdSearchEditbtn
+            // ProdModelCodeLabel
             // 
-            this.ProdSearchEditbtn.Location = new System.Drawing.Point(662, 237);
-            this.ProdSearchEditbtn.Name = "ProdSearchEditbtn";
-            this.ProdSearchEditbtn.Size = new System.Drawing.Size(75, 23);
-            this.ProdSearchEditbtn.TabIndex = 2;
-            this.ProdSearchEditbtn.Text = "Edit";
-            this.ProdSearchEditbtn.UseVisualStyleBackColor = true;
-            this.ProdSearchEditbtn.Click += new System.EventHandler(this.ProdSearchEditbtn_Click);
+            this.ProdModelCodeLabel.AutoSize = true;
+            this.ProdModelCodeLabel.Location = new System.Drawing.Point(278, 28);
+            this.ProdModelCodeLabel.Name = "ProdModelCodeLabel";
+            this.ProdModelCodeLabel.Size = new System.Drawing.Size(67, 13);
+            this.ProdModelCodeLabel.TabIndex = 4;
+            this.ProdModelCodeLabel.Text = "Model Code:";
             // 
-            // ProdSearchDetailsbtn
+            // ProdPNametbox
             // 
-            this.ProdSearchDetailsbtn.Location = new System.Drawing.Point(663, 208);
-            this.ProdSearchDetailsbtn.Name = "ProdSearchDetailsbtn";
-            this.ProdSearchDetailsbtn.Size = new System.Drawing.Size(75, 23);
-            this.ProdSearchDetailsbtn.TabIndex = 3;
-            this.ProdSearchDetailsbtn.Text = "More Details";
-            this.ProdSearchDetailsbtn.UseVisualStyleBackColor = true;
-            this.ProdSearchDetailsbtn.Click += new System.EventHandler(this.ProdSearchDetailsbtn_Click);
+            this.ProdPNametbox.Location = new System.Drawing.Point(149, 44);
+            this.ProdPNametbox.Name = "ProdPNametbox";
+            this.ProdPNametbox.Size = new System.Drawing.Size(100, 20);
+            this.ProdPNametbox.TabIndex = 3;
+            // 
+            // ProdPNameLabel
+            // 
+            this.ProdPNameLabel.AutoSize = true;
+            this.ProdPNameLabel.Location = new System.Drawing.Point(146, 28);
+            this.ProdPNameLabel.Name = "ProdPNameLabel";
+            this.ProdPNameLabel.Size = new System.Drawing.Size(78, 13);
+            this.ProdPNameLabel.TabIndex = 2;
+            this.ProdPNameLabel.Text = "Product Name:";
+            // 
+            // ProdPNumbertbox
+            // 
+            this.ProdPNumbertbox.Location = new System.Drawing.Point(24, 44);
+            this.ProdPNumbertbox.Name = "ProdPNumbertbox";
+            this.ProdPNumbertbox.Size = new System.Drawing.Size(100, 20);
+            this.ProdPNumbertbox.TabIndex = 1;
+            // 
+            // ProdPNumberLabel
+            // 
+            this.ProdPNumberLabel.AutoSize = true;
+            this.ProdPNumberLabel.Location = new System.Drawing.Point(21, 28);
+            this.ProdPNumberLabel.Name = "ProdPNumberLabel";
+            this.ProdPNumberLabel.Size = new System.Drawing.Size(87, 13);
+            this.ProdPNumberLabel.TabIndex = 0;
+            this.ProdPNumberLabel.Text = "Product Number:";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(752, 461);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Admin Page";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // WOSResultPanel
+            // 
+            this.WOSResultPanel.Controls.Add(this.WOSResultGridView);
+            this.WOSResultPanel.Location = new System.Drawing.Point(20, 275);
+            this.WOSResultPanel.Name = "WOSResultPanel";
+            this.WOSResultPanel.Size = new System.Drawing.Size(712, 180);
+            this.WOSResultPanel.TabIndex = 3;
+            this.WOSResultPanel.Visible = false;
+            // 
+            // WOSResultGridView
+            // 
+            this.WOSResultGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.WOSResultGridView.Location = new System.Drawing.Point(4, 4);
+            this.WOSResultGridView.Name = "WOSResultGridView";
+            this.WOSResultGridView.Size = new System.Drawing.Size(705, 173);
+            this.WOSResultGridView.TabIndex = 0;
+            // 
+            // WOIDtbox
+            // 
+            this.WOIDtbox.Location = new System.Drawing.Point(133, 28);
+            this.WOIDtbox.Name = "WOIDtbox";
+            this.WOIDtbox.Size = new System.Drawing.Size(109, 20);
+            this.WOIDtbox.TabIndex = 17;
+            // 
+            // WOIDLabel
+            // 
+            this.WOIDLabel.AutoSize = true;
+            this.WOIDLabel.Location = new System.Drawing.Point(45, 31);
+            this.WOIDLabel.Name = "WOIDLabel";
+            this.WOIDLabel.Size = new System.Drawing.Size(79, 13);
+            this.WOIDLabel.TabIndex = 16;
+            this.WOIDLabel.Text = "Work Order ID:";
+            // 
+            // WOProductNumtbox
+            // 
+            this.WOProductNumtbox.Location = new System.Drawing.Point(133, 181);
+            this.WOProductNumtbox.Name = "WOProductNumtbox";
+            this.WOProductNumtbox.Size = new System.Drawing.Size(109, 20);
+            this.WOProductNumtbox.TabIndex = 18;
             // 
             // MainForm
             // 
@@ -843,7 +864,6 @@
             this.Controls.Add(this.MainFormTabControl);
             this.Name = "MainForm";
             this.Text = "AdventureWorks - Production";
-            this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.MainFormTabControl.ResumeLayout(false);
             this.WorkOrderTab.ResumeLayout(false);
             this.WOCreatePanel.ResumeLayout(false);
@@ -852,15 +872,17 @@
             this.WOCriteriaGroup.PerformLayout();
             this.WOOptionsGroup.ResumeLayout(false);
             this.InventoryTab.ResumeLayout(false);
-            this.ProductTab.ResumeLayout(false);
+            this.InvSearchPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.InvSearchGridView)).EndInit();
             this.InvSearchGroup.ResumeLayout(false);
             this.InvSearchGroup.PerformLayout();
-            this.InvSearchPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ProductTab.ResumeLayout(false);
+            this.ProdSearchPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ProdSearchGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.ProdSearchPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.WOSResultPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.WOSResultGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -873,28 +895,25 @@
         private System.Windows.Forms.Button WOCCreatebtn;
         private System.Windows.Forms.Button WOCClearbtn;
         private System.Windows.Forms.GroupBox WOCriteriaGroup;
-        private System.Windows.Forms.Label BillOfMaterialLabel;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.ComboBox WOCProductIDddlist;
-        private System.Windows.Forms.Label WOCEmpIDLabel;
-        private System.Windows.Forms.TextBox WOCEmpIDtbox;
-        private System.Windows.Forms.Label WOCProductIDLabel;
-        private System.Windows.Forms.Label WOCEmpNameLabel;
-        private System.Windows.Forms.TextBox WOCDatetbox;
-        private System.Windows.Forms.TextBox WOCEmpNametbox;
-        private System.Windows.Forms.Label WOCDateLabel;
-        private System.Windows.Forms.Label WOCDeptHeadLabel;
-        private System.Windows.Forms.TextBox WOCDeptHeadtbox;
+        private System.Windows.Forms.Label WOMaterialLabel;
+        private System.Windows.Forms.RichTextBox WOMaterialtbox;
+        private System.Windows.Forms.Label WOEmpIDLabel;
+        private System.Windows.Forms.TextBox WOEmpIDtbox;
+        private System.Windows.Forms.Label WOProductNumLabel;
+        private System.Windows.Forms.TextBox WODatetbox;
+        private System.Windows.Forms.Label WODateLabel;
+        private System.Windows.Forms.Label WODeptHeadLabel;
+        private System.Windows.Forms.TextBox WODeptHeadtbox;
         private System.Windows.Forms.GroupBox WOOptionsGroup;
         private System.Windows.Forms.Button SearchWorkOrderbtn;
         private System.Windows.Forms.Button CreateWorkOrderbtn;
         private System.Windows.Forms.TabPage InventoryTab;
         private System.Windows.Forms.TabPage ProductTab;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label WOPEDLabel;
+        private System.Windows.Forms.TextBox WOPEDatetbox;
+        private System.Windows.Forms.Label WOPSDLabel;
+        private System.Windows.Forms.TextBox WOPSDatetbox;
         private System.Windows.Forms.Panel WOSbtnPanel;
         private System.Windows.Forms.Button WOSSearchbtn;
         private System.Windows.Forms.GroupBox InvSearchGroup;
@@ -913,7 +932,7 @@
         private System.Windows.Forms.Button InvSearchbtn;
         private System.Windows.Forms.Button InvSearchClearbtn;
         private System.Windows.Forms.Panel InvSearchPanel;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView InvSearchGridView;
         private System.Windows.Forms.Button InvSearchDeletebtn;
         private System.Windows.Forms.Button InvSearchEditbtn;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -939,9 +958,14 @@
         private System.Windows.Forms.Button ProdClearbtn;
         private System.Windows.Forms.Panel ProdSearchPanel;
         private System.Windows.Forms.Button ProdSearchDeletebtn;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView ProdSearchGridView;
         private System.Windows.Forms.Button ProdSearchDetailsbtn;
         private System.Windows.Forms.Button ProdSearchEditbtn;
+        private System.Windows.Forms.Panel WOSResultPanel;
+        private System.Windows.Forms.DataGridView WOSResultGridView;
+        private System.Windows.Forms.TextBox WOIDtbox;
+        private System.Windows.Forms.Label WOIDLabel;
+        private System.Windows.Forms.TextBox WOProductNumtbox;
     }
 }
 

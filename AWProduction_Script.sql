@@ -5,11 +5,13 @@
 USE master;
 GO
 
-IF  DB_ID('AWProduction') IS NOT NULL
-DROP DATABASE AWProduction;
-GO
+IF exists (SELECT * FROM sysdatabases WHERE name='AWProduction')
+BEGIN
+  raiserror('Dropping existing AWProduction database ....',0,1)
+  DROP DATABASE AWProduction
+END
 
-CREATE DATABASE AWProduction;
+CREATE DATABASE AWProduction
 GO
 
 USE AWProduction;
@@ -20,11 +22,10 @@ USE AWProduction;
 --DEPARTMENT--
 CREATE TABLE [DEPARTMENT]
 ( 
-	[DepartmentID]       integer  NOT NULL ,
+	[DepartmentID]       integer  IDENTITY(1,1) ,
 	[DepartmentName]     varchar(100)  NOT NULL ,
 	[DepartmentHead]     varchar(100)  NOT NULL ,
-	[Rowguid]            uniqueidentifier NOT NULL ,
-	[DateModified]       datetime2 NOT NULL  DEFAULT (SYSDATETIME())
+	[DateModified]       datetime NOT NULL  DEFAULT (SYSDATETIME())
 )
 go
 
@@ -32,19 +33,18 @@ ALTER TABLE [DEPARTMENT]
 	ADD CONSTRAINT [XPKDEPARTMENT] PRIMARY KEY  CLUSTERED ([DepartmentID] ASC)
 go
 
-INSERT INTO [DEPARTMENT] ([DepartmentID], [DepartmentName], [DepartmentHead], [Rowguid] ) VALUES
-(1001, 'DeptAlpha',	'John Smith', NEWID()),
-(1002, 'DeptBeta',		'Sheri Brown', NEWID()),
-(1003, 'DeptCharlie',	'Ken Johnson',NEWID());
+INSERT INTO [DEPARTMENT] ([DepartmentName], [DepartmentHead] ) VALUES
+('DeptAlpha',	'John Smith'),
+('DeptBeta',	'Sheri Brown'),
+('DeptCharlie',	'Ken Johnson');
 
 
 --EMPLOYEE--
 CREATE TABLE [EMPLOYEE]
 ( 
-	[EmployeeID]         integer  NOT NULL ,
+	[EmployeeID]         integer  IDENTITY(1,1) ,
 	[EmployeeName]       varchar(100)  NOT NULL ,
 	[DepartmentID]       integer  NOT NULL ,
-	[Rowguid]            uniqueidentifier  NOT NULL ,
 	[DateModified]       datetime2 NOT NULL  DEFAULT (SYSDATETIME())
 )
 go
@@ -53,16 +53,16 @@ ALTER TABLE [EMPLOYEE]
 	ADD CONSTRAINT [XPKEMPLOYEE] PRIMARY KEY  CLUSTERED ([EmployeeID] ASC)
 go
 
-INSERT INTO [EMPLOYEE] ([EmployeeID], [EmployeeName], [DepartmentID], [Rowguid] ) VALUES
-(703, 'Bob One', 1001,  NEWID()),
-(705, 'bob Two', 1001, NEWID()),
-(706, 'bob Three', 1003 ,NEWID());
+INSERT INTO [EMPLOYEE] ([EmployeeName], [DepartmentID] ) VALUES
+('Bob One', 1),
+('bob Two', 2),
+('bob Three', 3 );
 
 
 --PASSWORD--
 CREATE TABLE [PASSWORD]
 ( 
-	[PasswordID]         integer  NOT NULL ,
+	[PasswordID]         integer  IDENTITY(1,1) ,
 	[Password]           nvarchar(100)  NOT NULL ,
 	[PasswordSalt]       nvarchar(100) NOT NULL ,
 	[PasswordHash]       nvarchar(100)  NOT NULL 
@@ -73,10 +73,10 @@ ALTER TABLE [PASSWORD]
 	ADD CONSTRAINT [XPKPASSWORD] PRIMARY KEY  CLUSTERED ([PasswordID] ASC)
 go
 
-INSERT INTO [PASSWORD] ([PasswordID], [Password], [PasswordSalt], [PasswordHash] ) VALUES
-(1, 'password1', 'ksnfoowfnnslfjow30smdow03', 'invowo32'),
-(2, 'password2', '93nfowuti33ifhie9rnov939h', 'oieif'),
-(3, 'password3', 'nf93ubgj3i84btir983bi3fvv', 'i3jfi3bcvdi');
+INSERT INTO [PASSWORD] ([Password], [PasswordSalt], [PasswordHash] ) VALUES
+('password1', 'ksnfoowfnnslfjow30smdow03', 'invowo32'),
+('password2', '93nfowuti33ifhie9rnov939h', 'oieif'),
+('password3', 'nf93ubgj3i84btir983bi3fvv', 'i3jfi3bcvdi');
 
 
 --EMPLOYEE ACCOUNT--
@@ -87,8 +87,7 @@ CREATE TABLE [EMPLOYEE_ACCOUNT]
 	[Email]              nvarchar(100)  NOT NULL ,
 	[PasswordID]         integer  NOT NULL ,
 	[StatusRights]       varchar(10)  NOT NULL ,
-	[Rowguid]            uniqueidentifier  NOT NULL ,
-	[DateModified]       datetime2 NOT NULL  DEFAULT (SYSDATETIME())
+	[DateModified]       datetime NOT NULL  DEFAULT (SYSDATETIME())
 )
 go
 
@@ -96,22 +95,21 @@ ALTER TABLE [EMPLOYEE_ACCOUNT]
 	ADD CONSTRAINT [XPKEMPLOYEE_ACCOUNT] PRIMARY KEY  CLUSTERED ([EmployeeID] ASC)
 go
 
-INSERT INTO [EMPLOYEE_ACCOUNT] ([EmployeeID], [Username], [Email], [PasswordID], [StatusRights], [Rowguid] ) VALUES
-(703, 'BobOne@company', 'BobOne@company.gmail.com', 1, 'Admin',  NEWID()),
-(705, 'bobtwo@company', 'bobTwo@company.gmail.com', 2, 'Edit', NEWID()),
-(706, 'bobthree@company', 'bobThree@company.gmail.com', 3, 'View', NEWID());
+INSERT INTO [EMPLOYEE_ACCOUNT] ([EmployeeID], [Username], [Email], [PasswordID], [StatusRights] ) VALUES
+(1, 'BobOne@company', 'BobOne@company.gmail.com', 1, 'Admin'),
+(2, 'bobtwo@company', 'bobTwo@company.gmail.com', 2, 'Edit'),
+(3, 'bobthree@company', 'bobThree@company.gmail.com', 3, 'View');
 
 
 --PRIDUCT MODEL--
 CREATE TABLE [PRODUCT_MODEL]
 ( 
-	[ModelCode]          nvarchar(100)  NOT NULL ,
+	[ModelCode]          nvarchar(100) NOT NULL ,
 	[ModelName]          varchar(100)  NOT NULL ,
 	[SizeCode]           nvarchar(100)  NOT NULL ,
 	[WeightCode]         nvarchar(100)  NOT NULL ,
 	[Description]        nvarchar(150)  NULL ,
-	[Rowguid]            uniqueidentifier  NOT NULL ,
-	[DateModified]       datetime2 NOT NULL  DEFAULT (SYSDATETIME())
+	[DateModified]       datetime NOT NULL  DEFAULT (SYSDATETIME())
 )
 go
 
@@ -119,23 +117,22 @@ ALTER TABLE [PRODUCT_MODEL]
 	ADD CONSTRAINT [XPKPRODUCT_MODEL] PRIMARY KEY  CLUSTERED ([ModelCode] ASC)
 go
 
-INSERT INTO [PRODUCT_MODEL] ([ModelCode], [ModelName], [SizeCode], [WeightCode], [Description], [Rowguid] ) VALUES
-('M-34', 'ModelOne', 4050, 5860, 'Model One Description',  NEWID()),
-('M-35', 'ModelTwo', 4080, 5865, 'Model Two Description', NEWID()),
-('M-36' , 'ModelThree', 4020, 5000, 'Model Three Description', NEWID());
+INSERT INTO [PRODUCT_MODEL] ([ModelCode], [ModelName], [SizeCode], [WeightCode], [Description]) VALUES
+('M-34', 'ModelOne', 4050, 5860, 'Model One Description'),
+('M-35', 'ModelTwo', 4080, 5865, 'Model Two Description'),
+('M-36' , 'ModelThree', 4020, 5000, 'Model Three Description');
 
 
 --SPECS--
 CREATE TABLE [MODEL_SPECS]
 ( 
-	[ModelCode]          nvarchar(100)  NOT NULL ,
+	[ModelCode]          nvarchar(100) NOT NULL ,
 	[Color]              varchar(100)  NULL ,
 	[Class]              varchar(100)  NULL ,
 	[Style]              varchar(100)  NULL ,
 	[Weight]             nvarchar(100)  NULL ,
 	[Size]               nvarchar(100)  NULL ,
-	[Rowguid]            uniqueidentifier  NOT NULL ,
-	[DateModified]       datetime2 NOT NULL  DEFAULT (SYSDATETIME())
+	[DateModified]       datetime NOT NULL  DEFAULT (SYSDATETIME())
 )
 go
 
@@ -143,20 +140,19 @@ ALTER TABLE [MODEL_SPECS]
 	ADD CONSTRAINT [XPKMODEL_SPECS] PRIMARY KEY  CLUSTERED ([ModelCode] ASC)
 go
 
-INSERT INTO [MODEL_SPECS] ([ModelCode], [Color], [Class], [Style], [Weight], [Size], [Rowguid] ) VALUES
-('M-34', 'Silver', 'ClassB', 'Fluted', 400, 100,  NEWID()),
-('M-35', 'Black', 'ClassB', 'Standard', 375, 120, NEWID()),
-('M-36', 'Green', 'ClassG', 'Round', 270, 60, NEWID());
+INSERT INTO [MODEL_SPECS] ([ModelCode], [Color], [Class], [Style], [Weight], [Size] ) VALUES
+('M-34', 'Silver', 'ClassB', 'Fluted', 400, 100),
+('M-35', 'Black', 'ClassB', 'Standard', 375, 120),
+('M-36', 'Green', 'ClassG', 'Round', 270, 60);
 
 
 --LOCATION--
 CREATE TABLE [LOCATION]
 ( 
-	[LocationID]         integer  NOT NULL ,
+	[LocationID]         integer  IDENTITY(1,1) ,
 	[Name]               varchar(100)  NOT NULL ,
 	[Capacity]           integer  NOT NULL ,
-	[Rowguid]            uniqueidentifier  NOT NULL ,
-	[DateModified]       datetime2 NOT NULL  DEFAULT (SYSDATETIME())
+	[DateModified]       datetime NOT NULL  DEFAULT (SYSDATETIME())
 )
 go
 
@@ -164,16 +160,16 @@ ALTER TABLE [LOCATION]
 	ADD CONSTRAINT [XPKLOCATION] PRIMARY KEY  CLUSTERED ([LocationID] ASC)
 go
 
-INSERT INTO [LOCATION] ([LocationID], [Name], [Capacity], [Rowguid] ) VALUES
-(11, 'LocationAlpha', 100000, NEWID()),
-(12, 'LocationBeta', 20000, NEWID()),
-(13, 'LocationCharlie', 20000, NEWID());
+INSERT INTO [LOCATION] ([Name], [Capacity] ) VALUES
+('LocationAlpha', 100000),
+('LocationBeta', 20000),
+('LocationCharlie', 20000);
 
 
 --PROCUCTS--
 CREATE TABLE [PRODUCT]
 ( 
-	[ProductNumber]      nvarchar(100)  NOT NULL ,
+	[ProductNumber]      nvarchar(100) NOT NULL ,
 	[Name]               varchar(100)  NOT NULL ,
 	[ModelCode]          nvarchar(100)  NOT NULL ,
 	[DaysToProduce]      integer  NOT NULL ,
@@ -181,8 +177,7 @@ CREATE TABLE [PRODUCT]
 	[StartSellDate]      datetime  NOT NULL ,
 	[EndSellDate]        datetime  NULL ,
 	[DiscountinuedDate]  datetime  NULL ,
-	[Rowguid]            uniqueidentifier  NOT NULL ,
-	[DateModified]       datetime2 NOT NULL  DEFAULT (SYSDATETIME())
+	[DateModified]       datetime NOT NULL  DEFAULT (SYSDATETIME())
 )
 go
 
@@ -190,24 +185,23 @@ ALTER TABLE [PRODUCT]
 	ADD CONSTRAINT [XPKPRODUCT] PRIMARY KEY  CLUSTERED ([ProductNumber] ASC)
 go
 
-INSERT INTO [PRODUCT] ([ProductNumber], [Name], [ModelCode], [DaysToProduce], [CostToProduce], [StartSellDate], [EndSellDate], [DiscountinuedDate], [Rowguid] ) VALUES
-('CD-2323', 'Bearing', 'M-35', 15, 100.00, '2016-10-14 00:00:00.000', null, '2017-10-14 00:00:00.000', NEWID()),
-('AR-5381', 'Adjustable Race', 'M-34', 21, 150.00, '2017-10-14 00:00:00.000', null, null, NEWID()),
-('BA-8327', 'Bearing Ball', 'M-35', 45, 250.00, '2017-10-14 00:00:00.000', null, null, NEWID()),
-('BE-2349', 'BB Ball Bearing', 'M-36', 30, 200.00, '2017-10-14 00:00:00.000', null, null, NEWID());
+INSERT INTO [PRODUCT] ([ProductNumber], [Name], [ModelCode], [DaysToProduce], [CostToProduce], [StartSellDate], [EndSellDate], [DiscountinuedDate] ) VALUES
+('CD-2323', 'Bearing', 'M-35', 15, 100.00, '2016-10-14 00:00:00.000', null, '2017-10-14 00:00:00.000'),
+('AR-5381', 'Adjustable Race', 'M-34', 21, 150.00, '2017-10-14 00:00:00.000', null, null),
+('BA-8327', 'Bearing Ball', 'M-35', 45, 250.00, '2017-10-14 00:00:00.000', null, null),
+('BE-2349', 'BB Ball Bearing', 'M-36', 30, 200.00, '2017-10-14 00:00:00.000', null, null);
 
 
 --INVENTORY--
 CREATE TABLE [INVENTORY]
 ( 
-	[InventoryID]        integer  NOT NULL ,
+	[InventoryID]        integer  IDENTITY(1,1)  ,
 	[ProductNumber]      nvarchar(100)  NOT NULL ,
 	[LocationID]         integer  NOT NULL ,
 	[ListPrice]          money  NOT NULL ,
 	[Quantity]           integer  NOT NULL ,
 	[Shelf]              char(3)  NULL ,
-	[Rowguid]            uniqueidentifier  NOT NULL ,
-	[DateModified]       datetime2 NOT NULL  DEFAULT (SYSDATETIME())
+	[DateModified]       datetime NOT NULL  DEFAULT (SYSDATETIME())
 )
 go
 
@@ -215,16 +209,16 @@ ALTER TABLE [INVENTORY]
 	ADD CONSTRAINT [XPKINVENTORY] PRIMARY KEY  CLUSTERED ([InventoryID] ASC)
 go
 
-INSERT INTO [INVENTORY] ([InventoryID], [ProductNumber], [LocationID], [ListPrice], [Quantity], [Shelf], [Rowguid] ) VALUES
-(0001, 'AR-5381', 11, 200.00, 150, 'AR',  NEWID()),
-(0002, 'BA-8327', 11, 300.00, 100, 'BA', NEWID()),
-(0003, 'BE-2349', 11, 250.00, 100, 'BE', NEWID());
+INSERT INTO [INVENTORY] ([ProductNumber], [LocationID], [ListPrice], [Quantity], [Shelf] ) VALUES
+('AR-5381', 1, 200.00, 150, 'AR'),
+('BA-8327', 1, 300.00, 100, 'BA'),
+('BE-2349', 1, 250.00, 100, 'BE');
 
 
 --WORK ORDER--
 CREATE TABLE [WORK_ORDER]
 ( 
-	[WorkOrderID]        integer  NOT NULL ,
+	[WorkOrderID]        integer  IDENTITY(1,1) ,
 	[WorkOrderDate]      datetime  NOT NULL ,
 	[EmployeeID]         integer  NOT NULL ,
 	[DepartmentHead]     varchar(100)  NOT NULL ,
@@ -232,8 +226,7 @@ CREATE TABLE [WORK_ORDER]
 	[MaterialList]       nvarchar(200)  NOT NULL ,
 	[StartDate]          datetime  NOT NULL ,
 	[CompletionDate]     datetime  NOT NULL ,
-	[Rowguid]            uniqueidentifier  NOT NULL ,
-	[DateModified]       datetime2 NOT NULL  DEFAULT (SYSDATETIME())
+	[DateModified]       datetime NOT NULL  DEFAULT (SYSDATETIME())
 )
 go
 
@@ -241,21 +234,20 @@ ALTER TABLE [WORK_ORDER]
 	ADD CONSTRAINT [XPKWORK_ORDER] PRIMARY KEY  CLUSTERED ([WorkOrderID] ASC)
 go
 
-INSERT INTO [WORK_ORDER] ([WorkOrderID], [WorkOrderDate], [EmployeeID], [DepartmentHead], [ProductNumber], [MaterialList], [StartDate], [CompletionDate], [Rowguid] ) VALUES
-(1101, '2017-10-14 00:00:00.000', 703, 'John Smith', 'AR-5381', 'Steel, nuts, bolts', '2017-9-14 00:00:00.000', '2017-11-14 00:00:00.000', NEWID()),
-(1102, '2017-10-14 00:00:00.000', 703, 'John Smith', 'BA-8327', 'Steel, steel balls', '2017-9-14 00:00:00.000', '2017-11-14 00:00:00.000', NEWID()),
-(1103, '2017-10-14 00:00:00.000', 705, 'John Smith', 'BE-2349', 'Steel, steel balls', '2017-9-14 00:00:00.000', '2017-11-14 00:00:00.000', NEWID());
+INSERT INTO [WORK_ORDER] ([WorkOrderDate], [EmployeeID], [DepartmentHead], [ProductNumber], [MaterialList], [StartDate], [CompletionDate] ) VALUES
+('2017-10-14 00:00:00.000', 1, 'John Smith', 'AR-5381', 'Steel, nuts, bolts', '2017-9-14 00:00:00.000', '2017-11-14 00:00:00.000'),
+('2017-10-14 00:00:00.000', 1, 'John Smith', 'BA-8327', 'Steel, steel balls', '2017-9-14 00:00:00.000', '2017-11-14 00:00:00.000'),
+('2017-10-14 00:00:00.000', 3, 'John Smith', 'BE-2349', 'Steel, steel balls', '2017-9-14 00:00:00.000', '2017-11-14 00:00:00.000');
 
 
 --HISTORY--
 CREATE TABLE [LISTPRICE_HISTORY]
 ( 
-	[InventoryID]        integer  NOT NULL ,
+	[InventoryID]        integer NOT NULL,
 	[ListPrice]          money  NULL ,
 	[StartDate]          datetime  NULL ,
 	[EndDate]            datetime  NULL ,
-	[Rowguid]            uniqueidentifier  NOT NULL ,
-	[DateModified]       datetime2 NOT NULL  DEFAULT (SYSDATETIME())
+	[DateModified]       datetime NOT NULL  DEFAULT (SYSDATETIME())
 )
 go
 
@@ -263,22 +255,21 @@ ALTER TABLE [LISTPRICE_HISTORY]
 	ADD CONSTRAINT [XPKLISTPRICE_HISTORY] PRIMARY KEY  CLUSTERED ([InventoryID] ASC)
 go
 
-INSERT INTO [LISTPRICE_HISTORY] ([InventoryID], [ListPrice], [StartDate], [EndDate], [Rowguid] ) VALUES
-(0001, 200.00, '2017-10-14 00:00:00.000', null, NEWID()),
-(0002, 300.00, '2017-10-14 00:00:00.000', null, NEWID()),
-(0003, 250.00, '2017-10-14 00:00:00.000', null, NEWID());
+INSERT INTO [LISTPRICE_HISTORY] ([InventoryID], [ListPrice], [StartDate], [EndDate] ) VALUES
+(1, 200.00, '2017-10-14 00:00:00.000', null),
+(2, 300.00, '2017-10-14 00:00:00.000', null),
+(3, 250.00, '2017-10-14 00:00:00.000', null);
 
 
 --ARCHIVE--
 CREATE TABLE [PRODUCT_ARCHIVE]
 ( 
-	[ArchiveID]          integer  NOT NULL ,
+	[ArchiveID]          integer  IDENTITY(1,1) ,
 	[ProductNumber]      nvarchar(100)  NOT NULL ,
 	[LocationID]         integer  NOT NULL ,
 	[ArchiveDate]        datetime  NULL ,
 	[Quantity]           integer  NULL ,
-	[RowGuid]            uniqueidentifier  NOT NULL ,
-	[DateModified]       datetime2 NOT NULL  DEFAULT (SYSDATETIME())
+	[DateModified]       datetime NOT NULL  DEFAULT (SYSDATETIME())
 )
 go
 
@@ -286,8 +277,8 @@ ALTER TABLE [PRODUCT_ARCHIVE]
 	ADD CONSTRAINT [XPKPRODUCT_ARCHIVE] PRIMARY KEY  CLUSTERED ([ArchiveID] ASC)
 go
 
-INSERT INTO [PRODUCT_ARCHIVE] ([ArchiveID], [ProductNumber], [LocationID], [ArchiveDate], [Quantity], [Rowguid] ) VALUES
-(9001, 'CD-2323', 13, null, 50, NEWID());
+INSERT INTO [PRODUCT_ARCHIVE] ([ProductNumber], [LocationID], [ArchiveDate], [Quantity] ) VALUES
+('CD-2323', 3, null, 50);
 
 ALTER TABLE [EMPLOYEE]
 	ADD CONSTRAINT [R_23] FOREIGN KEY ([DepartmentID]) REFERENCES [DEPARTMENT]([DepartmentID])
