@@ -56,8 +56,8 @@ namespace AWProduction_Application
             //Create btn event
 
             //push information to the database
-            string command = "INSERT INTO WORK_ORDER ([WorkOrderDate], [EmployeeID], [DepartmentHead], [ProductNumber], [MaterialList], [StartDate], [CompletionDate]) VALUES " +
-                             "( "+ "'" + Convert.ToDateTime(WODatetbox.Text) + "'" + ", " + "'" + WOEmpIDtbox.Text + "'" + ", " + "'" + WODeptHeadtbox.Text + "'" + ", " + "'" + WOProductNumtbox.Text + "'" + ", " + "'" + WOMaterialtbox.Text + "'" + ", " + "'" + Convert.ToDateTime(WOPSDatetbox.Text) + "'" + ", " + "'" + Convert.ToDateTime(WOPEDatetbox.Text) + "'" + " )";
+            string command = "INSERT INTO WORK_ORDER ([WorkOrderDate], [EmployeeID], [DepartmentHead], [ProductNumber], [Quantity], [MaterialList], [StartDate], [CompletionDate]) VALUES " +
+                             "( "+ "'" + Convert.ToDateTime(WODatetbox.Text) + "'" + ", " + "'" + WOEmpIDtbox.Text + "'" + ", " + "'" + WODeptHeadtbox.Text + "'" + ", " + "'" + WOProductNumtbox.Text + "'" + ", " + "'" + WOQuantitytbox.Text + "'" + ", " + "'" + WOMaterialtbox.Text + "'" + ", " + "'" + Convert.ToDateTime(WOPSDatetbox.Text) + "'" + ", " + "'" + Convert.ToDateTime(WOPEDatetbox.Text) + "'" + " )";
             //Connets to the database using the connection string from the connection page
             using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
             {
@@ -118,7 +118,7 @@ namespace AWProduction_Application
             MessageBox.Show("Searching results...");
 
             //Begin building the SQL command to view the publishers 
-            string command = "SELECT WorkOrderID, WorkOrderDate, EmployeeID, DepartmentHead, ProductNumber, MaterialList, StartDate, CompletionDate FROM WORK_ORDER";
+            string command = "SELECT WorkOrderID, WorkOrderDate, EmployeeID, DepartmentHead, ProductNumber, Quantity, MaterialList, StartDate, CompletionDate FROM WORK_ORDER";
             bool addWhere = false;
             string checks = "";
             //Construct the where statement based on user 
@@ -161,6 +161,15 @@ namespace AWProduction_Application
                     checks = checks + " AND ";
                 }
                 checks = checks + "ProductNumber = " + "'" + WOProductNumtbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(WOQuantitytbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " AND ";
+                }
+                checks = checks + "Quantity = " + "'" + WOQuantitytbox.Text + "'" + " ";
                 addWhere = true;
             }
             if (!string.IsNullOrWhiteSpace(WOMaterialtbox.Text))

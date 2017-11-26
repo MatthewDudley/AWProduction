@@ -29,7 +29,7 @@ namespace AWProduction_Application
             //Creates a connection string based on the server name and assigns it to the ConnectionString static variable
             ConnectionString = "Server = " + serverName + ";" + "database = AWProduction;" + "Trusted_Connection = yes;";
 
-            MessageBox.Show("Connecting to: " + ConnectionString);
+            //MessageBox.Show("Connecting to: " + ConnectionString);
 
             //show login information
             LoginPanel.Visible = true;
@@ -40,7 +40,7 @@ namespace AWProduction_Application
         {
             if (Login(Usernametbox.Text.Trim(), Passwordtbox.Text.Trim()))
             {
-                MessageBox.Show("Login Successfully!!");
+                //MessageBox.Show("Login Successfully!!");
 
                 this.Hide();
                 new MainForm().Show();

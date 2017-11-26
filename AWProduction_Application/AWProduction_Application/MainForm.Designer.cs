@@ -105,11 +105,13 @@
             this.ProdPNumbertbox = new System.Windows.Forms.TextBox();
             this.ProdPNumberLabel = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.Admintbox = new System.Windows.Forms.RichTextBox();
             this.AdminDGV = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Execute = new System.Windows.Forms.Button();
+            this.Admintbox = new System.Windows.Forms.RichTextBox();
+            this.WOQuantityLabel = new System.Windows.Forms.Label();
+            this.WOQuantitytbox = new System.Windows.Forms.TextBox();
             this.MainFormTabControl.SuspendLayout();
             this.WorkOrderTab.SuspendLayout();
             this.WOSResultPanel.SuspendLayout();
@@ -127,9 +129,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ProdSearchGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdminDGV)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainFormTabControl
@@ -185,6 +187,8 @@
             // 
             // WOCriteriaGroup
             // 
+            this.WOCriteriaGroup.Controls.Add(this.WOQuantityLabel);
+            this.WOCriteriaGroup.Controls.Add(this.WOQuantitytbox);
             this.WOCriteriaGroup.Controls.Add(this.WOProductNumtbox);
             this.WOCriteriaGroup.Controls.Add(this.WOIDtbox);
             this.WOCriteriaGroup.Controls.Add(this.WOIDLabel);
@@ -237,7 +241,7 @@
             // WOPEDLabel
             // 
             this.WOPEDLabel.AutoSize = true;
-            this.WOPEDLabel.Location = new System.Drawing.Point(261, 75);
+            this.WOPEDLabel.Location = new System.Drawing.Point(261, 109);
             this.WOPEDLabel.Name = "WOPEDLabel";
             this.WOPEDLabel.Size = new System.Drawing.Size(109, 13);
             this.WOPEDLabel.TabIndex = 15;
@@ -264,7 +268,7 @@
             // 
             // WOPEDatetbox
             // 
-            this.WOPEDatetbox.Location = new System.Drawing.Point(376, 72);
+            this.WOPEDatetbox.Location = new System.Drawing.Point(376, 106);
             this.WOPEDatetbox.Name = "WOPEDatetbox";
             this.WOPEDatetbox.Size = new System.Drawing.Size(128, 20);
             this.WOPEDatetbox.TabIndex = 12;
@@ -292,7 +296,7 @@
             // WOPSDLabel
             // 
             this.WOPSDLabel.AutoSize = true;
-            this.WOPSDLabel.Location = new System.Drawing.Point(255, 34);
+            this.WOPSDLabel.Location = new System.Drawing.Point(258, 68);
             this.WOPSDLabel.Name = "WOPSDLabel";
             this.WOPSDLabel.Size = new System.Drawing.Size(112, 13);
             this.WOPSDLabel.TabIndex = 13;
@@ -300,7 +304,7 @@
             // 
             // WOPSDatetbox
             // 
-            this.WOPSDatetbox.Location = new System.Drawing.Point(376, 31);
+            this.WOPSDatetbox.Location = new System.Drawing.Point(376, 65);
             this.WOPSDatetbox.Name = "WOPSDatetbox";
             this.WOPSDatetbox.Size = new System.Drawing.Size(128, 20);
             this.WOPSDatetbox.TabIndex = 14;
@@ -308,7 +312,7 @@
             // WOMaterialLabel
             // 
             this.WOMaterialLabel.AutoSize = true;
-            this.WOMaterialLabel.Location = new System.Drawing.Point(315, 109);
+            this.WOMaterialLabel.Location = new System.Drawing.Point(318, 145);
             this.WOMaterialLabel.Name = "WOMaterialLabel";
             this.WOMaterialLabel.Size = new System.Drawing.Size(52, 13);
             this.WOMaterialLabel.TabIndex = 11;
@@ -316,7 +320,7 @@
             // 
             // WOMaterialtbox
             // 
-            this.WOMaterialtbox.Location = new System.Drawing.Point(376, 106);
+            this.WOMaterialtbox.Location = new System.Drawing.Point(376, 140);
             this.WOMaterialtbox.Name = "WOMaterialtbox";
             this.WOMaterialtbox.Size = new System.Drawing.Size(128, 38);
             this.WOMaterialtbox.TabIndex = 10;
@@ -867,6 +871,24 @@
             this.tabPage4.Text = "Admin Page";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.AdminDGV);
+            this.groupBox3.Location = new System.Drawing.Point(20, 220);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(713, 235);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Query Results";
+            // 
+            // AdminDGV
+            // 
+            this.AdminDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AdminDGV.Location = new System.Drawing.Point(22, 19);
+            this.AdminDGV.Name = "AdminDGV";
+            this.AdminDGV.Size = new System.Drawing.Size(665, 210);
+            this.AdminDGV.TabIndex = 0;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.Execute);
@@ -878,32 +900,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Admin Query";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.AdminDGV);
-            this.groupBox3.Location = new System.Drawing.Point(20, 220);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(713, 235);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Query Results";
-            // 
-            // Admintbox
-            // 
-            this.Admintbox.Location = new System.Drawing.Point(22, 19);
-            this.Admintbox.Name = "Admintbox";
-            this.Admintbox.Size = new System.Drawing.Size(665, 125);
-            this.Admintbox.TabIndex = 0;
-            this.Admintbox.Text = "";
-            // 
-            // AdminDGV
-            // 
-            this.AdminDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AdminDGV.Location = new System.Drawing.Point(22, 19);
-            this.AdminDGV.Name = "AdminDGV";
-            this.AdminDGV.Size = new System.Drawing.Size(665, 210);
-            this.AdminDGV.TabIndex = 0;
-            // 
             // Execute
             // 
             this.Execute.Location = new System.Drawing.Point(303, 158);
@@ -913,6 +909,30 @@
             this.Execute.Text = "Execute";
             this.Execute.UseVisualStyleBackColor = true;
             this.Execute.Click += new System.EventHandler(this.Execute_Click);
+            // 
+            // Admintbox
+            // 
+            this.Admintbox.Location = new System.Drawing.Point(22, 19);
+            this.Admintbox.Name = "Admintbox";
+            this.Admintbox.Size = new System.Drawing.Size(665, 125);
+            this.Admintbox.TabIndex = 0;
+            this.Admintbox.Text = "";
+            // 
+            // WOQuantityLabel
+            // 
+            this.WOQuantityLabel.AutoSize = true;
+            this.WOQuantityLabel.Location = new System.Drawing.Point(321, 31);
+            this.WOQuantityLabel.Name = "WOQuantityLabel";
+            this.WOQuantityLabel.Size = new System.Drawing.Size(49, 13);
+            this.WOQuantityLabel.TabIndex = 19;
+            this.WOQuantityLabel.Text = "Quantity:";
+            // 
+            // WOQuantitytbox
+            // 
+            this.WOQuantitytbox.Location = new System.Drawing.Point(376, 28);
+            this.WOQuantitytbox.Name = "WOQuantitytbox";
+            this.WOQuantitytbox.Size = new System.Drawing.Size(60, 20);
+            this.WOQuantitytbox.TabIndex = 20;
             // 
             // MainForm
             // 
@@ -942,9 +962,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AdminDGV)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1033,6 +1053,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button Execute;
         private System.Windows.Forms.RichTextBox Admintbox;
+        private System.Windows.Forms.Label WOQuantityLabel;
+        private System.Windows.Forms.TextBox WOQuantitytbox;
     }
 }
 
