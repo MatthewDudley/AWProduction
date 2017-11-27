@@ -115,7 +115,7 @@ namespace AWProduction_Application
 
             //query databse and display search results
 
-            MessageBox.Show("Searching results...");
+            //MessageBox.Show("Searching results...");
 
             //Begin building the SQL command to view the publishers 
             string command = "SELECT WorkOrderID, WorkOrderDate, EmployeeID, DepartmentHead, ProductNumber, Quantity, MaterialList, StartDate, CompletionDate FROM WORK_ORDER";
@@ -251,11 +251,44 @@ namespace AWProduction_Application
             WOMaterialtbox.Text = "";
         }
 
+        private void WOSResultGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            WOCriteriaGroup.Text = "Edit Work Order Record";
+
+            WOIDLabel.Enabled = false;
+            WOIDtbox.Enabled = false;
+
+            DataGridViewRow row = this.WOSResultGridView.Rows[e.RowIndex];
+            //populate the textbox from specific value of the coordinates of column and row.
+            WOIDtbox.Text = row.Cells[0].Value.ToString();
+            WODatetbox.Text = row.Cells[1].Value.ToString();
+            WOEmpIDtbox.Text = row.Cells[2].Value.ToString();
+            WODeptHeadtbox.Text = row.Cells[3].Value.ToString();
+            WOProductNumtbox.Text = row.Cells[4].Value.ToString();
+            WOQuantitytbox.Text = row.Cells[5].Value.ToString();
+            WOMaterialtbox.Text = row.Cells[6].Value.ToString();
+            WOPSDatetbox.Text = row.Cells[7].Value.ToString();
+            WOPEDatetbox.Text = row.Cells[8].Value.ToString();
+
+            WOEditPanel.Visible = true;
+        }
+
+        private void WOEditRecordbtn_Click(object sender, EventArgs e)
+        {
+            //update work order record
+            MessageBox.Show("Edit record...");
+        }
+
+        private void WODelete_Click(object sender, EventArgs e)
+        {
+            //Delete work order record
+            MessageBox.Show("Delete record...");
+        }
 
 
 
-        
-        /** WORK ORDER TAB **/
+
+        /** INVENTORY TAB **/
 
         /** Search btn **/
         private void InvSearchbtn_Click(object sender, EventArgs e)
@@ -264,10 +297,96 @@ namespace AWProduction_Application
 
             //query databse and display search results
 
-            //testing
+            //Begin building the SQL command to view the publishers 
+            string command = "SELECT InventoryID, ProductNumber, LocationID, ListPrice, Quantity, Shelf FROM INVENTORY";
+            bool addWhere = false;
+            string checks = "";
+            //Construct the where statement based on user 
+            if (!string.IsNullOrWhiteSpace(InvSearchInvIDtbox.Text))
+            {
+                checks = checks + "InventoryID = " + "'" + InvSearchInvIDtbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(InvSearchProductNumtbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " AND ";
+                }
+                checks = checks + "ProductNumber = " + "'" + InvSearchProductNumtbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(InvSearchLoctbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " AND ";
+                }
+                checks = checks + "LocationID = " + "'" + InvSearchLoctbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(InvSearchListPricetbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " AND ";
+                }
+                checks = checks + "ListPrice = " + "'" + InvSearchListPricetbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(InvSearchQuantbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " AND ";
+                }
+                checks = checks + "Quantity = " + "'" + InvSearchQuantbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(InvSearchShelftbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " AND ";
+                }
+                checks = checks + "Shelf = " + "'" + InvSearchShelftbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            
+            //Combine the statements together
+            if (addWhere == true)
+            {
+                command = command + " WHERE " + checks;
+            }
+
+            //Connets to the database using the connection string from the connection page
+            using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
+            {
+                try
+                {
+                    //Open the database
+                    connection.Open();
+                    //Creates SQL command using the command string generated earlier
+                    SqlCommand searchCommand = new SqlCommand(command, connection);
+                    //Executes command and recieves output
+                    SqlDataAdapter adapter = new SqlDataAdapter(searchCommand);
+
+                    //Displays output on grid view
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    InvSearchGridView.DataSource = dataTable;
+                    InvSearchGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.ToString());
+                }
+            }
+
+            //Show results
             InvSearchPanel.Visible = true;
 
-            MessageBox.Show("Searching results...");
+            //MessageBox.Show("Searching results...");
         }
 
         /** Clear btn **/
@@ -275,8 +394,34 @@ namespace AWProduction_Application
         {
             //Clear btn click event
 
+            InvSearchInvIDtbox.Text = "";
+            InvSearchProductNumtbox.Text = "";
+            InvSearchLoctbox.Text = "";
+            InvSearchListPricetbox.Text = "";
+            InvSearchQuantbox.Text = "";
+            InvSearchShelftbox.Text = "";
+
             //clear all tbox inputs
-            MessageBox.Show("Clearing texboxes...");
+            //MessageBox.Show("Clearing texboxes...");
+        }
+
+        private void InvSearchGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            InvSearchGroup.Text = "Edit Inventory Record";
+
+            InvSearchInvIDLabel.Enabled = false;
+            InvSearchInvIDtbox.Enabled = false;
+
+            DataGridViewRow row = this.InvSearchGridView.Rows[e.RowIndex];
+            //populate the textbox from specific value of the coordinates of column and row.
+            InvSearchInvIDtbox.Text = row.Cells[0].Value.ToString();
+            InvSearchProductNumtbox.Text = row.Cells[1].Value.ToString();
+            InvSearchLoctbox.Text = row.Cells[2].Value.ToString();
+            InvSearchListPricetbox.Text = row.Cells[3].Value.ToString();
+            InvSearchQuantbox.Text = row.Cells[4].Value.ToString();
+            InvSearchShelftbox.Text = row.Cells[5].Value.ToString();
+
+            InvEditPanel.Visible = true;
         }
 
         /** Edit btn **/
@@ -324,7 +469,7 @@ namespace AWProduction_Application
         private void ProdSearchDetailsbtn_Click(object sender, EventArgs e)
         {
             //got to more details about the selected product
-            MessageBox.Show("Show more details about this product...");
+            MessageBox.Show("Show model details about this product...");
         }
 
         /** edit btn for search results **/

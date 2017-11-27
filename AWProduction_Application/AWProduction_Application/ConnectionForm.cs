@@ -15,6 +15,7 @@ namespace AWProduction_Application
     {
         //static ConnectionString to use
         public static string ConnectionString = null;
+        public static string rights = null;
 
         public ConnectionForm()
         {
@@ -42,6 +43,8 @@ namespace AWProduction_Application
             {
                 //MessageBox.Show("Login Successfully!!");
 
+                //get rights from user
+
                 this.Hide();
                 new MainForm().Show();
             }
@@ -63,7 +66,7 @@ namespace AWProduction_Application
 
             string statement = "Select ea.Username, p.Password from EMPLOYEE_ACCOUNT ea join PASSWORD p on p.PasswordID = ea.PasswordID where Username = @Username and Password = @Password";
 
-            using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 try
                 {

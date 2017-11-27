@@ -122,7 +122,7 @@ ALTER TABLE [PRODUCT_MODEL]
 go
 
 INSERT INTO [PRODUCT_MODEL] ([ModelCode], [ModelName], [SizeCode], [WeightCode], [Description]) VALUES
-('M-34', 'ModelOne', 4050, 5860, 'Model One Description'),
+('MC', 'ModelOne', 4050, 5860, 'Model One Description'),
 ('M-35', 'ModelTwo', 4080, 5865, 'Model Two Description'),
 ('M-36' , 'ModelThree', 4020, 5000, 'Model Three Description');
 go
@@ -147,7 +147,7 @@ ALTER TABLE [MODEL_SPECS]
 go
 
 INSERT INTO [MODEL_SPECS] ([ModelCode], [Color], [Class], [Style], [Weight], [Size] ) VALUES
-('M-34', 'Silver', 'ClassB', 'Fluted', 400, 100),
+('MC', 'Silver', 'ClassB', 'Fluted', 400, 100),
 ('M-35', 'Black', 'ClassB', 'Standard', 375, 120),
 ('M-36', 'Green', 'ClassG', 'Round', 270, 60);
 go
@@ -174,10 +174,26 @@ ALTER TABLE [PRODUCT]
 go
 
 INSERT INTO [PRODUCT] ([ProductNumber], [Name], [ModelCode], [DaysToProduce], [CostToProduce], [StartSellDate], [EndSellDate], [DiscountinuedDate] ) VALUES
-('CD-2323', 'Bearing', 'M-35', 15, 100.00, '2016-10-14 00:00:00.000', null, '2017-10-14 00:00:00.000'),
-('AR-5381', 'Adjustable Race', 'M-34', 21, 150.00, '2017-10-14 00:00:00.000', null, null),
-('BA-8327', 'Bearing Ball', 'M-35', 45, 250.00, '2017-10-14 00:00:00.000', null, null),
-('BE-2349', 'BB Ball Bearing', 'M-36', 30, 200.00, '2017-10-14 00:00:00.000', null, null);
+('AR-5381', 'Adjustable Race', 'MC', 5, 100.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('BA-8327', 'Bearing Ball', 'MC', 3, 50.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('BE-2349', 'BB Ball Bearing','MC', 5, 50.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('BE-2908', 'Headset Ball Bearings','MC', 6, 70.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('BL-2036', 'Blade', 'MC', 2, 100.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('CA-5965', 'LL Crankarm', 'MC', 4, 120.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('CA-6738', 'ML Crankarm', 'MC', 3, 120.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('CA-7457', 'HL Crankarm', 'MC', 8, 120.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('CB-2903', 'Chainring Bolts', 'MC', 1, 10.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('CN-6137', 'Chainring Nut', 'MC', 1, 10.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('CR-7833', 'Chainring', 'MC', 2, 25.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('CR-9981', 'Crown Race', 'MC', 6, 15.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('CS-2812', 'Chain Stays', 'MC', 5, 20.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('DC-8732', 'Decal 1', 'MC', 1, 5.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('DC-9824', 'Decal 2', 'MC', 1, 5.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('DT-2377', 'Down Tube', 'MC', 3, 25.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('EC-M092', 'Mountain End Caps', 'MC', 5, 5.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('EC-R098', 'Road End Caps', 'MC', 5, 5.00, '2008-04-30 00:00:00.000', NULL, NULL),
+('EC-T209', 'Touring End Caps', 'MC', 5, 5.00, '2008-04-30 00:00:00.000', NULL, '2008-09-30 00:00:00.000'),
+('FE-3760', 'Fork End', 'MC', 4, 30.00, '2008-04-30 00:00:00.000', '2009-04-30 00:00:00.000', NULL);
 go
 
 
@@ -226,8 +242,10 @@ go
 
 INSERT INTO [LOCATION] ([Name], [Capacity] ) VALUES
 ('LocationAlpha', 100000),
-('LocationBeta', 20000),
-('LocationCharlie', 20000);
+('LocationBeta', 100000),
+('LocationCharlie', 100000),
+('LocationDelta', 100000),
+('LocationEcho', 100000);
 go
 
 
@@ -297,7 +315,8 @@ ALTER TABLE [PRODUCT_ARCHIVE]
 go
 
 INSERT INTO [PRODUCT_ARCHIVE] ([ProductNumber], [LocationID], [ArchiveDate], [Quantity] ) VALUES
-('CD-2323', 3, null, 50);
+('FE-3760', 3, NULL, 50),
+('EC-T209', 3, NULL, 40);
 go
 
 
