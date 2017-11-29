@@ -117,7 +117,7 @@ namespace AWProduction_Application
 
             //MessageBox.Show("Searching results...");
 
-            //Begin building the SQL command to view the publishers 
+            //Begin building the SQL command
             string command = "SELECT WorkOrderID, WorkOrderDate, EmployeeID, DepartmentHead, ProductNumber, Quantity, MaterialList, StartDate, CompletionDate FROM WORK_ORDER";
             bool addWhere = false;
             string checks = "";
@@ -246,13 +246,16 @@ namespace AWProduction_Application
             WOEmpIDtbox.Text = "";
             WODeptHeadtbox.Text = "";
             WOProductNumtbox.Text = "";
+            WOQuantitytbox.Text = "";
             WOPSDatetbox.Text = "";
             WOPEDatetbox.Text = "";
             WOMaterialtbox.Text = "";
         }
 
+        //Edit the selected record
         private void WOSResultGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            WOSResultGridView.Visible = false;
             WOCriteriaGroup.Text = "Edit Work Order Record";
 
             WOIDLabel.Enabled = false;
@@ -273,15 +276,156 @@ namespace AWProduction_Application
             WOEditPanel.Visible = true;
         }
 
+        //click edit button
         private void WOEditRecordbtn_Click(object sender, EventArgs e)
         {
             //update work order record
-            MessageBox.Show("Edit record...");
+
+            //Begin building the SQL command to view the publishers 
+            string command = "Update Work_Order";
+            bool addWhere = false;
+            string checks = "";
+            //Construct the where statement based on user 
+            if (!string.IsNullOrWhiteSpace(WODatetbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " , ";
+                }
+                checks = checks + "WorkOrderDate = " + "'" + Convert.ToDateTime(WODatetbox.Text) + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(WOEmpIDtbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " , ";
+                }
+                checks = checks + "EmployeeID = " + "'" + WOEmpIDtbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(WODeptHeadtbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " , ";
+                }
+                checks = checks + "DepartmentHead = " + "'" + WODeptHeadtbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(WOProductNumtbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " , ";
+                }
+                checks = checks + "ProductNumber = " + "'" + WOProductNumtbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(WOQuantitytbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " , ";
+                }
+                checks = checks + "Quantity = " + "'" + WOQuantitytbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(WOMaterialtbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " , ";
+                }
+                checks = checks + "MaterialList =  " + "'" + WOMaterialtbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(WOPSDatetbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " , ";
+                }
+                checks = checks + "StartDate = " + "'" + Convert.ToDateTime(WOPSDatetbox.Text) + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(WOPEDatetbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " , ";
+                }
+                checks = checks + "CompletionDate = " + "'" + Convert.ToDateTime(WOPEDatetbox.Text) + "'" + " ";
+                addWhere = true;
+            }
+            //Combine the statements together
+            if (addWhere == true)
+            {
+                command = command + " SET " + checks + " WHERE WorkOrderID = " + "'" + WOIDtbox.Text + "'";
+            }
+
+            //Connets to the database using the connection string from the connection page
+            using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
+            {
+                try
+                {
+                    //Open the database
+                    connection.Open();
+                    //Creates SQL command using the command string generated earlier
+                    SqlCommand searchCommand = new SqlCommand(command, connection);
+                    //Executes command and recieves output
+                    SqlDataAdapter adapter = new SqlDataAdapter(searchCommand);
+
+                    //Displays output on grid view
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    WOSResultGridView.DataSource = dataTable;
+                    WOSResultGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+                    MessageBox.Show("Edited the record with ID = " + WOIDtbox.Text);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.ToString());
+                }
+            }
+
+            WOEditPanel.Visible = false;
         }
 
+        //click delete
         private void WODelete_Click(object sender, EventArgs e)
         {
             //Delete work order record
+            //Begin building the SQL command to view the publishers 
+            string command = "DELETE FROM WORK_ORDER";
+       
+            //Connets to the database using the connection string from the connection page
+            using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
+            {
+                try
+                {
+                    //Open the database
+                    connection.Open();
+                    //Creates SQL command using the command string generated earlier
+                    SqlCommand searchCommand = new SqlCommand(command, connection);
+                    //Executes command and recieves output
+                    SqlDataAdapter adapter = new SqlDataAdapter(searchCommand);
+
+                    //Displays output on grid view
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    WOSResultGridView.DataSource = dataTable;
+                    WOSResultGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+                    MessageBox.Show("Edited the record with ID = " + WOIDtbox.Text);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.ToString());
+                }
+            }
+
             MessageBox.Show("Delete record...");
         }
 
