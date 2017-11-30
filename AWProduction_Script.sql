@@ -34,7 +34,9 @@ go
 INSERT INTO [DEPARTMENT] ([DepartmentName], [DepartmentHead] ) VALUES
 ('DeptAlpha',	'John Smith'),
 ('DeptBeta',	'Sheri Brown'),
-('DeptCharlie',	'Ken Johnson');
+('DeptCharlie',	'Ken Johnson'),
+('DeptDelta',	'John Moore'),
+('DeptEcho',	'Ken Smith');
 go
 
 
@@ -55,8 +57,15 @@ go
 
 INSERT INTO [EMPLOYEE] ([EmployeeName], [DepartmentID] ) VALUES
 ('Bob One', 1),
-('bob Two', 2),
-('bob Three', 3 );
+('Sam Two', 2),
+('Steve Three', 3 ),
+('David Four', 4),
+('Bill Five', 5),
+('John Six', 1 ),
+('Jim Seven', 2),
+('Ed Eight', 3),
+('Nancy Nine', 4 ),
+('Ashley Ten', 5);
 go
 
 
@@ -76,7 +85,12 @@ go
 INSERT INTO [PASSWORD] ([Password], [PasswordSalt], [PasswordHash] ) VALUES
 ('password1', 'ksnfoowfnnslfjow30smdow03', 'invowo32'),
 ('password2', '93nfowuti33ifhie9rnov939h', 'oieif'),
-('password3', 'nf93ubgj3i84btir983bi3fvv', 'i3jfi3bcvdi');
+('password3', 'nf93ubgj3i84btir983bi3fvv', 'i3jfi3bcvdi'),
+('password4', 't8ls954jh3k5jo5pzdzujd6sf', 'kjhgjklvh'),
+('password5', '0x2kopn4mvuxd0nst1m4d74sw', 'ghk6r64'),
+('password6', 'txz18p04kqg6wm9lusarsqk2c', 'jtgdyu41'),
+('password7', 'tnkpjemaqg6hospr9c585s6na', '54ljuhgbv'),
+('password8', '075irro29mi6nywedu9yhdt3d', '5f5ggtfg');
 go
 
 
@@ -99,8 +113,13 @@ go
 
 INSERT INTO [EMPLOYEE_ACCOUNT] ([EmployeeID], [Username], [Email], [PasswordID], [StatusRights] ) VALUES
 (1, 'BobOne@company', 'BobOne@company.gmail.com', 1, 'Admin'),
-(2, 'bobtwo@company', 'bobTwo@company.gmail.com', 2, 'Edit'),
-(3, 'bobthree@company', 'bobThree@company.gmail.com', 3, 'View');
+(2, 'SamTwo@company', 'SamTwo@company.gmail.com', 2, 'Edit'),
+(3, 'SteveThree@company', 'SteveThree@company.gmail.com', 3, 'View'),
+(4, 'DavidFour@company', 'DavidFour@company.gmail.com', 4, 'View'),
+(5, 'BillFive@company', 'BillFive@company.gmail.com', 5, 'View'),
+(6, 'JohnSix@company', 'JohnSix@company.gmail.com', 6, 'View'),
+(7, 'JimSeven@company', 'JimSeven@company.gmail.com', 7, 'View'),
+(8, 'EdEight@company', 'bEdEight@company.gmail.com', 8, 'Edit');
 go
 
 

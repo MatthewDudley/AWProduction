@@ -34,6 +34,9 @@
             this.WOSResultGridView = new System.Windows.Forms.DataGridView();
             this.WOCreatePanel = new System.Windows.Forms.Panel();
             this.WOCriteriaGroup = new System.Windows.Forms.GroupBox();
+            this.WOEditPanel = new System.Windows.Forms.Panel();
+            this.WODelete = new System.Windows.Forms.Button();
+            this.WOEditRecordbtn = new System.Windows.Forms.Button();
             this.WOQuantityLabel = new System.Windows.Forms.Label();
             this.WOQuantitytbox = new System.Windows.Forms.TextBox();
             this.WOProductNumtbox = new System.Windows.Forms.TextBox();
@@ -61,10 +64,13 @@
             this.CreateWorkOrderbtn = new System.Windows.Forms.Button();
             this.InventoryTab = new System.Windows.Forms.TabPage();
             this.InvSearchPanel = new System.Windows.Forms.Panel();
-            this.InvSearchDeletebtn = new System.Windows.Forms.Button();
-            this.InvSearchEditbtn = new System.Windows.Forms.Button();
             this.InvSearchGridView = new System.Windows.Forms.DataGridView();
             this.InvSearchGroup = new System.Windows.Forms.GroupBox();
+            this.InvEditPanel = new System.Windows.Forms.Panel();
+            this.InvSearchDeletebtn = new System.Windows.Forms.Button();
+            this.InvSearchEditbtn = new System.Windows.Forms.Button();
+            this.InvSearchShelftbox = new System.Windows.Forms.TextBox();
+            this.InvSearchShelfLabel = new System.Windows.Forms.Label();
             this.InvSearchbtn = new System.Windows.Forms.Button();
             this.InvSearchClearbtn = new System.Windows.Forms.Button();
             this.InvSearchQuantbox = new System.Windows.Forms.TextBox();
@@ -110,24 +116,23 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Execute = new System.Windows.Forms.Button();
             this.Admintbox = new System.Windows.Forms.RichTextBox();
-            this.WOEditPanel = new System.Windows.Forms.Panel();
-            this.WOEditRecordbtn = new System.Windows.Forms.Button();
-            this.WODelete = new System.Windows.Forms.Button();
-            this.InvSearchShelfLabel = new System.Windows.Forms.Label();
-            this.InvSearchShelftbox = new System.Windows.Forms.TextBox();
-            this.InvEditPanel = new System.Windows.Forms.Panel();
+            this.InvOptionsGroup = new System.Windows.Forms.GroupBox();
+            this.InvSearchOptionsbtn = new System.Windows.Forms.Button();
+            this.InvCreateOptionsbtn = new System.Windows.Forms.Button();
             this.MainFormTabControl.SuspendLayout();
             this.WorkOrderTab.SuspendLayout();
             this.WOSResultPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WOSResultGridView)).BeginInit();
             this.WOCreatePanel.SuspendLayout();
             this.WOCriteriaGroup.SuspendLayout();
+            this.WOEditPanel.SuspendLayout();
             this.WOSbtnPanel.SuspendLayout();
             this.WOOptionsGroup.SuspendLayout();
             this.InventoryTab.SuspendLayout();
             this.InvSearchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InvSearchGridView)).BeginInit();
             this.InvSearchGroup.SuspendLayout();
+            this.InvEditPanel.SuspendLayout();
             this.ProductTab.SuspendLayout();
             this.ProdSearchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProdSearchGridView)).BeginInit();
@@ -136,8 +141,7 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdminDGV)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.WOEditPanel.SuspendLayout();
-            this.InvEditPanel.SuspendLayout();
+            this.InvOptionsGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainFormTabControl
@@ -168,18 +172,18 @@
             // WOSResultPanel
             // 
             this.WOSResultPanel.Controls.Add(this.WOSResultGridView);
-            this.WOSResultPanel.Location = new System.Drawing.Point(20, 275);
+            this.WOSResultPanel.Location = new System.Drawing.Point(6, 275);
             this.WOSResultPanel.Name = "WOSResultPanel";
-            this.WOSResultPanel.Size = new System.Drawing.Size(712, 180);
+            this.WOSResultPanel.Size = new System.Drawing.Size(740, 180);
             this.WOSResultPanel.TabIndex = 3;
             this.WOSResultPanel.Visible = false;
             // 
             // WOSResultGridView
             // 
             this.WOSResultGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.WOSResultGridView.Location = new System.Drawing.Point(4, 4);
+            this.WOSResultGridView.Location = new System.Drawing.Point(14, 4);
             this.WOSResultGridView.Name = "WOSResultGridView";
-            this.WOSResultGridView.Size = new System.Drawing.Size(705, 173);
+            this.WOSResultGridView.Size = new System.Drawing.Size(699, 173);
             this.WOSResultGridView.TabIndex = 0;
             this.WOSResultGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.WOSResultGridView_CellDoubleClick);
             // 
@@ -222,6 +226,36 @@
             this.WOCriteriaGroup.TabIndex = 10;
             this.WOCriteriaGroup.TabStop = false;
             this.WOCriteriaGroup.Text = "Work Order Criteria";
+            // 
+            // WOEditPanel
+            // 
+            this.WOEditPanel.Controls.Add(this.WODelete);
+            this.WOEditPanel.Controls.Add(this.WOEditRecordbtn);
+            this.WOEditPanel.Location = new System.Drawing.Point(299, 172);
+            this.WOEditPanel.Name = "WOEditPanel";
+            this.WOEditPanel.Size = new System.Drawing.Size(223, 34);
+            this.WOEditPanel.TabIndex = 21;
+            this.WOEditPanel.Visible = false;
+            // 
+            // WODelete
+            // 
+            this.WODelete.Location = new System.Drawing.Point(64, 5);
+            this.WODelete.Name = "WODelete";
+            this.WODelete.Size = new System.Drawing.Size(75, 23);
+            this.WODelete.TabIndex = 1;
+            this.WODelete.Text = "Delete";
+            this.WODelete.UseVisualStyleBackColor = true;
+            this.WODelete.Click += new System.EventHandler(this.WODelete_Click);
+            // 
+            // WOEditRecordbtn
+            // 
+            this.WOEditRecordbtn.Location = new System.Drawing.Point(145, 5);
+            this.WOEditRecordbtn.Name = "WOEditRecordbtn";
+            this.WOEditRecordbtn.Size = new System.Drawing.Size(75, 23);
+            this.WOEditRecordbtn.TabIndex = 0;
+            this.WOEditRecordbtn.Text = "Edit Record";
+            this.WOEditRecordbtn.UseVisualStyleBackColor = true;
+            this.WOEditRecordbtn.Click += new System.EventHandler(this.WOEditRecordbtn_Click);
             // 
             // WOQuantityLabel
             // 
@@ -440,6 +474,7 @@
             // 
             // InventoryTab
             // 
+            this.InventoryTab.Controls.Add(this.InvOptionsGroup);
             this.InventoryTab.Controls.Add(this.InvSearchPanel);
             this.InventoryTab.Controls.Add(this.InvSearchGroup);
             this.InventoryTab.Location = new System.Drawing.Point(4, 22);
@@ -458,26 +493,6 @@
             this.InvSearchPanel.Size = new System.Drawing.Size(740, 297);
             this.InvSearchPanel.TabIndex = 14;
             this.InvSearchPanel.Visible = false;
-            // 
-            // InvSearchDeletebtn
-            // 
-            this.InvSearchDeletebtn.Location = new System.Drawing.Point(44, 10);
-            this.InvSearchDeletebtn.Name = "InvSearchDeletebtn";
-            this.InvSearchDeletebtn.Size = new System.Drawing.Size(75, 23);
-            this.InvSearchDeletebtn.TabIndex = 16;
-            this.InvSearchDeletebtn.Text = "Delete";
-            this.InvSearchDeletebtn.UseVisualStyleBackColor = true;
-            this.InvSearchDeletebtn.Click += new System.EventHandler(this.InvSearchDeletebtn_Click);
-            // 
-            // InvSearchEditbtn
-            // 
-            this.InvSearchEditbtn.Location = new System.Drawing.Point(125, 10);
-            this.InvSearchEditbtn.Name = "InvSearchEditbtn";
-            this.InvSearchEditbtn.Size = new System.Drawing.Size(75, 23);
-            this.InvSearchEditbtn.TabIndex = 15;
-            this.InvSearchEditbtn.Text = "Edit Record";
-            this.InvSearchEditbtn.UseVisualStyleBackColor = true;
-            this.InvSearchEditbtn.Click += new System.EventHandler(this.InvSearchEditbtn_Click);
             // 
             // InvSearchGridView
             // 
@@ -505,12 +520,58 @@
             this.InvSearchGroup.Controls.Add(this.InvSearchProductNumLabel);
             this.InvSearchGroup.Controls.Add(this.InvSearchInvIDtbox);
             this.InvSearchGroup.Controls.Add(this.InvSearchInvIDLabel);
-            this.InvSearchGroup.Location = new System.Drawing.Point(20, 15);
+            this.InvSearchGroup.Location = new System.Drawing.Point(182, 15);
             this.InvSearchGroup.Name = "InvSearchGroup";
             this.InvSearchGroup.Size = new System.Drawing.Size(544, 137);
             this.InvSearchGroup.TabIndex = 0;
             this.InvSearchGroup.TabStop = false;
             this.InvSearchGroup.Text = "Inventory Search Criteria";
+            // 
+            // InvEditPanel
+            // 
+            this.InvEditPanel.Controls.Add(this.InvSearchDeletebtn);
+            this.InvEditPanel.Controls.Add(this.InvSearchEditbtn);
+            this.InvEditPanel.Location = new System.Drawing.Point(338, 98);
+            this.InvEditPanel.Name = "InvEditPanel";
+            this.InvEditPanel.Size = new System.Drawing.Size(200, 33);
+            this.InvEditPanel.TabIndex = 16;
+            this.InvEditPanel.Visible = false;
+            // 
+            // InvSearchDeletebtn
+            // 
+            this.InvSearchDeletebtn.Location = new System.Drawing.Point(44, 10);
+            this.InvSearchDeletebtn.Name = "InvSearchDeletebtn";
+            this.InvSearchDeletebtn.Size = new System.Drawing.Size(75, 23);
+            this.InvSearchDeletebtn.TabIndex = 16;
+            this.InvSearchDeletebtn.Text = "Delete";
+            this.InvSearchDeletebtn.UseVisualStyleBackColor = true;
+            this.InvSearchDeletebtn.Click += new System.EventHandler(this.InvSearchDeletebtn_Click);
+            // 
+            // InvSearchEditbtn
+            // 
+            this.InvSearchEditbtn.Location = new System.Drawing.Point(125, 10);
+            this.InvSearchEditbtn.Name = "InvSearchEditbtn";
+            this.InvSearchEditbtn.Size = new System.Drawing.Size(75, 23);
+            this.InvSearchEditbtn.TabIndex = 15;
+            this.InvSearchEditbtn.Text = "Edit Record";
+            this.InvSearchEditbtn.UseVisualStyleBackColor = true;
+            this.InvSearchEditbtn.Click += new System.EventHandler(this.InvSearchEditbtn_Click);
+            // 
+            // InvSearchShelftbox
+            // 
+            this.InvSearchShelftbox.Location = new System.Drawing.Point(151, 98);
+            this.InvSearchShelftbox.Name = "InvSearchShelftbox";
+            this.InvSearchShelftbox.Size = new System.Drawing.Size(100, 20);
+            this.InvSearchShelftbox.TabIndex = 15;
+            // 
+            // InvSearchShelfLabel
+            // 
+            this.InvSearchShelfLabel.AutoSize = true;
+            this.InvSearchShelfLabel.Location = new System.Drawing.Point(148, 82);
+            this.InvSearchShelfLabel.Name = "InvSearchShelfLabel";
+            this.InvSearchShelfLabel.Size = new System.Drawing.Size(34, 13);
+            this.InvSearchShelfLabel.TabIndex = 14;
+            this.InvSearchShelfLabel.Text = "Shelf:";
             // 
             // InvSearchbtn
             // 
@@ -926,61 +987,34 @@
             this.Admintbox.TabIndex = 0;
             this.Admintbox.Text = "";
             // 
-            // WOEditPanel
+            // InvOptionsGroup
             // 
-            this.WOEditPanel.Controls.Add(this.WODelete);
-            this.WOEditPanel.Controls.Add(this.WOEditRecordbtn);
-            this.WOEditPanel.Location = new System.Drawing.Point(298, 207);
-            this.WOEditPanel.Name = "WOEditPanel";
-            this.WOEditPanel.Size = new System.Drawing.Size(223, 34);
-            this.WOEditPanel.TabIndex = 21;
-            this.WOEditPanel.Visible = false;
+            this.InvOptionsGroup.Controls.Add(this.InvCreateOptionsbtn);
+            this.InvOptionsGroup.Controls.Add(this.InvSearchOptionsbtn);
+            this.InvOptionsGroup.Location = new System.Drawing.Point(20, 15);
+            this.InvOptionsGroup.Name = "InvOptionsGroup";
+            this.InvOptionsGroup.Size = new System.Drawing.Size(153, 85);
+            this.InvOptionsGroup.TabIndex = 15;
+            this.InvOptionsGroup.TabStop = false;
+            this.InvOptionsGroup.Text = "Inventory Options";
             // 
-            // WOEditRecordbtn
+            // InvSearchOptionsbtn
             // 
-            this.WOEditRecordbtn.Location = new System.Drawing.Point(145, 5);
-            this.WOEditRecordbtn.Name = "WOEditRecordbtn";
-            this.WOEditRecordbtn.Size = new System.Drawing.Size(75, 23);
-            this.WOEditRecordbtn.TabIndex = 0;
-            this.WOEditRecordbtn.Text = "Edit Record";
-            this.WOEditRecordbtn.UseVisualStyleBackColor = true;
-            this.WOEditRecordbtn.Click += new System.EventHandler(this.WOEditRecordbtn_Click);
+            this.InvSearchOptionsbtn.Location = new System.Drawing.Point(15, 23);
+            this.InvSearchOptionsbtn.Name = "InvSearchOptionsbtn";
+            this.InvSearchOptionsbtn.Size = new System.Drawing.Size(111, 23);
+            this.InvSearchOptionsbtn.TabIndex = 0;
+            this.InvSearchOptionsbtn.Text = "Search Inventroy";
+            this.InvSearchOptionsbtn.UseVisualStyleBackColor = true;
             // 
-            // WODelete
+            // InvCreateOptionsbtn
             // 
-            this.WODelete.Location = new System.Drawing.Point(64, 5);
-            this.WODelete.Name = "WODelete";
-            this.WODelete.Size = new System.Drawing.Size(75, 23);
-            this.WODelete.TabIndex = 1;
-            this.WODelete.Text = "Delete";
-            this.WODelete.UseVisualStyleBackColor = true;
-            this.WODelete.Click += new System.EventHandler(this.WODelete_Click);
-            // 
-            // InvSearchShelfLabel
-            // 
-            this.InvSearchShelfLabel.AutoSize = true;
-            this.InvSearchShelfLabel.Location = new System.Drawing.Point(148, 82);
-            this.InvSearchShelfLabel.Name = "InvSearchShelfLabel";
-            this.InvSearchShelfLabel.Size = new System.Drawing.Size(34, 13);
-            this.InvSearchShelfLabel.TabIndex = 14;
-            this.InvSearchShelfLabel.Text = "Shelf:";
-            // 
-            // InvSearchShelftbox
-            // 
-            this.InvSearchShelftbox.Location = new System.Drawing.Point(151, 98);
-            this.InvSearchShelftbox.Name = "InvSearchShelftbox";
-            this.InvSearchShelftbox.Size = new System.Drawing.Size(100, 20);
-            this.InvSearchShelftbox.TabIndex = 15;
-            // 
-            // InvEditPanel
-            // 
-            this.InvEditPanel.Controls.Add(this.InvSearchDeletebtn);
-            this.InvEditPanel.Controls.Add(this.InvSearchEditbtn);
-            this.InvEditPanel.Location = new System.Drawing.Point(338, 98);
-            this.InvEditPanel.Name = "InvEditPanel";
-            this.InvEditPanel.Size = new System.Drawing.Size(200, 33);
-            this.InvEditPanel.TabIndex = 16;
-            this.InvEditPanel.Visible = false;
+            this.InvCreateOptionsbtn.Location = new System.Drawing.Point(15, 52);
+            this.InvCreateOptionsbtn.Name = "InvCreateOptionsbtn";
+            this.InvCreateOptionsbtn.Size = new System.Drawing.Size(111, 23);
+            this.InvCreateOptionsbtn.TabIndex = 1;
+            this.InvCreateOptionsbtn.Text = "Create Record";
+            this.InvCreateOptionsbtn.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -997,6 +1031,7 @@
             this.WOCreatePanel.ResumeLayout(false);
             this.WOCriteriaGroup.ResumeLayout(false);
             this.WOCriteriaGroup.PerformLayout();
+            this.WOEditPanel.ResumeLayout(false);
             this.WOSbtnPanel.ResumeLayout(false);
             this.WOOptionsGroup.ResumeLayout(false);
             this.InventoryTab.ResumeLayout(false);
@@ -1004,6 +1039,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.InvSearchGridView)).EndInit();
             this.InvSearchGroup.ResumeLayout(false);
             this.InvSearchGroup.PerformLayout();
+            this.InvEditPanel.ResumeLayout(false);
             this.ProductTab.ResumeLayout(false);
             this.ProdSearchPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ProdSearchGridView)).EndInit();
@@ -1013,8 +1049,7 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AdminDGV)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.WOEditPanel.ResumeLayout(false);
-            this.InvEditPanel.ResumeLayout(false);
+            this.InvOptionsGroup.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1109,6 +1144,9 @@
         private System.Windows.Forms.TextBox InvSearchShelftbox;
         private System.Windows.Forms.Label InvSearchShelfLabel;
         private System.Windows.Forms.Panel InvEditPanel;
+        private System.Windows.Forms.GroupBox InvOptionsGroup;
+        private System.Windows.Forms.Button InvCreateOptionsbtn;
+        private System.Windows.Forms.Button InvSearchOptionsbtn;
     }
 }
 

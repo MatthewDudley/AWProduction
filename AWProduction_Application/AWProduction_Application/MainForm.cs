@@ -38,6 +38,7 @@ namespace AWProduction_Application
             WOEmpIDtbox.Text = "";
             WODeptHeadtbox.Text = "";
             WOProductNumtbox.Text = "";
+            WOQuantitytbox.Text = "";
             WOPSDatetbox.Text = "";
             WOPEDatetbox.Text = "";
             WOMaterialtbox.Text = "";
@@ -96,6 +97,7 @@ namespace AWProduction_Application
             WOEmpIDtbox.Text = "";
             WODeptHeadtbox.Text = "";
             WOProductNumtbox.Text = "";
+            WOQuantitytbox.Text = "";
             WOPSDatetbox.Text = "";
             WOPEDatetbox.Text = "";
             WOMaterialtbox.Text = "";
@@ -105,6 +107,7 @@ namespace AWProduction_Application
             //modifiy group text and show search btn
             WOCriteriaGroup.Text = "Search Work Order";
             WOSbtnPanel.Visible = true;
+            WOEditPanel.Visible = false;
 
         }
 
@@ -112,8 +115,6 @@ namespace AWProduction_Application
         private void WOSSearchbtn_Click(object sender, EventArgs e)
         {
             //Search btn click event
-
-            //query databse and display search results
 
             //MessageBox.Show("Searching results...");
 
