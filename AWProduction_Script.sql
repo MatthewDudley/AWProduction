@@ -1928,147 +1928,147 @@ go
 
 
 
-CREATE TRIGGER tD_WORK_ORDER ON WORK_ORDER FOR DELETE AS
-/* erwin Builtin Trigger */
-/* DELETE trigger on WORK_ORDER */
-BEGIN
-  DECLARE  @errno   int,
-           @severity int,
-           @state    int,
-           @errmsg  varchar(255)
-    /* erwin Builtin Trigger */
-    /* PRODUCT  WORK_ORDER on child delete no action */
-    /* ERWIN_RELATION:CHECKSUM="00028c6c", PARENT_OWNER="", PARENT_TABLE="PRODUCT"
-    CHILD_OWNER="", CHILD_TABLE="WORK_ORDER"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_31", FK_COLUMNS="ProductNumber" */
-    IF EXISTS (SELECT * FROM deleted,PRODUCT
-      WHERE
-        /* %JoinFKPK(deleted,PRODUCT," = "," AND") */
-        deleted.ProductNumber = PRODUCT.ProductNumber AND
-        NOT EXISTS (
-          SELECT * FROM WORK_ORDER
-          WHERE
-            /* %JoinFKPK(WORK_ORDER,PRODUCT," = "," AND") */
-            WORK_ORDER.ProductNumber = PRODUCT.ProductNumber
-        )
-    )
-    BEGIN
-      SELECT @errno  = 30010,
-             @errmsg = 'Cannot delete last WORK_ORDER because PRODUCT exists.'
-      GOTO error
-    END
+--CREATE TRIGGER tD_WORK_ORDER ON WORK_ORDER FOR DELETE AS
+--/* erwin Builtin Trigger */
+--/* DELETE trigger on WORK_ORDER */
+--BEGIN
+--  DECLARE  @errno   int,
+--           @severity int,
+--           @state    int,
+--           @errmsg  varchar(255)
+--    /* erwin Builtin Trigger */
+--    /* PRODUCT  WORK_ORDER on child delete no action */
+--    /* ERWIN_RELATION:CHECKSUM="00028c6c", PARENT_OWNER="", PARENT_TABLE="PRODUCT"
+--    CHILD_OWNER="", CHILD_TABLE="WORK_ORDER"
+--    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+--    FK_CONSTRAINT="R_31", FK_COLUMNS="ProductNumber" */
+--    IF EXISTS (SELECT * FROM deleted,PRODUCT
+--      WHERE
+--        /* %JoinFKPK(deleted,PRODUCT," = "," AND") */
+--        deleted.ProductNumber = PRODUCT.ProductNumber AND
+--        NOT EXISTS (
+--          SELECT * FROM WORK_ORDER
+--          WHERE
+--            /* %JoinFKPK(WORK_ORDER,PRODUCT," = "," AND") */
+--            WORK_ORDER.ProductNumber = PRODUCT.ProductNumber
+--        )
+--    )
+--    BEGIN
+--      SELECT @errno  = 30010,
+--             @errmsg = 'Cannot delete last WORK_ORDER because PRODUCT exists.'
+--      GOTO error
+--    END
 
-    /* erwin Builtin Trigger */
-    /* EMPLOYEE  WORK_ORDER on child delete no action */
-    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="EMPLOYEE"
-    CHILD_OWNER="", CHILD_TABLE="WORK_ORDER"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_5", FK_COLUMNS="EmployeeID" */
-    IF EXISTS (SELECT * FROM deleted,EMPLOYEE
-      WHERE
-        /* %JoinFKPK(deleted,EMPLOYEE," = "," AND") */
-        deleted.EmployeeID = EMPLOYEE.EmployeeID AND
-        NOT EXISTS (
-          SELECT * FROM WORK_ORDER
-          WHERE
-            /* %JoinFKPK(WORK_ORDER,EMPLOYEE," = "," AND") */
-            WORK_ORDER.EmployeeID = EMPLOYEE.EmployeeID
-        )
-    )
-    BEGIN
-      SELECT @errno  = 30010,
-             @errmsg = 'Cannot delete last WORK_ORDER because EMPLOYEE exists.'
-      GOTO error
-    END
-
-
-    /* erwin Builtin Trigger */
-    RETURN
-error:
-   RAISERROR (@errmsg, -- Message text.
-              @severity, -- Severity (0~25).
-              @state) -- State (0~255).
-    rollback transaction
-END
-
-go
+--    /* erwin Builtin Trigger */
+--    /* EMPLOYEE  WORK_ORDER on child delete no action */
+--    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="EMPLOYEE"
+--    CHILD_OWNER="", CHILD_TABLE="WORK_ORDER"
+--    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+--    FK_CONSTRAINT="R_5", FK_COLUMNS="EmployeeID" */
+--    IF EXISTS (SELECT * FROM deleted,EMPLOYEE
+--      WHERE
+--        /* %JoinFKPK(deleted,EMPLOYEE," = "," AND") */
+--        deleted.EmployeeID = EMPLOYEE.EmployeeID AND
+--        NOT EXISTS (
+--          SELECT * FROM WORK_ORDER
+--          WHERE
+--            /* %JoinFKPK(WORK_ORDER,EMPLOYEE," = "," AND") */
+--            WORK_ORDER.EmployeeID = EMPLOYEE.EmployeeID
+--        )
+--    )
+--    BEGIN
+--      SELECT @errno  = 30010,
+--             @errmsg = 'Cannot delete last WORK_ORDER because EMPLOYEE exists.'
+--      GOTO error
+--    END
 
 
-CREATE TRIGGER tU_WORK_ORDER ON WORK_ORDER FOR UPDATE AS
-/* erwin Builtin Trigger */
-/* UPDATE trigger on WORK_ORDER */
-BEGIN
-  DECLARE  @numrows int,
-           @nullcnt int,
-           @validcnt int,
-           @insWorkOrderID integer,
-           @errno   int,
-           @severity int,
-           @state    int,
-           @errmsg  varchar(255)
+--    /* erwin Builtin Trigger */
+--    RETURN
+--error:
+--   RAISERROR (@errmsg, -- Message text.
+--              @severity, -- Severity (0~25).
+--              @state) -- State (0~255).
+--    rollback transaction
+--END
 
-  SELECT @numrows = @@rowcount
-  /* erwin Builtin Trigger */
-  /* PRODUCT  WORK_ORDER on child update no action */
-  /* ERWIN_RELATION:CHECKSUM="0002c48c", PARENT_OWNER="", PARENT_TABLE="PRODUCT"
-    CHILD_OWNER="", CHILD_TABLE="WORK_ORDER"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_31", FK_COLUMNS="ProductNumber" */
-  IF
-    /* %ChildFK(" OR",UPDATE) */
-    UPDATE(ProductNumber)
-  BEGIN
-    SELECT @nullcnt = 0
-    SELECT @validcnt = count(*)
-      FROM inserted,PRODUCT
-        WHERE
-          /* %JoinFKPK(inserted,PRODUCT) */
-          inserted.ProductNumber = PRODUCT.ProductNumber
-    /* %NotnullFK(inserted," IS NULL","select @nullcnt = count(*) from inserted where"," AND") */
+--go
+
+
+--CREATE TRIGGER tU_WORK_ORDER ON WORK_ORDER FOR UPDATE AS
+--/* erwin Builtin Trigger */
+--/* UPDATE trigger on WORK_ORDER */
+--BEGIN
+--  DECLARE  @numrows int,
+--           @nullcnt int,
+--           @validcnt int,
+--           @insWorkOrderID integer,
+--           @errno   int,
+--           @severity int,
+--           @state    int,
+--           @errmsg  varchar(255)
+
+--  SELECT @numrows = @@rowcount
+--  /* erwin Builtin Trigger */
+--  /* PRODUCT  WORK_ORDER on child update no action */
+--  /* ERWIN_RELATION:CHECKSUM="0002c48c", PARENT_OWNER="", PARENT_TABLE="PRODUCT"
+--    CHILD_OWNER="", CHILD_TABLE="WORK_ORDER"
+--    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+--    FK_CONSTRAINT="R_31", FK_COLUMNS="ProductNumber" */
+--  IF
+--    /* %ChildFK(" OR",UPDATE) */
+--    UPDATE(ProductNumber)
+--  BEGIN
+--    SELECT @nullcnt = 0
+--    SELECT @validcnt = count(*)
+--      FROM inserted,PRODUCT
+--        WHERE
+--          /* %JoinFKPK(inserted,PRODUCT) */
+--          inserted.ProductNumber = PRODUCT.ProductNumber
+--    /* %NotnullFK(inserted," IS NULL","select @nullcnt = count(*) from inserted where"," AND") */
     
-    IF @validcnt + @nullcnt != @numrows
-    BEGIN
-      SELECT @errno  = 30007,
-             @errmsg = 'Cannot update WORK_ORDER because PRODUCT does not exist.'
-      GOTO error
-    END
-  END
+--    IF @validcnt + @nullcnt != @numrows
+--    BEGIN
+--      SELECT @errno  = 30007,
+--             @errmsg = 'Cannot update WORK_ORDER because PRODUCT does not exist.'
+--      GOTO error
+--    END
+--  END
 
-  /* erwin Builtin Trigger */
-  /* EMPLOYEE  WORK_ORDER on child update no action */
-  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="EMPLOYEE"
-    CHILD_OWNER="", CHILD_TABLE="WORK_ORDER"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_5", FK_COLUMNS="EmployeeID" */
-  IF
-    /* %ChildFK(" OR",UPDATE) */
-    UPDATE(EmployeeID)
-  BEGIN
-    SELECT @nullcnt = 0
-    SELECT @validcnt = count(*)
-      FROM inserted,EMPLOYEE
-        WHERE
-          /* %JoinFKPK(inserted,EMPLOYEE) */
-          inserted.EmployeeID = EMPLOYEE.EmployeeID
-    /* %NotnullFK(inserted," IS NULL","select @nullcnt = count(*) from inserted where"," AND") */
+--  /* erwin Builtin Trigger */
+--  /* EMPLOYEE  WORK_ORDER on child update no action */
+--  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="EMPLOYEE"
+--    CHILD_OWNER="", CHILD_TABLE="WORK_ORDER"
+--    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+--    FK_CONSTRAINT="R_5", FK_COLUMNS="EmployeeID" */
+--  IF
+--    /* %ChildFK(" OR",UPDATE) */
+--    UPDATE(EmployeeID)
+--  BEGIN
+--    SELECT @nullcnt = 0
+--    SELECT @validcnt = count(*)
+--      FROM inserted,EMPLOYEE
+--        WHERE
+--          /* %JoinFKPK(inserted,EMPLOYEE) */
+--          inserted.EmployeeID = EMPLOYEE.EmployeeID
+--    /* %NotnullFK(inserted," IS NULL","select @nullcnt = count(*) from inserted where"," AND") */
     
-    IF @validcnt + @nullcnt != @numrows
-    BEGIN
-      SELECT @errno  = 30007,
-             @errmsg = 'Cannot update WORK_ORDER because EMPLOYEE does not exist.'
-      GOTO error
-    END
-  END
+--    IF @validcnt + @nullcnt != @numrows
+--    BEGIN
+--      SELECT @errno  = 30007,
+--             @errmsg = 'Cannot update WORK_ORDER because EMPLOYEE does not exist.'
+--      GOTO error
+--    END
+--  END
 
 
-  /* erwin Builtin Trigger */
-  RETURN
-error:
-   RAISERROR (@errmsg, -- Message text.
-              @severity, -- Severity (0~25).
-              @state) -- State (0~255).
-    rollback transaction
-END
+--  /* erwin Builtin Trigger */
+--  RETURN
+--error:
+--   RAISERROR (@errmsg, -- Message text.
+--              @severity, -- Severity (0~25).
+--              @state) -- State (0~255).
+--    rollback transaction
+--END
 
-go
+--go

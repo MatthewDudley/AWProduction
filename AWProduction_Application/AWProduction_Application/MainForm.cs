@@ -18,21 +18,22 @@ namespace AWProduction_Application
             InitializeComponent();
         }
 
-
-        
-
-        
-        
         /** WORK ORDER TAB **/
 
         /** Work Order Options Create btn **/
         private void CreateWorkOrderbtn_Click(object sender, EventArgs e)
         {
-            //Create Work Order btn event
-            WOSResultPanel.Visible = false;
-            WOIDLabel.Enabled = false;
-            WOIDtbox.Enabled = false;
+            // Create Work Order Options btn event
 
+            // pre processing
+            WOSResultPanel.Visible = false; // hide the DGV
+            WOIDLabel.Enabled = false; // disable the PK
+            WOIDtbox.Enabled = false; // disable the PK
+            WOCriteriaGroup.Text = "Work Order Criteria"; // change the group text for the user
+            WOSbtnPanel.Visible = false; // hide the seach panel
+            WOEditPanel.Visible = false; // hide the edit panel
+
+            // clear the boxes just in case
             WOIDtbox.Text = "";
             WODatetbox.Text = "";
             WOEmpIDtbox.Text = "";
@@ -43,18 +44,14 @@ namespace AWProduction_Application
             WOPEDatetbox.Text = "";
             WOMaterialtbox.Text = "";
 
-            //modify grouping text and hide search btn
-            WOCriteriaGroup.Text = "Work Order Criteria";
-            WOSbtnPanel.Visible = false;
+            WOCreatePanel.Visible = true; // show the create criteria
 
-            //Show the create work order panel
-            WOCreatePanel.Visible = true;
-        }
+        } // end of creat work order btn
 
         /** Create a work order btn **/
         private void WOCreatebtn_Click(object sender, EventArgs e)
         {
-            //Create btn event
+            //Create Work Order btn event
 
             //push information to the database
             string command = "INSERT INTO WORK_ORDER ([WorkOrderDate], [EmployeeID], [DepartmentHead], [ProductNumber], [Quantity], [MaterialList], [StartDate], [CompletionDate]) VALUES " +
@@ -73,25 +70,36 @@ namespace AWProduction_Application
 
                     // Check Error
                     if (createdRows < 0)
-                        Console.WriteLine("Error inserting data into Database!");
+                    {
+                        MessageBox.Show("Error creating new record!"); // error message
+                    } else
+                    {
+                        MessageBox.Show("Created new Work Order!"); // success
+                    }
                 }
                 catch (Exception error)
                 {
                     MessageBox.Show(error.ToString());
                 }
             }
-            WOCreatePanel.Visible = false;
 
-        }
+            WOCreatePanel.Visible = false; // after creating a new record hide the criteria panel
+
+        } // end of creat work order btn
 
         /** Work Order Options Search btn **/
         private void SearchWorkOrderbtn_Click(object sender, EventArgs e)
         {
             //Search work order btn event
-            WOIDLabel.Enabled = true;
-            WOIDtbox.Enabled = true;
 
-            //clear previous text
+            // pre processing
+            WOSbtnPanel.Visible = true; // show seach btn
+            WOIDLabel.Enabled = true; // enable the PK for searching
+            WOIDtbox.Enabled = true; // enable the PK for searching
+            WOCriteriaGroup.Text = "Search Work Order"; //modifiy group text
+            WOEditPanel.Visible = false; // hide the edit panel for now
+
+            //clear previous text just in case
             WOIDtbox.Text = "";
             WODatetbox.Text = "";
             WOEmpIDtbox.Text = "";
@@ -102,19 +110,16 @@ namespace AWProduction_Application
             WOPEDatetbox.Text = "";
             WOMaterialtbox.Text = "";
 
-            WOCreatePanel.Visible = true;
+            WOCreatePanel.Visible = true;  // show search panel
 
-            //modifiy group text and show search btn
-            WOCriteriaGroup.Text = "Search Work Order";
-            WOSbtnPanel.Visible = true;
-            WOEditPanel.Visible = false;
-
-        }
+        } // end of search otions btn
 
         /** Work Order Search btn **/
         private void WOSSearchbtn_Click(object sender, EventArgs e)
         {
-            //Search btn click event
+            //Search  work order btn event
+            //show data grid view
+            WOSResultPanel.Visible = true;
 
             //MessageBox.Show("Searching results...");
 
@@ -122,6 +127,7 @@ namespace AWProduction_Application
             string command = "SELECT WorkOrderID, WorkOrderDate, EmployeeID, DepartmentHead, ProductNumber, Quantity, MaterialList, StartDate, CompletionDate FROM WORK_ORDER";
             bool addWhere = false;
             string checks = "";
+
             //Construct the where statement based on user 
             if (!string.IsNullOrWhiteSpace(WOIDtbox.Text))
             {
@@ -230,18 +236,16 @@ namespace AWProduction_Application
                 }
             }
 
-            //show data grid view
-            WOSResultPanel.Visible = true;
-        }
+        } // end of search work order btn
 
         /** Clear a Work Order **/
         private void WOCClearbtn_Click(object sender, EventArgs e)
         {
             //WOC clear btn event
 
-            //clear all tbox inputs
             //MessageBox.Show("Clearing texboxes...");
 
+            // clear the text from the boxes
             WOIDtbox.Text = "";
             WODatetbox.Text = "";
             WOEmpIDtbox.Text = "";
@@ -251,18 +255,20 @@ namespace AWProduction_Application
             WOPSDatetbox.Text = "";
             WOPEDatetbox.Text = "";
             WOMaterialtbox.Text = "";
-        }
+
+        } // end of clear btn click
 
         //Edit the selected record
         private void WOSResultGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            WOSResultGridView.Visible = false;
-            WOCriteriaGroup.Text = "Edit Work Order Record";
+            WOSResultGridView.Visible = false; // hide DGV
+            WOCriteriaGroup.Text = "Edit Work Order Record"; //change group text
 
-            WOIDLabel.Enabled = false;
-            WOIDtbox.Enabled = false;
+            WOIDLabel.Enabled = false; // hide the PK
+            WOIDtbox.Enabled = false; // hide the PK
 
             DataGridViewRow row = this.WOSResultGridView.Rows[e.RowIndex];
+
             //populate the textbox from specific value of the coordinates of column and row.
             WOIDtbox.Text = row.Cells[0].Value.ToString();
             WODatetbox.Text = row.Cells[1].Value.ToString();
@@ -274,7 +280,7 @@ namespace AWProduction_Application
             WOPSDatetbox.Text = row.Cells[7].Value.ToString();
             WOPEDatetbox.Text = row.Cells[8].Value.ToString();
 
-            WOEditPanel.Visible = true;
+            WOEditPanel.Visible = true; // show the boxes
         }
 
         //click edit button
@@ -282,88 +288,17 @@ namespace AWProduction_Application
         {
             //update work order record
 
-            //Begin building the SQL command to view the publishers 
-            string command = "Update Work_Order";
-            bool addWhere = false;
-            string checks = "";
-            //Construct the where statement based on user 
-            if (!string.IsNullOrWhiteSpace(WODatetbox.Text))
-            {
-                if (addWhere == true)
-                {
-                    checks = checks + " , ";
-                }
-                checks = checks + "WorkOrderDate = " + "'" + Convert.ToDateTime(WODatetbox.Text) + "'" + " ";
-                addWhere = true;
-            }
-            if (!string.IsNullOrWhiteSpace(WOEmpIDtbox.Text))
-            {
-                if (addWhere == true)
-                {
-                    checks = checks + " , ";
-                }
-                checks = checks + "EmployeeID = " + "'" + WOEmpIDtbox.Text + "'" + " ";
-                addWhere = true;
-            }
-            if (!string.IsNullOrWhiteSpace(WODeptHeadtbox.Text))
-            {
-                if (addWhere == true)
-                {
-                    checks = checks + " , ";
-                }
-                checks = checks + "DepartmentHead = " + "'" + WODeptHeadtbox.Text + "'" + " ";
-                addWhere = true;
-            }
-            if (!string.IsNullOrWhiteSpace(WOProductNumtbox.Text))
-            {
-                if (addWhere == true)
-                {
-                    checks = checks + " , ";
-                }
-                checks = checks + "ProductNumber = " + "'" + WOProductNumtbox.Text + "'" + " ";
-                addWhere = true;
-            }
-            if (!string.IsNullOrWhiteSpace(WOQuantitytbox.Text))
-            {
-                if (addWhere == true)
-                {
-                    checks = checks + " , ";
-                }
-                checks = checks + "Quantity = " + "'" + WOQuantitytbox.Text + "'" + " ";
-                addWhere = true;
-            }
-            if (!string.IsNullOrWhiteSpace(WOMaterialtbox.Text))
-            {
-                if (addWhere == true)
-                {
-                    checks = checks + " , ";
-                }
-                checks = checks + "MaterialList =  " + "'" + WOMaterialtbox.Text + "'" + " ";
-                addWhere = true;
-            }
-            if (!string.IsNullOrWhiteSpace(WOPSDatetbox.Text))
-            {
-                if (addWhere == true)
-                {
-                    checks = checks + " , ";
-                }
-                checks = checks + "StartDate = " + "'" + Convert.ToDateTime(WOPSDatetbox.Text) + "'" + " ";
-                addWhere = true;
-            }
-            if (!string.IsNullOrWhiteSpace(WOPEDatetbox.Text))
-            {
-                if (addWhere == true)
-                {
-                    checks = checks + " , ";
-                }
-                checks = checks + "CompletionDate = " + "'" + Convert.ToDateTime(WOPEDatetbox.Text) + "'" + " ";
-                addWhere = true;
-            }
-            //Combine the statements together
-            if (addWhere == true)
-            {
-                command = command + " SET " + checks + " WHERE WorkOrderID = " + "'" + WOIDtbox.Text + "'";
-            }
+            //SQL command
+            string command = "Update WORK_ORDER " +
+                            "SET [WorkOrderDate] = " + "'" + Convert.ToDateTime(WODatetbox.Text) + "'"
+                          + " , [EmployeeID] = " + WOEmpIDtbox.Text
+                          + " , [DepartmentHead] = " + "'" + WODeptHeadtbox.Text + "'"
+                          + " , [ProductNumber] = " + "'" + WOProductNumtbox.Text + "'"
+                          + " , [Quantity] = " + WOQuantitytbox.Text
+                          + " , [MaterialList] = " + "'" + WOMaterialtbox.Text + "'"
+                          + " , [StartDate] = " + "'" + Convert.ToDateTime(WOPSDatetbox.Text) + "'"
+                          + " , [CompletionDate] = " + "'" + Convert.ToDateTime(WOPEDatetbox.Text) + "'"
+                          + " WHERE WorkOrderID = " + WOIDtbox.Text;
 
             //Connets to the database using the connection string from the connection page
             using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
@@ -373,17 +308,23 @@ namespace AWProduction_Application
                     //Open the database
                     connection.Open();
                     //Creates SQL command using the command string generated earlier
-                    SqlCommand searchCommand = new SqlCommand(command, connection);
+                    SqlCommand updateCommand = new SqlCommand(command, connection);
                     //Executes command and recieves output
-                    SqlDataAdapter adapter = new SqlDataAdapter(searchCommand);
+                    SqlDataAdapter adapter = new SqlDataAdapter(updateCommand);
+                    //Executes command and recieves output
+                    int createdRows = updateCommand.ExecuteNonQuery();
 
-                    //Displays output on grid view
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    WOSResultGridView.DataSource = dataTable;
-                    WOSResultGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    // Check Error
+                    if (createdRows < 0)
+                    {
+                        MessageBox.Show("Error updating record!"); // error message
+                    }
+                    else
+                    {
+                        MessageBox.Show("Edited the record with ID = " + WOIDtbox.Text); // success
+                    }
 
-                    MessageBox.Show("Edited the record with ID = " + WOIDtbox.Text);
+                    //MessageBox.Show("Edited the record with ID = " + WOIDtbox.Text);
                 }
                 catch (Exception error)
                 {
@@ -391,15 +332,17 @@ namespace AWProduction_Application
                 }
             }
 
-            WOEditPanel.Visible = false;
-        }
+            WOCreatePanel.Visible = false; // after editing hide the criteria panel
+
+        } // end of edit work order record btns
 
         //click delete
         private void WODelete_Click(object sender, EventArgs e)
         {
-            //Delete work order record
-            //Begin building the SQL command to view the publishers 
-            string command = "DELETE FROM WORK_ORDER";
+            //Delete work order event
+
+            //Begin building the SQL command 
+            string command = "DELETE FROM WORK_ORDER WHERE WorkOrderID = " + WOIDtbox.Text;
        
             //Connets to the database using the connection string from the connection page
             using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
@@ -409,17 +352,23 @@ namespace AWProduction_Application
                     //Open the database
                     connection.Open();
                     //Creates SQL command using the command string generated earlier
-                    SqlCommand searchCommand = new SqlCommand(command, connection);
+                    SqlCommand deleteCommand = new SqlCommand(command, connection);
                     //Executes command and recieves output
-                    SqlDataAdapter adapter = new SqlDataAdapter(searchCommand);
+                    SqlDataAdapter adapter = new SqlDataAdapter(deleteCommand);
+                    //Executes command and recieves output
+                    int createdRows = deleteCommand.ExecuteNonQuery();
 
-                    //Displays output on grid view
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    WOSResultGridView.DataSource = dataTable;
-                    WOSResultGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    // Check Error
+                    if (createdRows < 0)
+                    {
+                        MessageBox.Show("Error deleting record!"); // error message
+                    }
+                    else
+                    {
+                        MessageBox.Show("Deleted the record with ID = " + WOIDtbox.Text); // success
+                    }
 
-                    MessageBox.Show("Edited the record with ID = " + WOIDtbox.Text);
+                    //MessageBox.Show("Deleted the record with ID = " + WOIDtbox.Text);
                 }
                 catch (Exception error)
                 {
@@ -427,18 +376,48 @@ namespace AWProduction_Application
                 }
             }
 
-            MessageBox.Show("Delete record...");
-        }
+            WOCreatePanel.Visible = false; // after deleting hide the criteria panel
+            //MessageBox.Show("Delete record...");
+
+        } // end of delete work order btn
+
+
 
 
 
 
         /** INVENTORY TAB **/
 
-        /** Search btn **/
+
+        // Inventory Search Option
+        private void InvSearchOptionsbtn_Click(object sender, EventArgs e)
+        {
+            InvSearchGroup.Text = "Inventory Search Criteria"; // modify text
+            InvEditPanel.Visible = false; // hide edit btn
+            InvSearchGroup.Visible = true; // show criteria
+            InvSearchPanel.Visible = false; // hide the DGV
+            InvSearchInvIDLabel.Enabled = true; // enable PK
+            InvSearchInvIDtbox.Enabled = true; //enable PK
+
+            // clear all tbox inputs
+            InvSearchInvIDtbox.Text = "";
+            InvSearchProductNumtbox.Text = "";
+            InvSearchLoctbox.Text = "";
+            InvSearchListPricetbox.Text = "";
+            InvSearchQuantbox.Text = "";
+            InvSearchShelftbox.Text = "";
+
+            //InvCreatePanel.Visible = false; // hide create panel 
+
+        } // end search option
+
         private void InvSearchbtn_Click(object sender, EventArgs e)
         {
             //Search btn click event
+
+            //Show results
+            InvSearchPanel.Visible = true;
+            //MessageBox.Show("Searching results...");
 
             //query databse and display search results
 
@@ -497,7 +476,7 @@ namespace AWProduction_Application
                 checks = checks + "Shelf = " + "'" + InvSearchShelftbox.Text + "'" + " ";
                 addWhere = true;
             }
-            
+
             //Combine the statements together
             if (addWhere == true)
             {
@@ -527,18 +506,20 @@ namespace AWProduction_Application
                     MessageBox.Show(error.ToString());
                 }
             }
-
-            //Show results
-            InvSearchPanel.Visible = true;
-
-            //MessageBox.Show("Searching results...");
         }
 
-        /** Clear btn **/
-        private void InvSearchClearbtn_Click(object sender, EventArgs e)
+        // Inventory Create Option
+        private void InvCreateOptionsbtn_Click(object sender, EventArgs e)
         {
-            //Clear btn click event
+            InvSearchGroup.Text = "Create Inventory Record Criteria"; // modify text
+            InvEditPanel.Visible = false; // hide edit panel
+            //InvCreatePanel.Visible = true; // show create panel
+            InvSearchGroup.Visible = true; //show group
+            InvSearchPanel.Visible = false; // hide DGV
+            InvSearchInvIDLabel.Enabled = false; // disable PK
+            InvSearchInvIDtbox.Enabled = false; //disable PK
 
+            // clear all tbox inputs
             InvSearchInvIDtbox.Text = "";
             InvSearchProductNumtbox.Text = "";
             InvSearchLoctbox.Text = "";
@@ -546,9 +527,24 @@ namespace AWProduction_Application
             InvSearchQuantbox.Text = "";
             InvSearchShelftbox.Text = "";
 
-            //clear all tbox inputs
-            //MessageBox.Show("Clearing texboxes...");
-        }
+        } // end create option
+
+        /** Clear btn **/
+        private void InvSearchClearbtn_Click(object sender, EventArgs e)
+        {
+            // Clear btn click event
+
+            // clear all tbox inputs
+            InvSearchInvIDtbox.Text = "";
+            InvSearchProductNumtbox.Text = "";
+            InvSearchLoctbox.Text = "";
+            InvSearchListPricetbox.Text = "";
+            InvSearchQuantbox.Text = "";
+            InvSearchShelftbox.Text = "";
+
+            // MessageBox.Show("Clearing texboxes...");
+
+        } // end clear btn
 
         private void InvSearchGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -558,6 +554,7 @@ namespace AWProduction_Application
             InvSearchInvIDtbox.Enabled = false;
 
             DataGridViewRow row = this.InvSearchGridView.Rows[e.RowIndex];
+
             //populate the textbox from specific value of the coordinates of column and row.
             InvSearchInvIDtbox.Text = row.Cells[0].Value.ToString();
             InvSearchProductNumtbox.Text = row.Cells[1].Value.ToString();
@@ -573,15 +570,93 @@ namespace AWProduction_Application
         private void InvSearchEditbtn_Click(object sender, EventArgs e)
         {
             //edit the record
-            MessageBox.Show("Edit record...");
+            //MessageBox.Show("Edit record...");
+
+            //SQL command
+            string command = "Update Inventory " +
+                            "SET [ProductNumber] = " + "'" + InvSearchProductNumtbox.Text + "'"
+                          + " , [LocationID] = " + InvSearchLoctbox.Text
+                          + " , [ListPrice] = " + InvSearchListPricetbox.Text
+                          + " , [Quantity] = " + InvSearchQuantbox.Text
+                          + " , [Shelf] = " + "'" + InvSearchShelftbox.Text + "'"
+                          + " WHERE InventoryID = " + InvSearchInvIDtbox.Text;
+
+            //Connets to the database using the connection string from the connection page
+            using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
+            {
+                try
+                {
+                    //Open the database
+                    connection.Open();
+                    //Creates SQL command using the command string generated earlier
+                    SqlCommand updateCommand = new SqlCommand(command, connection);
+                    //Executes command and recieves output
+                    SqlDataAdapter adapter = new SqlDataAdapter(updateCommand);
+                    //Executes command and recieves output
+                    int createdRows = updateCommand.ExecuteNonQuery();
+
+                    // Check Error
+                    if (createdRows < 0)
+                    {
+                        MessageBox.Show("Error updating record!"); // error message
+                    }
+                    else
+                    {
+                        MessageBox.Show("Edited the record with ID = " + InvSearchInvIDtbox.Text); // success
+                    }
+
+                    //MessageBox.Show("Edited the record with ID = " + InvSearchInvIDtbox.Text);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.ToString());
+                }
+            }
+
         }
 
         /** Delete btn **/
         private void InvSearchDeletebtn_Click(object sender, EventArgs e)
         {
             //delete the record
-            MessageBox.Show("Delete record...");
-        }
+            //MessageBox.Show("Delete record...");
+
+            //Begin building the SQL command 
+            string command = "DELETE FROM Inventory WHERE InventoryID = " + InvSearchInvIDtbox.Text;
+
+            //Connets to the database using the connection string from the connection page
+            using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
+            {
+                try
+                {
+                    //Open the database
+                    connection.Open();
+                    //Creates SQL command using the command string generated earlier
+                    SqlCommand deleteCommand = new SqlCommand(command, connection);
+                    //Executes command and recieves output
+                    SqlDataAdapter adapter = new SqlDataAdapter(deleteCommand);
+                    //Executes command and recieves output
+                    int createdRows = deleteCommand.ExecuteNonQuery();
+
+                    // Check Error
+                    if (createdRows < 0)
+                    {
+                        MessageBox.Show("Error deleting record!"); // error message
+                    }
+                    else
+                    {
+                        MessageBox.Show("Deleted the record with ID = " + InvSearchInvIDtbox.Text); // success
+                    }
+
+                    //MessageBox.Show("Deleted the record with ID = " + invsearchinvidtbox.Text);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.ToString());
+                }
+            }
+
+        } // end of delete btn
 
 
 
@@ -590,13 +665,59 @@ namespace AWProduction_Application
 
         /** PRODUCT TAB **/
 
+        // product search option btn
+        private void ProdSearchOption_Click(object sender, EventArgs e)
+        {
+            ProdCreatebtn.Visible = false; // hide the create btn
+            ProdSearchPanel.Visible = false; // hide the DGV
+
+            //clear all boxes
+            ProdPNumbertbox.Text = "";
+            ProdPNametbox.Text = "";
+            ProdModelCodetbox.Text = "";
+            ProdDTPtbox.Text = "";
+            ProdCTPtbox.Text = "";
+            ProdSSDtbox.Text = "";
+            ProdESDtbox.Text = "";
+            ProdDiscDatetbox.Text = "";
+
+        } // end of product search option btn
+
+        // product create options btn
+        private void ProdCreateOption_Click(object sender, EventArgs e)
+        {
+            ProdCreatebtn.Visible = true; // show create btn
+            ProdSearchPanel.Visible = false;// hide the DGV
+
+            //clear all boxes
+            ProdPNumbertbox.Text = "";
+            ProdPNametbox.Text = "";
+            ProdModelCodetbox.Text = "";
+            ProdDTPtbox.Text = "";
+            ProdCTPtbox.Text = "";
+            ProdSSDtbox.Text = "";
+            ProdESDtbox.Text = "";
+            ProdDiscDatetbox.Text = "";
+
+        } // end of product create btn
+
         /** Clear btn **/
         private void ProdClearbtn_Click(object sender, EventArgs e)
         {
             //Clear btn click event
 
+            //clear all boxes
+            ProdPNumbertbox.Text = "";
+            ProdPNametbox.Text = "";
+            ProdModelCodetbox.Text = "";
+            ProdDTPtbox.Text = "";
+            ProdCTPtbox.Text = "";
+            ProdSSDtbox.Text = "";
+            ProdESDtbox.Text = "";
+            ProdDiscDatetbox.Text = "";
+
             //clear all tbox inputs
-            MessageBox.Show("Clearing texboxes...");
+            //MessageBox.Show("Clearing texboxes...");
         }
 
         /** Search btn **/
@@ -606,9 +727,112 @@ namespace AWProduction_Application
 
             //query databse and display search results
             ProdSearchPanel.Visible = true;
-
             MessageBox.Show("Searching results...");
-        }
+
+            //Begin building the SQL command
+            string command = "SELECT ProductNumber, Name, ModelCode, DaysToProduce, CostToProduce, StartSellDate, EndSellDate, DiscountinuedDate FROM Product";
+            bool addWhere = false;
+            string checks = "";
+
+            //Construct the where statement based on user 
+            if (!string.IsNullOrWhiteSpace(ProdPNumbertbox.Text))
+            {
+                checks = checks + "ProductNumber = " + "'" + ProdPNumbertbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(ProdPNametbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " AND ";
+                }
+                checks = checks + "Name = " + "'" + ProdPNametbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(ProdModelCodetbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " AND ";
+                }
+                checks = checks + "ModelCode = " + "'" + ProdModelCodetbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(ProdDTPtbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " AND ";
+                }
+                checks = checks + "DaysToProduce = " + "'" + ProdDTPtbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(ProdCTPtbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " AND ";
+                }
+                checks = checks + "CostToProduce = " + "'" + ProdCTPtbox.Text + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(ProdSSDtbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " AND ";
+                }
+                checks = checks + "StartSellDate = " + "'" + Convert.ToDateTime(ProdSSDtbox.Text) + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(ProdESDtbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " AND ";
+                }
+                checks = checks + "EndSellDate =  " + "'" + Convert.ToDateTime(ProdESDtbox.Text) + "'" + " ";
+                addWhere = true;
+            }
+            if (!string.IsNullOrWhiteSpace(ProdDiscDatetbox.Text))
+            {
+                if (addWhere == true)
+                {
+                    checks = checks + " AND ";
+                }
+                checks = checks + "DiscountinuedDate = " + "'" + Convert.ToDateTime(ProdDiscDatetbox.Text) + "'" + " ";
+                addWhere = true;
+            }
+            //Combine the statements together
+            if (addWhere == true)
+            {
+                command = command + " WHERE " + checks;
+            }
+
+            //Connets to the database using the connection string from the connection page
+            using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
+            {
+                try
+                {
+                    //Open the database
+                    connection.Open();
+                    //Creates SQL command using the command string generated earlier
+                    SqlCommand searchCommand = new SqlCommand(command, connection);
+                    //Executes command and recieves output
+                    SqlDataAdapter adapter = new SqlDataAdapter(searchCommand);
+
+                    //Displays output on grid view
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    ProdSearchGridView.DataSource = dataTable;
+                    ProdSearchGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.ToString());
+                }
+            }
+        } // end of product search btn
 
         /** more Details btn for search results **/
         private void ProdSearchDetailsbtn_Click(object sender, EventArgs e)
