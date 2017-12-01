@@ -98,6 +98,7 @@ namespace AWProduction_Application
             WOIDtbox.Enabled = true; // enable the PK for searching
             WOCriteriaGroup.Text = "Search Work Order"; //modifiy group text
             WOEditPanel.Visible = false; // hide the edit panel for now
+            WOSResultPanel.Visible = false; // hide the DGV
 
             //clear previous text just in case
             WOIDtbox.Text = "";
@@ -261,7 +262,7 @@ namespace AWProduction_Application
         //Edit the selected record
         private void WOSResultGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            WOSResultGridView.Visible = false; // hide DGV
+            //WOSResultGridView.Visible = false; // hide DGV
             WOCriteriaGroup.Text = "Edit Work Order Record"; //change group text
 
             WOIDLabel.Enabled = false; // hide the PK
@@ -332,7 +333,7 @@ namespace AWProduction_Application
                 }
             }
 
-            WOCreatePanel.Visible = false; // after editing hide the criteria panel
+            //WOCreatePanel.Visible = false; // after editing hide the criteria panel
 
         } // end of edit work order record btns
 
