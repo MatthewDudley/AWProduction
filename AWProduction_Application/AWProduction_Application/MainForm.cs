@@ -712,7 +712,7 @@ namespace AWProduction_Application
 
             //clear extra btns
             ProdSearchDeletebtn.Visible = false;
-            ProdSearchDetailsbtn.Visible = false;
+            //ProdSearchDetailsbtn.Visible = false;
             ProdSearchEditbtn.Visible = false;
             NewProductbtn.Visible = false;
 
@@ -736,7 +736,7 @@ namespace AWProduction_Application
 
             //clear extra btns
             ProdSearchDeletebtn.Visible = false;
-            ProdSearchDetailsbtn.Visible = false;
+            //ProdSearchDetailsbtn.Visible = false;
             ProdSearchEditbtn.Visible = false;
 
             NewProductbtn.Visible = true;
@@ -904,7 +904,7 @@ namespace AWProduction_Application
         {
             // show options
             ProdSearchDeletebtn.Visible = true;
-            ProdSearchDetailsbtn.Visible = true;
+            //ProdSearchDetailsbtn.Visible = true;
             ProdSearchEditbtn.Visible = true;
 
             //disble PK

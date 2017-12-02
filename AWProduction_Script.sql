@@ -167,7 +167,8 @@ INSERT INTO [PRODUCT_MODEL] ([ModelCode], [ModelName], [SizeCode], [WeightCode],
 ('MC-1160', 'Caps 1.0', 2150, 3005, 'Headwear'),
 ('MC-1170' , 'Caps 2.0', 2150, 3005, 'Headwear'),
 ('MC-1180', 'Caps 3.0', 2150, 3005, 'Headwear'),
-('MC-1190', 'Fork End 1.0', 2120, 3004, 'Attaches the Axle');
+('MC-1190', 'Fork End 1.0', 2120, 3004, 'Attaches the Axle'),
+('MC-3000', 'Encaps Tube', 2150, 3008, 'Attaches the Axle');
 go
 
 
@@ -210,7 +211,8 @@ INSERT INTO [MODEL_SPECS] ([ModelCode], [Color], [Class], [Style], [Weight], [Si
 ('MC-1160', 'Red', 'ClassI', 'Fluted', 1500, 375),
 ('MC-1170', 'Green', 'ClassI', 'Standard', 1500, 375),
 ('MC-1180', 'Blue', 'ClassI', 'Round', 1500, 375),
-('MC-1190', 'Black', 'ClassJ', 'Fluted',1200, 300);
+('MC-1190', 'Black', 'ClassJ', 'Fluted',1200, 300),
+('MC-3000', 'Black', 'ClassZ', 'Fluted',1200, 300);
 go
 
 
@@ -255,7 +257,7 @@ INSERT INTO [PRODUCT] ([ProductNumber], [Name], [ModelCode], [DaysToProduce], [C
 ('EC-M092', 'Mountain End Caps', 'MC-1160', 5, 5.00, '2008-04-30 00:00:00.000', NULL, NULL),
 ('EC-R098', 'Road End Caps', 'MC-1170', 5, 5.00, '2008-04-30 00:00:00.000', NULL, NULL),
 ('EC-T209', 'Touring End Caps', 'MC-1180', 5, 5.00, '2008-04-30 00:00:00.000', NULL, '2008-09-30 00:00:00.000'),
-('FE-3760', 'Fork End', 'MC-1180', 4, 30.00, '2008-04-30 00:00:00.000', '2009-04-30 00:00:00.000', NULL);
+('FE-3760', 'Fork End', 'MC-1190', 4, 30.00, '2008-04-30 00:00:00.000', '2009-04-30 00:00:00.000', NULL);
 go
 
 
@@ -288,7 +290,8 @@ INSERT INTO [WORK_ORDER] ([WorkOrderDate], [EmployeeID], [DepartmentHead], [Prod
 ('2017-05-15 05:10:00.000', 5, 'Marty Warren', 'BL-2036', 80 , 'Steel, bike wheel shim', '2017-9-14 05:05:00.000', '2018-11-14 12:00:00.000'),
 ('2017-06-16 06:11:00.000', 6, 'John Smith', 'CA-5965', 90 , 'Steel, crank arm', '2017-9-14 06:06:00.000', '2018-11-14 12:00:00.000'),
 ('2017-07-17 07:12:00.000', 7, 'Amanda Berry', 'CA-6738', 20 , 'Steel, crank arm', '2017-9-14 07:07:00.000', '2018-11-14 12:00:00.000'),
-('2017-08-18 08:05:00.000', 8, 'Jerome Gutierrez', 'CA-7457', 10 , 'Steel, crank arm', '2017-9-14 08:08:00.000', '2018-11-14 12:00:00.000');
+('2017-08-18 08:05:00.000', 8, 'Jerome Gutierrez', 'CA-7457', 10 , 'Steel, crank arm', '2017-9-14 08:08:00.000', '2018-11-14 12:00:00.000'),
+('2017-08-18 08:05:00.000', 1, 'John Smith', 'DC-8732', 25 , 'Decals, paper, ink', '2017-9-14 08:08:00.000', '2017-11-14 12:00:00.000');
 go
 
 
