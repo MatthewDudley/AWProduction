@@ -399,6 +399,7 @@ namespace AWProduction_Application
             InvSearchPanel.Visible = false; // hide the DGV
             InvSearchInvIDLabel.Enabled = true; // enable PK
             InvSearchInvIDtbox.Enabled = true; //enable PK
+            InvCreatbtn.Visible = false;
 
             // clear all tbox inputs
             InvSearchInvIDtbox.Text = "";
@@ -528,7 +529,43 @@ namespace AWProduction_Application
             InvSearchQuantbox.Text = "";
             InvSearchShelftbox.Text = "";
 
+            InvCreatbtn.Visible = true;
+
         } // end create option
+
+        private void InvCreatbtn_Click(object sender, EventArgs e)
+        {
+            //push information to the database
+            string command = "INSERT INTO [INVENTORY] ([ProductNumber], [LocationID], [ListPrice], [Quantity], [Shelf] ) VALUES " +
+                             "( " + "'" + InvSearchProductNumtbox.Text + "'" + ", " + "'" + InvSearchLoctbox.Text + "'" + ", " + "'" + InvSearchListPricetbox.Text + "'" + ", " + "'" + InvSearchQuantbox.Text + "'" + ", " + "'" + InvSearchShelftbox.Text + "' )";
+            //Connets to the database using the connection string from the connection page
+            using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
+            {
+                try
+                {
+                    //Open the database
+                    connection.Open();
+                    //Creates SQL command using the command string generated earlier
+                    SqlCommand insertCommand = new SqlCommand(command, connection);
+                    //Executes command and recieves output
+                    int createdRows = insertCommand.ExecuteNonQuery();
+
+                    // Check Error
+                    if (createdRows < 0)
+                    {
+                        MessageBox.Show("Error creating new record!"); // error message
+                    }
+                    else
+                    {
+                        MessageBox.Show("Created new Inventory Record!"); // success
+                    }
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.ToString());
+                }
+            }
+        }
 
         /** Clear btn **/
         private void InvSearchClearbtn_Click(object sender, EventArgs e)
@@ -671,6 +708,13 @@ namespace AWProduction_Application
         {
             ProdCreatebtn.Visible = false; // hide the create btn
             ProdSearchPanel.Visible = false; // hide the DGV
+            ProdCriteriaGroup.Visible = true; //show boxes
+
+            //clear extra btns
+            ProdSearchDeletebtn.Visible = false;
+            ProdSearchDetailsbtn.Visible = false;
+            ProdSearchEditbtn.Visible = false;
+            NewProductbtn.Visible = false;
 
             //clear all boxes
             ProdPNumbertbox.Text = "";
@@ -679,8 +723,7 @@ namespace AWProduction_Application
             ProdDTPtbox.Text = "";
             ProdCTPtbox.Text = "";
             ProdSSDtbox.Text = "";
-            ProdESDtbox.Text = "";
-            ProdDiscDatetbox.Text = "";
+
 
         } // end of product search option btn
 
@@ -688,7 +731,15 @@ namespace AWProduction_Application
         private void ProdCreateOption_Click(object sender, EventArgs e)
         {
             ProdCreatebtn.Visible = true; // show create btn
-            ProdSearchPanel.Visible = false;// hide the DGV
+            ProdSearchPanel.Visible = false; // hide the DGV
+            ProdCriteriaGroup.Visible = true; // show boxes
+
+            //clear extra btns
+            ProdSearchDeletebtn.Visible = false;
+            ProdSearchDetailsbtn.Visible = false;
+            ProdSearchEditbtn.Visible = false;
+
+            NewProductbtn.Visible = true;
 
             //clear all boxes
             ProdPNumbertbox.Text = "";
@@ -697,10 +748,43 @@ namespace AWProduction_Application
             ProdDTPtbox.Text = "";
             ProdCTPtbox.Text = "";
             ProdSSDtbox.Text = "";
-            ProdESDtbox.Text = "";
-            ProdDiscDatetbox.Text = "";
 
         } // end of product create btn
+
+        private void NewProductbtn_Click(object sender, EventArgs e)
+        {
+
+            //push information to the database
+            string command = "INSERT INTO [PRODUCT] ([ProductNumber], [Name], [ModelCode], [DaysToProduce], [CostToProduce], [StartSellDate] ) VALUES " +
+                             "( " + "'" + ProdPNumbertbox.Text + "'" + ", " + "'" + ProdPNametbox.Text + "'" + ", " + "'" + ProdModelCodetbox.Text + "'" + ", " + "'" + ProdDTPtbox.Text + "'" + ", " + "'" + ProdCTPtbox.Text + "'" + ", " + "'" + Convert.ToDateTime(ProdSSDtbox.Text) + "' )";
+            //Connets to the database using the connection string from the connection page
+            using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
+            {
+                try
+                {
+                    //Open the database
+                    connection.Open();
+                    //Creates SQL command using the command string generated earlier
+                    SqlCommand insertCommand = new SqlCommand(command, connection);
+                    //Executes command and recieves output
+                    int createdRows = insertCommand.ExecuteNonQuery();
+
+                    // Check Error
+                    if (createdRows < 0)
+                    {
+                        MessageBox.Show("Error creating new record!"); // error message
+                    }
+                    else
+                    {
+                        MessageBox.Show("Created new Product Record!"); // success
+                    }
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.ToString());
+                }
+            }
+        }
 
         /** Clear btn **/
         private void ProdClearbtn_Click(object sender, EventArgs e)
@@ -714,8 +798,6 @@ namespace AWProduction_Application
             ProdDTPtbox.Text = "";
             ProdCTPtbox.Text = "";
             ProdSSDtbox.Text = "";
-            ProdESDtbox.Text = "";
-            ProdDiscDatetbox.Text = "";
 
             //clear all tbox inputs
             //MessageBox.Show("Clearing texboxes...");
@@ -728,10 +810,10 @@ namespace AWProduction_Application
 
             //query databse and display search results
             ProdSearchPanel.Visible = true;
-            MessageBox.Show("Searching results...");
+            //MessageBox.Show("Searching results...");
 
             //Begin building the SQL command
-            string command = "SELECT ProductNumber, Name, ModelCode, DaysToProduce, CostToProduce, StartSellDate, EndSellDate, DiscountinuedDate FROM Product";
+            string command = "SELECT ProductNumber, Name, ModelCode, DaysToProduce, CostToProduce, StartSellDate FROM Product";
             bool addWhere = false;
             string checks = "";
 
@@ -786,24 +868,6 @@ namespace AWProduction_Application
                 checks = checks + "StartSellDate = " + "'" + Convert.ToDateTime(ProdSSDtbox.Text) + "'" + " ";
                 addWhere = true;
             }
-            if (!string.IsNullOrWhiteSpace(ProdESDtbox.Text))
-            {
-                if (addWhere == true)
-                {
-                    checks = checks + " AND ";
-                }
-                checks = checks + "EndSellDate =  " + "'" + Convert.ToDateTime(ProdESDtbox.Text) + "'" + " ";
-                addWhere = true;
-            }
-            if (!string.IsNullOrWhiteSpace(ProdDiscDatetbox.Text))
-            {
-                if (addWhere == true)
-                {
-                    checks = checks + " AND ";
-                }
-                checks = checks + "DiscountinuedDate = " + "'" + Convert.ToDateTime(ProdDiscDatetbox.Text) + "'" + " ";
-                addWhere = true;
-            }
             //Combine the statements together
             if (addWhere == true)
             {
@@ -835,6 +899,31 @@ namespace AWProduction_Application
             }
         } // end of product search btn
 
+        // double click prod search record
+        private void ProdSearchGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // show options
+            ProdSearchDeletebtn.Visible = true;
+            ProdSearchDetailsbtn.Visible = true;
+            ProdSearchEditbtn.Visible = true;
+
+            //disble PK
+            ProdPNumberLabel.Enabled = false;
+            ProdPNumbertbox.Enabled = false;
+
+            //give data to the boxes
+            DataGridViewRow row = this.ProdSearchGridView.Rows[e.RowIndex];
+
+            //populate the textbox from specific value of the coordinates of column and row.
+            ProdPNumbertbox.Text = row.Cells[0].Value.ToString();
+            ProdPNametbox.Text = row.Cells[1].Value.ToString();
+            ProdModelCodetbox.Text = row.Cells[2].Value.ToString();
+            ProdDTPtbox.Text = row.Cells[3].Value.ToString();
+            ProdCTPtbox.Text = row.Cells[4].Value.ToString();
+            ProdSSDtbox.Text = row.Cells[5].Value.ToString();
+
+        } // end of cell double click
+
         /** more Details btn for search results **/
         private void ProdSearchDetailsbtn_Click(object sender, EventArgs e)
         {
@@ -846,14 +935,91 @@ namespace AWProduction_Application
         private void ProdSearchEditbtn_Click(object sender, EventArgs e)
         {
             //edit the record
-            MessageBox.Show("Edit record...");
+            //MessageBox.Show("Edit record...");
+
+            //SQL command
+            string command = "Update Product " +
+                            "SET [Name] = " + "'" + ProdPNametbox.Text + "'"
+                          + " , [ModelCode] = " + "'" + ProdModelCodetbox.Text + "'"
+                          + " , [DaysToProduce] = " + ProdDTPtbox.Text
+                          + " , [CostToProduce] = " + ProdCTPtbox.Text
+                          + " , [StartSellDate] = " + "'" + Convert.ToDateTime(ProdSSDtbox.Text) + "'"
+                          + " WHERE ProductNumber = " + "'" + ProdPNumbertbox.Text + "'";
+
+            //Connets to the database using the connection string from the connection page
+            using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
+            {
+                try
+                {
+                    //Open the database
+                    connection.Open();
+                    //Creates SQL command using the command string generated earlier
+                    SqlCommand updateCommand = new SqlCommand(command, connection);
+                    //Executes command and recieves output
+                    SqlDataAdapter adapter = new SqlDataAdapter(updateCommand);
+                    //Executes command and recieves output
+                    int createdRows = updateCommand.ExecuteNonQuery();
+
+                    // Check Error
+                    if (createdRows < 0)
+                    {
+                        MessageBox.Show("Error updating record!"); // error message
+                    }
+                    else
+                    {
+                        MessageBox.Show("Edited the record with ID = " + ProdPNumbertbox.Text); // success
+                    }
+
+                    //MessageBox.Show("Edited the record with ID = " + ProdPNumbertbox.Text);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.ToString());
+                }
+            }
         }
 
         /** Delete btn for search results **/
         private void ProdSearchDeletebtn_Click(object sender, EventArgs e)
         {
             //delete the record
-            MessageBox.Show("Delete record...");
+            //MessageBox.Show("Delete record...");
+
+            //Begin building the SQL command 
+            string command = "DELETE FROM Product WHERE ProductNumber = " + "'" + ProdPNumbertbox.Text + "'";
+
+            //Connets to the database using the connection string from the connection page
+            using (SqlConnection connection = new SqlConnection(ConnectionForm.ConnectionString))
+            {
+                try
+                {
+                    //Open the database
+                    connection.Open();
+                    //Creates SQL command using the command string generated earlier
+                    SqlCommand deleteCommand = new SqlCommand(command, connection);
+                    //Executes command and recieves output
+                    SqlDataAdapter adapter = new SqlDataAdapter(deleteCommand);
+                    //Executes command and recieves output
+                    int createdRows = deleteCommand.ExecuteNonQuery();
+
+                    // Check Error
+                    if (createdRows < 0)
+                    {
+                        MessageBox.Show("Error deleting record!"); // error message
+                    }
+                    else
+                    {
+                        MessageBox.Show("Deleted the record with ID = " + ProdPNumbertbox.Text); // success
+                    }
+
+                    //MessageBox.Show("Deleted the record with ID = " + prodpnumber.tbox.Text);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.ToString());
+                }
+            }
+
         }
 
 

@@ -41,10 +41,10 @@
             this.WOQuantitytbox = new System.Windows.Forms.TextBox();
             this.WOProductNumtbox = new System.Windows.Forms.TextBox();
             this.WOIDtbox = new System.Windows.Forms.TextBox();
-            this.WOIDLabel = new System.Windows.Forms.Label();
-            this.WOPEDLabel = new System.Windows.Forms.Label();
             this.WOSbtnPanel = new System.Windows.Forms.Panel();
             this.WOSSearchbtn = new System.Windows.Forms.Button();
+            this.WOIDLabel = new System.Windows.Forms.Label();
+            this.WOPEDLabel = new System.Windows.Forms.Label();
             this.WOPEDatetbox = new System.Windows.Forms.TextBox();
             this.WOCCreatebtn = new System.Windows.Forms.Button();
             this.WOCClearbtn = new System.Windows.Forms.Button();
@@ -87,18 +87,18 @@
             this.InvSearchInvIDtbox = new System.Windows.Forms.TextBox();
             this.InvSearchInvIDLabel = new System.Windows.Forms.Label();
             this.ProductTab = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ProdCreateOption = new System.Windows.Forms.Button();
+            this.ProdSearchOption = new System.Windows.Forms.Button();
             this.ProdSearchPanel = new System.Windows.Forms.Panel();
             this.ProdSearchDetailsbtn = new System.Windows.Forms.Button();
             this.ProdSearchEditbtn = new System.Windows.Forms.Button();
             this.ProdSearchDeletebtn = new System.Windows.Forms.Button();
             this.ProdSearchGridView = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ProdCriteriaGroup = new System.Windows.Forms.GroupBox();
+            this.ProdCreatebtn = new System.Windows.Forms.Button();
             this.ProsSearchbtn = new System.Windows.Forms.Button();
             this.ProdClearbtn = new System.Windows.Forms.Button();
-            this.ProdDiscDatetbox = new System.Windows.Forms.TextBox();
-            this.ProdDiscDateLabel = new System.Windows.Forms.Label();
-            this.ProdESDtbox = new System.Windows.Forms.TextBox();
-            this.ProdESDLabel = new System.Windows.Forms.Label();
             this.ProdSSDtbox = new System.Windows.Forms.TextBox();
             this.ProdSSDLabel = new System.Windows.Forms.Label();
             this.ProdCTPtbox = new System.Windows.Forms.TextBox();
@@ -118,10 +118,8 @@
             this.Execute = new System.Windows.Forms.Button();
             this.Admintbox = new System.Windows.Forms.RichTextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.ProdSearchOption = new System.Windows.Forms.Button();
-            this.ProdCreateOption = new System.Windows.Forms.Button();
-            this.ProdCreatebtn = new System.Windows.Forms.Button();
+            this.InvCreatbtn = new System.Windows.Forms.Button();
+            this.NewProductbtn = new System.Windows.Forms.Button();
             this.MainFormTabControl.SuspendLayout();
             this.WorkOrderTab.SuspendLayout();
             this.WOSResultPanel.SuspendLayout();
@@ -138,14 +136,14 @@
             this.InvSearchGroup.SuspendLayout();
             this.InvEditPanel.SuspendLayout();
             this.ProductTab.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.ProdSearchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProdSearchGridView)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.ProdCriteriaGroup.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdminDGV)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainFormTabControl
@@ -291,24 +289,6 @@
             this.WOIDtbox.Size = new System.Drawing.Size(109, 20);
             this.WOIDtbox.TabIndex = 17;
             // 
-            // WOIDLabel
-            // 
-            this.WOIDLabel.AutoSize = true;
-            this.WOIDLabel.Location = new System.Drawing.Point(45, 31);
-            this.WOIDLabel.Name = "WOIDLabel";
-            this.WOIDLabel.Size = new System.Drawing.Size(79, 13);
-            this.WOIDLabel.TabIndex = 16;
-            this.WOIDLabel.Text = "Work Order ID:";
-            // 
-            // WOPEDLabel
-            // 
-            this.WOPEDLabel.AutoSize = true;
-            this.WOPEDLabel.Location = new System.Drawing.Point(261, 109);
-            this.WOPEDLabel.Name = "WOPEDLabel";
-            this.WOPEDLabel.Size = new System.Drawing.Size(109, 13);
-            this.WOPEDLabel.TabIndex = 15;
-            this.WOPEDLabel.Text = "Production End Date:";
-            // 
             // WOSbtnPanel
             // 
             this.WOSbtnPanel.Controls.Add(this.WOSSearchbtn);
@@ -327,6 +307,24 @@
             this.WOSSearchbtn.Text = "Search";
             this.WOSSearchbtn.UseVisualStyleBackColor = true;
             this.WOSSearchbtn.Click += new System.EventHandler(this.WOSSearchbtn_Click);
+            // 
+            // WOIDLabel
+            // 
+            this.WOIDLabel.AutoSize = true;
+            this.WOIDLabel.Location = new System.Drawing.Point(45, 31);
+            this.WOIDLabel.Name = "WOIDLabel";
+            this.WOIDLabel.Size = new System.Drawing.Size(79, 13);
+            this.WOIDLabel.TabIndex = 16;
+            this.WOIDLabel.Text = "Work Order ID:";
+            // 
+            // WOPEDLabel
+            // 
+            this.WOPEDLabel.AutoSize = true;
+            this.WOPEDLabel.Location = new System.Drawing.Point(261, 109);
+            this.WOPEDLabel.Name = "WOPEDLabel";
+            this.WOPEDLabel.Size = new System.Drawing.Size(109, 13);
+            this.WOPEDLabel.TabIndex = 15;
+            this.WOPEDLabel.Text = "Production End Date:";
             // 
             // WOPEDatetbox
             // 
@@ -540,6 +538,7 @@
             // 
             // InvSearchGroup
             // 
+            this.InvSearchGroup.Controls.Add(this.InvCreatbtn);
             this.InvSearchGroup.Controls.Add(this.InvEditPanel);
             this.InvSearchGroup.Controls.Add(this.InvSearchShelftbox);
             this.InvSearchGroup.Controls.Add(this.InvSearchShelfLabel);
@@ -713,7 +712,7 @@
             // 
             this.ProductTab.Controls.Add(this.groupBox4);
             this.ProductTab.Controls.Add(this.ProdSearchPanel);
-            this.ProductTab.Controls.Add(this.groupBox1);
+            this.ProductTab.Controls.Add(this.ProdCriteriaGroup);
             this.ProductTab.Location = new System.Drawing.Point(4, 22);
             this.ProductTab.Name = "ProductTab";
             this.ProductTab.Padding = new System.Windows.Forms.Padding(3);
@@ -722,11 +721,39 @@
             this.ProductTab.Text = "Products";
             this.ProductTab.UseVisualStyleBackColor = true;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.ProdCreateOption);
+            this.groupBox4.Controls.Add(this.ProdSearchOption);
+            this.groupBox4.Location = new System.Drawing.Point(20, 15);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(105, 85);
+            this.groupBox4.TabIndex = 5;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Product Options";
+            // 
+            // ProdCreateOption
+            // 
+            this.ProdCreateOption.Location = new System.Drawing.Point(12, 48);
+            this.ProdCreateOption.Name = "ProdCreateOption";
+            this.ProdCreateOption.Size = new System.Drawing.Size(79, 23);
+            this.ProdCreateOption.TabIndex = 1;
+            this.ProdCreateOption.Text = "Add New";
+            this.ProdCreateOption.UseVisualStyleBackColor = true;
+            this.ProdCreateOption.Click += new System.EventHandler(this.ProdCreateOption_Click);
+            // 
+            // ProdSearchOption
+            // 
+            this.ProdSearchOption.Location = new System.Drawing.Point(12, 19);
+            this.ProdSearchOption.Name = "ProdSearchOption";
+            this.ProdSearchOption.Size = new System.Drawing.Size(79, 23);
+            this.ProdSearchOption.TabIndex = 0;
+            this.ProdSearchOption.Text = "Search";
+            this.ProdSearchOption.UseVisualStyleBackColor = true;
+            this.ProdSearchOption.Click += new System.EventHandler(this.ProdSearchOption_Click);
+            // 
             // ProdSearchPanel
             // 
-            this.ProdSearchPanel.Controls.Add(this.ProdSearchDetailsbtn);
-            this.ProdSearchPanel.Controls.Add(this.ProdSearchEditbtn);
-            this.ProdSearchPanel.Controls.Add(this.ProdSearchDeletebtn);
             this.ProdSearchPanel.Controls.Add(this.ProdSearchGridView);
             this.ProdSearchPanel.Location = new System.Drawing.Point(6, 200);
             this.ProdSearchPanel.Name = "ProdSearchPanel";
@@ -736,32 +763,35 @@
             // 
             // ProdSearchDetailsbtn
             // 
-            this.ProdSearchDetailsbtn.Location = new System.Drawing.Point(662, 162);
+            this.ProdSearchDetailsbtn.Location = new System.Drawing.Point(475, 77);
             this.ProdSearchDetailsbtn.Name = "ProdSearchDetailsbtn";
             this.ProdSearchDetailsbtn.Size = new System.Drawing.Size(75, 23);
             this.ProdSearchDetailsbtn.TabIndex = 3;
             this.ProdSearchDetailsbtn.Text = "More Details";
             this.ProdSearchDetailsbtn.UseVisualStyleBackColor = true;
+            this.ProdSearchDetailsbtn.Visible = false;
             this.ProdSearchDetailsbtn.Click += new System.EventHandler(this.ProdSearchDetailsbtn_Click);
             // 
             // ProdSearchEditbtn
             // 
-            this.ProdSearchEditbtn.Location = new System.Drawing.Point(662, 191);
+            this.ProdSearchEditbtn.Location = new System.Drawing.Point(475, 136);
             this.ProdSearchEditbtn.Name = "ProdSearchEditbtn";
             this.ProdSearchEditbtn.Size = new System.Drawing.Size(75, 23);
             this.ProdSearchEditbtn.TabIndex = 2;
             this.ProdSearchEditbtn.Text = "Edit";
             this.ProdSearchEditbtn.UseVisualStyleBackColor = true;
+            this.ProdSearchEditbtn.Visible = false;
             this.ProdSearchEditbtn.Click += new System.EventHandler(this.ProdSearchEditbtn_Click);
             // 
             // ProdSearchDeletebtn
             // 
-            this.ProdSearchDeletebtn.Location = new System.Drawing.Point(662, 220);
+            this.ProdSearchDeletebtn.Location = new System.Drawing.Point(475, 107);
             this.ProdSearchDeletebtn.Name = "ProdSearchDeletebtn";
             this.ProdSearchDeletebtn.Size = new System.Drawing.Size(75, 23);
             this.ProdSearchDeletebtn.TabIndex = 1;
             this.ProdSearchDeletebtn.Text = "Delete";
             this.ProdSearchDeletebtn.UseVisualStyleBackColor = true;
+            this.ProdSearchDeletebtn.Visible = false;
             this.ProdSearchDeletebtn.Click += new System.EventHandler(this.ProdSearchDeletebtn_Click);
             // 
             // ProdSearchGridView
@@ -769,40 +799,52 @@
             this.ProdSearchGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ProdSearchGridView.Location = new System.Drawing.Point(14, 17);
             this.ProdSearchGridView.Name = "ProdSearchGridView";
-            this.ProdSearchGridView.Size = new System.Drawing.Size(642, 226);
+            this.ProdSearchGridView.Size = new System.Drawing.Size(715, 226);
             this.ProdSearchGridView.TabIndex = 0;
+            this.ProdSearchGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProdSearchGridView_CellDoubleClick);
             // 
-            // groupBox1
+            // ProdCriteriaGroup
             // 
-            this.groupBox1.Controls.Add(this.ProdCreatebtn);
-            this.groupBox1.Controls.Add(this.ProsSearchbtn);
-            this.groupBox1.Controls.Add(this.ProdClearbtn);
-            this.groupBox1.Controls.Add(this.ProdDiscDatetbox);
-            this.groupBox1.Controls.Add(this.ProdDiscDateLabel);
-            this.groupBox1.Controls.Add(this.ProdESDtbox);
-            this.groupBox1.Controls.Add(this.ProdESDLabel);
-            this.groupBox1.Controls.Add(this.ProdSSDtbox);
-            this.groupBox1.Controls.Add(this.ProdSSDLabel);
-            this.groupBox1.Controls.Add(this.ProdCTPtbox);
-            this.groupBox1.Controls.Add(this.ProdCTPLabel);
-            this.groupBox1.Controls.Add(this.ProdDTPtbox);
-            this.groupBox1.Controls.Add(this.ProdDTPLabel);
-            this.groupBox1.Controls.Add(this.ProdModelCodetbox);
-            this.groupBox1.Controls.Add(this.ProdModelCodeLabel);
-            this.groupBox1.Controls.Add(this.ProdPNametbox);
-            this.groupBox1.Controls.Add(this.ProdPNameLabel);
-            this.groupBox1.Controls.Add(this.ProdPNumbertbox);
-            this.groupBox1.Controls.Add(this.ProdPNumberLabel);
-            this.groupBox1.Location = new System.Drawing.Point(133, 16);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(610, 165);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Product Criteria";
+            this.ProdCriteriaGroup.Controls.Add(this.NewProductbtn);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdSearchEditbtn);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdCreatebtn);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdSearchDetailsbtn);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdSearchDeletebtn);
+            this.ProdCriteriaGroup.Controls.Add(this.ProsSearchbtn);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdClearbtn);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdSSDtbox);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdSSDLabel);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdCTPtbox);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdCTPLabel);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdDTPtbox);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdDTPLabel);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdModelCodetbox);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdModelCodeLabel);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdPNametbox);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdPNameLabel);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdPNumbertbox);
+            this.ProdCriteriaGroup.Controls.Add(this.ProdPNumberLabel);
+            this.ProdCriteriaGroup.Location = new System.Drawing.Point(185, 15);
+            this.ProdCriteriaGroup.Name = "ProdCriteriaGroup";
+            this.ProdCriteriaGroup.Size = new System.Drawing.Size(558, 165);
+            this.ProdCriteriaGroup.TabIndex = 0;
+            this.ProdCriteriaGroup.TabStop = false;
+            this.ProdCriteriaGroup.Text = "Product Criteria";
+            this.ProdCriteriaGroup.Visible = false;
+            // 
+            // ProdCreatebtn
+            // 
+            this.ProdCreatebtn.Location = new System.Drawing.Point(475, 136);
+            this.ProdCreatebtn.Name = "ProdCreatebtn";
+            this.ProdCreatebtn.Size = new System.Drawing.Size(75, 23);
+            this.ProdCreatebtn.TabIndex = 20;
+            this.ProdCreatebtn.Text = "Create";
+            this.ProdCreatebtn.UseVisualStyleBackColor = true;
+            this.ProdCreatebtn.Visible = false;
             // 
             // ProsSearchbtn
             // 
-            this.ProsSearchbtn.Location = new System.Drawing.Point(529, 136);
+            this.ProsSearchbtn.Location = new System.Drawing.Point(475, 136);
             this.ProsSearchbtn.Name = "ProsSearchbtn";
             this.ProsSearchbtn.Size = new System.Drawing.Size(75, 23);
             this.ProsSearchbtn.TabIndex = 19;
@@ -812,45 +854,13 @@
             // 
             // ProdClearbtn
             // 
-            this.ProdClearbtn.Location = new System.Drawing.Point(448, 136);
+            this.ProdClearbtn.Location = new System.Drawing.Point(394, 136);
             this.ProdClearbtn.Name = "ProdClearbtn";
             this.ProdClearbtn.Size = new System.Drawing.Size(75, 23);
             this.ProdClearbtn.TabIndex = 18;
             this.ProdClearbtn.Text = "Clear";
             this.ProdClearbtn.UseVisualStyleBackColor = true;
             this.ProdClearbtn.Click += new System.EventHandler(this.ProdClearbtn_Click);
-            // 
-            // ProdDiscDatetbox
-            // 
-            this.ProdDiscDatetbox.Location = new System.Drawing.Point(281, 98);
-            this.ProdDiscDatetbox.Name = "ProdDiscDatetbox";
-            this.ProdDiscDatetbox.Size = new System.Drawing.Size(100, 20);
-            this.ProdDiscDatetbox.TabIndex = 15;
-            // 
-            // ProdDiscDateLabel
-            // 
-            this.ProdDiscDateLabel.AutoSize = true;
-            this.ProdDiscDateLabel.Location = new System.Drawing.Point(278, 82);
-            this.ProdDiscDateLabel.Name = "ProdDiscDateLabel";
-            this.ProdDiscDateLabel.Size = new System.Drawing.Size(104, 13);
-            this.ProdDiscDateLabel.TabIndex = 14;
-            this.ProdDiscDateLabel.Text = "Discountinued Date:";
-            // 
-            // ProdESDtbox
-            // 
-            this.ProdESDtbox.Location = new System.Drawing.Point(149, 98);
-            this.ProdESDtbox.Name = "ProdESDtbox";
-            this.ProdESDtbox.Size = new System.Drawing.Size(100, 20);
-            this.ProdESDtbox.TabIndex = 13;
-            // 
-            // ProdESDLabel
-            // 
-            this.ProdESDLabel.AutoSize = true;
-            this.ProdESDLabel.Location = new System.Drawing.Point(146, 83);
-            this.ProdESDLabel.Name = "ProdESDLabel";
-            this.ProdESDLabel.Size = new System.Drawing.Size(75, 13);
-            this.ProdESDLabel.TabIndex = 12;
-            this.ProdESDLabel.Text = "End Sell Date:";
             // 
             // ProdSSDtbox
             // 
@@ -870,7 +880,7 @@
             // 
             // ProdCTPtbox
             // 
-            this.ProdCTPtbox.Location = new System.Drawing.Point(411, 98);
+            this.ProdCTPtbox.Location = new System.Drawing.Point(281, 98);
             this.ProdCTPtbox.Name = "ProdCTPtbox";
             this.ProdCTPtbox.Size = new System.Drawing.Size(100, 20);
             this.ProdCTPtbox.TabIndex = 9;
@@ -878,7 +888,7 @@
             // ProdCTPLabel
             // 
             this.ProdCTPLabel.AutoSize = true;
-            this.ProdCTPLabel.Location = new System.Drawing.Point(408, 82);
+            this.ProdCTPLabel.Location = new System.Drawing.Point(278, 82);
             this.ProdCTPLabel.Name = "ProdCTPLabel";
             this.ProdCTPLabel.Size = new System.Drawing.Size(91, 13);
             this.ProdCTPLabel.TabIndex = 8;
@@ -886,7 +896,7 @@
             // 
             // ProdDTPtbox
             // 
-            this.ProdDTPtbox.Location = new System.Drawing.Point(411, 44);
+            this.ProdDTPtbox.Location = new System.Drawing.Point(149, 98);
             this.ProdDTPtbox.Name = "ProdDTPtbox";
             this.ProdDTPtbox.Size = new System.Drawing.Size(100, 20);
             this.ProdDTPtbox.TabIndex = 7;
@@ -894,7 +904,7 @@
             // ProdDTPLabel
             // 
             this.ProdDTPLabel.AutoSize = true;
-            this.ProdDTPLabel.Location = new System.Drawing.Point(408, 28);
+            this.ProdDTPLabel.Location = new System.Drawing.Point(146, 82);
             this.ProdDTPLabel.Name = "ProdDTPLabel";
             this.ProdDTPLabel.Size = new System.Drawing.Size(89, 13);
             this.ProdDTPLabel.TabIndex = 6;
@@ -1007,46 +1017,27 @@
             this.Admintbox.TabIndex = 0;
             this.Admintbox.Text = "";
             // 
-            // groupBox4
+            // InvCreatbtn
             // 
-            this.groupBox4.Controls.Add(this.ProdCreateOption);
-            this.groupBox4.Controls.Add(this.ProdSearchOption);
-            this.groupBox4.Location = new System.Drawing.Point(20, 15);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(107, 85);
-            this.groupBox4.TabIndex = 5;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Product Options";
+            this.InvCreatbtn.Location = new System.Drawing.Point(463, 106);
+            this.InvCreatbtn.Name = "InvCreatbtn";
+            this.InvCreatbtn.Size = new System.Drawing.Size(75, 23);
+            this.InvCreatbtn.TabIndex = 17;
+            this.InvCreatbtn.Text = "Create";
+            this.InvCreatbtn.UseVisualStyleBackColor = true;
+            this.InvCreatbtn.Visible = false;
+            this.InvCreatbtn.Click += new System.EventHandler(this.InvCreatbtn_Click);
             // 
-            // ProdSearchOption
+            // NewProductbtn
             // 
-            this.ProdSearchOption.Location = new System.Drawing.Point(12, 19);
-            this.ProdSearchOption.Name = "ProdSearchOption";
-            this.ProdSearchOption.Size = new System.Drawing.Size(79, 23);
-            this.ProdSearchOption.TabIndex = 0;
-            this.ProdSearchOption.Text = "Search";
-            this.ProdSearchOption.UseVisualStyleBackColor = true;
-            this.ProdSearchOption.Click += new System.EventHandler(this.ProdSearchOption_Click);
-            // 
-            // ProdCreateOption
-            // 
-            this.ProdCreateOption.Location = new System.Drawing.Point(12, 48);
-            this.ProdCreateOption.Name = "ProdCreateOption";
-            this.ProdCreateOption.Size = new System.Drawing.Size(79, 23);
-            this.ProdCreateOption.TabIndex = 1;
-            this.ProdCreateOption.Text = "Add New";
-            this.ProdCreateOption.UseVisualStyleBackColor = true;
-            this.ProdCreateOption.Click += new System.EventHandler(this.ProdCreateOption_Click);
-            // 
-            // ProdCreatebtn
-            // 
-            this.ProdCreatebtn.Location = new System.Drawing.Point(529, 136);
-            this.ProdCreatebtn.Name = "ProdCreatebtn";
-            this.ProdCreatebtn.Size = new System.Drawing.Size(75, 23);
-            this.ProdCreatebtn.TabIndex = 20;
-            this.ProdCreatebtn.Text = "Create";
-            this.ProdCreatebtn.UseVisualStyleBackColor = true;
-            this.ProdCreatebtn.Visible = false;
+            this.NewProductbtn.Location = new System.Drawing.Point(475, 136);
+            this.NewProductbtn.Name = "NewProductbtn";
+            this.NewProductbtn.Size = new System.Drawing.Size(75, 23);
+            this.NewProductbtn.TabIndex = 21;
+            this.NewProductbtn.Text = "Create";
+            this.NewProductbtn.UseVisualStyleBackColor = true;
+            this.NewProductbtn.Visible = false;
+            this.NewProductbtn.Click += new System.EventHandler(this.NewProductbtn_Click);
             // 
             // MainForm
             // 
@@ -1074,15 +1065,15 @@
             this.InvSearchGroup.PerformLayout();
             this.InvEditPanel.ResumeLayout(false);
             this.ProductTab.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.ProdSearchPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ProdSearchGridView)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.ProdCriteriaGroup.ResumeLayout(false);
+            this.ProdCriteriaGroup.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AdminDGV)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1133,7 +1124,7 @@
         private System.Windows.Forms.DataGridView InvSearchGridView;
         private System.Windows.Forms.Button InvSearchDeletebtn;
         private System.Windows.Forms.Button InvSearchEditbtn;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox ProdCriteriaGroup;
         private System.Windows.Forms.TextBox ProdPNumbertbox;
         private System.Windows.Forms.Label ProdPNumberLabel;
         private System.Windows.Forms.TextBox ProdModelCodetbox;
@@ -1144,10 +1135,6 @@
         private System.Windows.Forms.Label ProdDTPLabel;
         private System.Windows.Forms.TextBox ProdCTPtbox;
         private System.Windows.Forms.Label ProdCTPLabel;
-        private System.Windows.Forms.TextBox ProdDiscDatetbox;
-        private System.Windows.Forms.Label ProdDiscDateLabel;
-        private System.Windows.Forms.TextBox ProdESDtbox;
-        private System.Windows.Forms.Label ProdESDLabel;
         private System.Windows.Forms.TextBox ProdSSDtbox;
         private System.Windows.Forms.Label ProdSSDLabel;
         private System.Windows.Forms.Button ProsSearchbtn;
@@ -1183,6 +1170,8 @@
         private System.Windows.Forms.Button ProdCreateOption;
         private System.Windows.Forms.Button ProdSearchOption;
         private System.Windows.Forms.Button ProdCreatebtn;
+        private System.Windows.Forms.Button InvCreatbtn;
+        private System.Windows.Forms.Button NewProductbtn;
     }
 }
 
