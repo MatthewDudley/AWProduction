@@ -91,7 +91,6 @@
             this.ProdCreateOption = new System.Windows.Forms.Button();
             this.ProdSearchOption = new System.Windows.Forms.Button();
             this.ProdSearchPanel = new System.Windows.Forms.Panel();
-            this.ProdSearchDetailsbtn = new System.Windows.Forms.Button();
             this.ProdSearchEditbtn = new System.Windows.Forms.Button();
             this.ProdSearchDeletebtn = new System.Windows.Forms.Button();
             this.ProdSearchGridView = new System.Windows.Forms.DataGridView();
@@ -761,17 +760,6 @@
             this.ProdSearchPanel.TabIndex = 4;
             this.ProdSearchPanel.Visible = false;
             // 
-            // ProdSearchDetailsbtn
-            // 
-            this.ProdSearchDetailsbtn.Location = new System.Drawing.Point(475, 77);
-            this.ProdSearchDetailsbtn.Name = "ProdSearchDetailsbtn";
-            this.ProdSearchDetailsbtn.Size = new System.Drawing.Size(75, 23);
-            this.ProdSearchDetailsbtn.TabIndex = 3;
-            this.ProdSearchDetailsbtn.Text = "More Details";
-            this.ProdSearchDetailsbtn.UseVisualStyleBackColor = true;
-            this.ProdSearchDetailsbtn.Visible = false;
-            this.ProdSearchDetailsbtn.Click += new System.EventHandler(this.ProdSearchDetailsbtn_Click);
-            // 
             // ProdSearchEditbtn
             // 
             this.ProdSearchEditbtn.Location = new System.Drawing.Point(475, 136);
@@ -808,7 +796,6 @@
             this.ProdCriteriaGroup.Controls.Add(this.NewProductbtn);
             this.ProdCriteriaGroup.Controls.Add(this.ProdSearchEditbtn);
             this.ProdCriteriaGroup.Controls.Add(this.ProdCreatebtn);
-            this.ProdCriteriaGroup.Controls.Add(this.ProdSearchDetailsbtn);
             this.ProdCriteriaGroup.Controls.Add(this.ProdSearchDeletebtn);
             this.ProdCriteriaGroup.Controls.Add(this.ProsSearchbtn);
             this.ProdCriteriaGroup.Controls.Add(this.ProdClearbtn);
@@ -1142,7 +1129,6 @@
         private System.Windows.Forms.Panel ProdSearchPanel;
         private System.Windows.Forms.Button ProdSearchDeletebtn;
         private System.Windows.Forms.DataGridView ProdSearchGridView;
-        private System.Windows.Forms.Button ProdSearchDetailsbtn;
         private System.Windows.Forms.Button ProdSearchEditbtn;
         private System.Windows.Forms.Panel WOSResultPanel;
         private System.Windows.Forms.DataGridView WOSResultGridView;

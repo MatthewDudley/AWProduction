@@ -924,13 +924,6 @@ namespace AWProduction_Application
 
         } // end of cell double click
 
-        /** more Details btn for search results **/
-        private void ProdSearchDetailsbtn_Click(object sender, EventArgs e)
-        {
-            //got to more details about the selected product
-            MessageBox.Show("Show model details about this product...");
-        }
-
         /** edit btn for search results **/
         private void ProdSearchEditbtn_Click(object sender, EventArgs e)
         {
