@@ -179,8 +179,8 @@ CREATE TABLE [MODEL_SPECS]
 	[Color]              varchar(100)  NULL ,
 	[Class]              varchar(100)  NULL ,
 	[Style]              varchar(100)  NULL ,
-	[Weight]             nvarchar(100)  NULL ,
-	[Size]               nvarchar(100)  NULL ,
+	[Weight]             integer	   NULL ,
+	[Size]               integer	   NULL ,
 	[DateModified]       datetime  NOT NULL 
 	CONSTRAINT [Default_Value_225_1414953416]
 		 DEFAULT  (SYSDATETIME())
