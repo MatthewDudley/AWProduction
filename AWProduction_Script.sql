@@ -2045,15 +2045,23 @@ go
 --go
 
 
-----Xander's Triggers
------------------------------------------------------------------------------
+/*on insert into Inventory the LPhistory needs new record for LP*/
+CREATE TRIGGER updListPrice
+  ON INVENTORY
+  AFTER Update
+AS
+  UPDATE LISTPRICE_HISTORY
+  set ListPrice = (Select ListPrice from inserted),
+  StartDate = SYSDATETIME(),
+  EndDate = null
+  where InventoryID = (Select InventoryID from inserted)
 
---CREATE TRIGGER Product_DELETE
---	ON Product
---	FOR DELETE
+
+--/*update LPH when inventory changes*/
+--CREATE TRIGGER history_Change
+--  ON INVENTORY
+--  AFTER INSERT
 --AS
---INSERT INTO [PRODUCT_ARCHIVE] (ProductNumber, Name, DaysToProduce, CostToProduce, StartSellDate, EndSellDate, ArchiveDate, DiscountinuedDate)
---Select deleted.ProductNumber, deleted.Name, deleted.DaysToProduce, deleted.CostToProduce, deleted.StartSellDate, deleted.EndSellDate, (SYSDATETIME()), deleted.DiscountinuedDate FROM deleted;
-
-
------------------------------------------------------------------------------
+--  INSERT INTO LISTPRICE_HISTORY([InventoryID], [ListPrice] )
+--  SELECT([ProductNumber],[ListPrice])
+--  FROM Inserted
